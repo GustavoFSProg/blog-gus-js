@@ -13,6 +13,7 @@ import { RxAvatar } from "react-icons/rx";
 import { FaRegHeart } from "react-icons/fa6";
 
 function PostCard({title, author, image, date, description, likes, views}) {
+
   return (
     <>
       <PostContainer>

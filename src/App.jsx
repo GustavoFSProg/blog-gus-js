@@ -6,6 +6,8 @@ import PostCard from "./components/PostCard/PostCard";
 // import paos from "./assets/paos.png";
 import { useEffect, useState } from "react";
 import api from "./api";
+import moment from 'moment'
+
 
 const AppContainer = styled.div`
   display: flex;
@@ -40,6 +42,10 @@ function App() {
 
   }
 
+  function getDateWithoutTime(date) {
+    return moment(date).format('DD-MM-YYYY')
+  }
+
   useEffect(() => {
     getPosts()
   },[])
@@ -60,7 +66,7 @@ function App() {
             title={items.title}
             author={items.author}
             description={items.description}
-            date={items.createdAt}
+            date={getDateWithoutTime(items.createdAt)}
             views={items.views}
             likes={items.likes}
             image={items.image}
