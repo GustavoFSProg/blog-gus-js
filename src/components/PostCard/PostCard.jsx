@@ -6,7 +6,8 @@ import {
   ViewsContainer,
   Coments,
   BottomContainer,
-  H1
+  H1,
+  ContainerDescription
 } from "./style-postcard";
 // import paos from "../../assets/paos.png";
 import { RxAvatar } from "react-icons/rx";
@@ -45,13 +46,8 @@ function PostCard({title, author, image, date, description, likes, views}) {
           <div>
             <H1>{title}</H1>
           </div>
-          <div
-            style={{
-              marginTop: "-22px",
-              lineHeight: "23px",
-              fontSize: "16px",
-              fontFamily: "Open Sans",
-            }}
+          <ContainerDescription
+         
           >
             {/* <p>
               Crie um subtítulo para o post no blog que resume numa frase curta
@@ -59,7 +55,7 @@ function PostCard({title, author, image, date, description, likes, views}) {
               ler....
             </p> */}
             <p>{description}</p>
-          </div>
+          </ContainerDescription>
           <BottomContainer>
             <ViewsContainer>
               <span>{views} visualização</span>

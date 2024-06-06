@@ -94,3 +94,18 @@ export const H1 = styled.h1`
      font-size: 27px;
   }
 `
+
+
+
+
+export const ContainerDescription = styled.div`
+  margin-top: -22px;
+              line-height: 23px;
+              font-size: 16px;
+              font-family: "Open Sans";
+
+  @media screen and (max-width: 800px) {
+    font-size: 14px;
+   
+  }
+`;
