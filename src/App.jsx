@@ -32,7 +32,6 @@ function App() {
         <div>
           <ImageTopo src={topo} alt="topo comida" />
         </div>
-        <div>
           <PostCard
             title="A Casa do Pão"
             author="Gustavo Sohne"
@@ -44,7 +43,6 @@ function App() {
             likes="10"
             image={paos}
           />
-        </div>
       </AppContainer>
     </>
   );

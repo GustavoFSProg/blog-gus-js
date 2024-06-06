@@ -2,11 +2,13 @@ import styled from "styled-components";
 
 export const PostContainer = styled.div`
   display: flex;
-  width: 60vw;
+  width: 57vw;
   height: auto;
   border: 1px solid gray;
   align-items: flex-start;
   margin-top: 29px;
+  margin-left: -40px;
+
 
   @media screen and (max-width: 800px) {
     flex-direction: column;
