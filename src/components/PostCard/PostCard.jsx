@@ -32,8 +32,8 @@ function PostCard({title, author, image, date, description, likes, views}) {
               }}
             />
             <NameContainer>
-              <span>{author}</span>
-              <span style={{ marginTop: "-2px" }}>{date}</span>
+              <span style={{ marginTop: "-1px" }}>{author}</span>
+              <span style={{ marginTop: "-3px" }}>{date}</span>
           </NameContainer>
             </div>
           <div>
