@@ -7,7 +7,7 @@ export const PostContainer = styled.div`
   border: 1px solid gray;
   align-items: flex-start;
   margin-top: 29px;
-  margin-left: -40px;
+  margin-left: -42px;
 
 
   @media screen and (max-width: 800px) {
