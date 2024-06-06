@@ -31,9 +31,7 @@ function PostCard({title, author, image, date, description, likes, views}) {
                 paddingBottom: "16px",
               }}
             />
-            <NameContainer
-             
-            >
+            <NameContainer>
               <span>{author}</span>
               <span style={{ marginTop: "-2px" }}>{date}</span>
           </NameContainer>
