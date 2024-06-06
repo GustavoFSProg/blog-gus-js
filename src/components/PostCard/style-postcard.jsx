@@ -39,13 +39,13 @@ export const Img1 = styled.img`
 
   @media screen and (max-width: 550px) {
     height: 250px;
-    width: 156%;
+    width: 155%;
     /* margin-left: 10px; */
   }
 
   @media screen and (min-width: 550px) and (max-width: 800px) {
     height: 250px;
-    width: 142%;
+    width: 141%;
     /* margin-left: 10px; */
   }
 `;
