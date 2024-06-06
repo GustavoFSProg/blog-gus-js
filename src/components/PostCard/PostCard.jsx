@@ -7,7 +7,8 @@ import {
   Coments,
   BottomContainer,
   H1,
-  ContainerDescription
+  ContainerDescription,
+  NameContainer
 } from "./style-postcard";
 // import paos from "../../assets/paos.png";
 import { RxAvatar } from "react-icons/rx";
@@ -30,19 +31,13 @@ function PostCard({title, author, image, date, description, likes, views}) {
                 paddingBottom: "16px",
               }}
             />
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                fontSize: "13px",
-                marginLeft: "8px",
-                marginTop: "0px",
-              }}
+            <NameContainer
+             
             >
               <span>{author}</span>
               <span style={{ marginTop: "-2px" }}>{date}</span>
+          </NameContainer>
             </div>
-          </div>
           <div>
             <H1>{title}</H1>
           </div>

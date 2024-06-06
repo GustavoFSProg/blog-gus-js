@@ -109,3 +109,19 @@ export const ContainerDescription = styled.div`
    
   }
 `;
+
+
+
+
+export const NameContainer = styled.div`
+    display: flex;
+                flex-direction: column;
+                font-size: 13px;
+                margin-left: 8px;
+                margin-top: 0px;
+
+  @media screen and (max-width: 800px) {
+    font-size: 12px;
+   
+  }
+`;
