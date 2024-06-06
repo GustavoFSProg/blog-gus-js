@@ -34,7 +34,7 @@ export const Post1 = styled.div`
 
 export const Img1 = styled.img`
   /* height: 360.5px; */
-  height: 370.5px;
+  height: 375.5px;
   width: 50%;
 
   @media screen and (max-width: 550px) {
