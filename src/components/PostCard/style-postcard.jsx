@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 export const PostContainer = styled.div`
   display: flex;
-  width: 57vw;
+  width: 60vw;
   height: auto;
   border: 1px solid gray;
   align-items: flex-start;
   margin-top: 29px;
-  margin-left: -42px;
+  /* margin-left: -42px; */
 
 
   @media screen and (max-width: 800px) {
@@ -18,13 +18,13 @@ export const PostContainer = styled.div`
 
 export const Post1 = styled.div`
   display: flex;
-  width: 28rem;
+  width: 26.8rem;
   height: auto;
   /* border: 1px solid gray; */
   align-items: flex-start;
   background: white;
   padding: 37px;
-  padding-bottom: 24px;
+  padding-bottom: 39.5px;
   flex-direction: column;
 
   @media screen and (max-width: 800px) {
@@ -34,7 +34,7 @@ export const Post1 = styled.div`
 
 export const Img1 = styled.img`
   /* height: 360.5px; */
-  height: 400.5px;
+  height: 370.5px;
   width: 50%;
 
   @media screen and (max-width: 550px) {
@@ -86,3 +86,11 @@ export const BottomContainer = styled.div`
     margin-top: 41px;
   }
 `;
+
+export const H1 = styled.h1`
+     font-size: 34px;
+  
+  @media screen and (max-width: 800px){
+     font-size: 27px;
+  }
+`

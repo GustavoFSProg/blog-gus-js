@@ -6,6 +6,7 @@ import {
   ViewsContainer,
   Coments,
   BottomContainer,
+  H1
 } from "./style-postcard";
 // import paos from "../../assets/paos.png";
 import { RxAvatar } from "react-icons/rx";
@@ -41,7 +42,7 @@ function PostCard({title, author, image, date, description, likes, views}) {
             </div>
           </div>
           <div>
-            <h1>{title}</h1>
+            <H1>{title}</H1>
           </div>
           <div
             style={{
