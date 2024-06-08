@@ -1,12 +1,23 @@
 import { NavBarContainer } from "./style-navbar";
+import {Link} from 'react-router-dom'
 
 function NavBar() {
   return (
     <>
       <NavBarContainer>
-        <span>HOME</span>
+        <span > <Link to="/"
+        style={{textDecoration: 'none', color: 'gray'}}
+        >
+            HOME
+          </Link></span>
         <span>BLOG</span>
-        <span>SOBRE</span>
+        <span>
+          <Link to="/login"
+          style={{textDecoration: 'none', color: 'gray'}}
+          >
+            LOGIN
+          </Link>
+        </span>
       </NavBarContainer>
     </>
   );

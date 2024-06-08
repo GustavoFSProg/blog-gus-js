@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Input } from "../../components/Input";
 import styled from 'styled-components'
+import NavBar from "../../components/NavBar/NavBar";
 
 const Button = styled.button`
 display: flex;
@@ -30,10 +31,15 @@ function Login() {
   const [password, setPassword] = useState("")
   return (
     <>
-      <div style={{display: 'flex', flexDirection: 'column', width: '100vw', height: '100vh', alignItems: 'center',
-          justifyContent: 'center'
+      <div style={{display: 'flex',
+  background: 'lightgray',
+      
+      flexDirection: 'column', width: '100vw', height: '100vh', alignItems: 'center',
+          // justifyContent: 'center'
 
       }}>
+        <NavBar />
+
         <div style={{display: 'flex', width: '27%', height: 'auto',
          alignItems: 'center',
          justifyContent: 'center',
@@ -42,7 +48,7 @@ function Login() {
 
         }}>
 
-        <h1>LOGIN</h1>
+        <h1 style={{marginTop: '150px'}}>LOGIN</h1>
         {/* <div style={{display: 'flex', width: '100%', height: '5rem',
          alignItems: 'center',
          justifyContent: 'center',
