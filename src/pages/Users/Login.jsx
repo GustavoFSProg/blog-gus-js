@@ -56,15 +56,19 @@ function Login() {
     event.preventDefault()
 
     try {
-          const { data } = await api.post('/login', { email, password })
+          const { data } = await api.post('/login', { email:email, password: password })
     
-          sessionStorage.setItem('token', data.token)
+          // sessionStorage.setItem('token', data.token)
           // sessionStorage.setItem('userId', data.user.id)
           // sessionStorage.setItem('userName', data.user.name)
     
           // setUser(true)
     
           // navigate('/dashboard')
+
+          // if(!data){
+          //   return alert("ERROR!")
+          // }
           console.log(data.token)
     
           return alert('Login  realizado com sucesso!')
