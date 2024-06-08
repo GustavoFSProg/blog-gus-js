@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Input } from "../../components/Input";
 import styled from 'styled-components'
 import NavBar from "../../components/NavBar/NavBar";
+import api from "../../api";
 
 const Button = styled.button`
 display: flex;
@@ -29,6 +30,50 @@ justify-content: center;
 function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+
+
+  // async function handleSubmit(event) {
+  //   event.preventDefault()
+
+  //   try {
+  //     const { data } = await api.post('/login', { email, password })
+
+  //     sessionStorage.setItem('token', data.token)
+  //     // sessionStorage.setItem('userId', data.user.id)
+  //     // sessionStorage.setItem('userName', data.user.name)
+
+  //     setUser(true)
+
+  //     navigate('/dashboard')
+
+  //     return alert('Login  realizado com sucesso!')
+  //   } catch (error) {
+  //     return alert(`Erro no Login ${error}`)
+  //   }
+  // }
+
+  async function UserLogin(event){
+    event.preventDefault()
+
+    try {
+          const { data } = await api.post('/login', { email, password })
+    
+          sessionStorage.setItem('token', data.token)
+          // sessionStorage.setItem('userId', data.user.id)
+          // sessionStorage.setItem('userName', data.user.name)
+    
+          // setUser(true)
+    
+          // navigate('/dashboard')
+          console.log(data.token)
+    
+          return alert('Login  realizado com sucesso!')
+        } catch (error) {
+          return alert(`Erro no Login ${error}`)
+        }
+      }
+
+  
   return (
     <>
       <div style={{display: 'flex',
@@ -49,14 +94,16 @@ function Login() {
         }}>
 
         <h1 style={{marginTop: '150px'}}>LOGIN</h1>
-        {/* <div style={{display: 'flex', width: '100%', height: '5rem',
-         alignItems: 'center',
-         justifyContent: 'center',
-         flexDirection: 'column', 
-         background: 'green'
+        <form 
+        style={{display: 'flex', width: '100%', height: 'auto',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'column', 
 
 
-        }}> */}
+       }}
+        onSubmit={UserLogin}>
+     
  <div style={{
   display: 'flex', width: '100%', height: '5rem',
   alignItems: 'center',
@@ -67,6 +114,8 @@ function Login() {
 
 
         }}> 
+
+
 
         <Input
             type="email"
@@ -109,10 +158,11 @@ function Login() {
               LOGAR
 
             </Button>
-            </div>
+            </form>
+      </div>
       </div>
     </>
-  );
+  )
 }
 
 export default Login;
