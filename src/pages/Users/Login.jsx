@@ -1,5 +1,27 @@
 import { useState } from "react";
 import { Input } from "../../components/Input";
+import styled from 'styled-components'
+
+const Button = styled.button`
+display: flex;
+align-items: center;
+justify-content: center;
+  width: 107%;
+  height: auto;
+  background: green;
+  color: yellow;
+  padding: 13px;
+  margin-left: 40px;
+  border-radius: 15px;
+  transition: ease all 0.9s;
+  cursor: pointer;
+
+  &:hover{
+    background: pink;
+    color: blue;
+  }
+
+`
 
 function Login() {
   const [email, setEmail] = useState("")
@@ -10,7 +32,7 @@ function Login() {
           justifyContent: 'center'
 
       }}>
-        <div style={{display: 'flex', width: '29%', height: 'auto',
+        <div style={{display: 'flex', width: '27%', height: 'auto',
          alignItems: 'center',
          justifyContent: 'center',
          flexDirection: 'column', 
@@ -19,6 +41,15 @@ function Login() {
         }}>
 
         <h1>LOGIN</h1>
+        {/* <div style={{display: 'flex', width: '100%', height: '5rem',
+         alignItems: 'center',
+         justifyContent: 'center',
+         flexDirection: 'column', 
+         background: 'green'
+
+
+        }}> */}
+
 
         <Input
             type="email"
@@ -26,9 +57,8 @@ function Login() {
             onChange={(e) => setEmail(e.target.value)}
             value={email}
             invalid={true}
-            errorMessage="Email inválido"
+            // errorMessage="Email inválido"
             />
-            {/* <br /> */}
 
             <Input
             type="password"
@@ -36,8 +66,16 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
             value={password}
             invalid={true}
-            errorMessage="password inválido"
+            // errorMessage="password inválido"
             />
+
+
+
+            <Button type="submit">
+              LOGAR
+
+            </Button>
+        {/* </div> */}
             </div>
       </div>
     </>
