@@ -11,7 +11,7 @@ justify-content: center;
   background: #5c6b60;
   color: white;
   padding: 13px;
-  margin-left: 40px;
+  margin-left: 42px;
   margin-top: -15px;
   border-radius: 15px;
   transition: ease all 0.9s;
