@@ -8,17 +8,18 @@ align-items: center;
 justify-content: center;
   width: 107%;
   height: auto;
-  background: green;
-  color: yellow;
+  background: #5c6b60;
+  color: white;
   padding: 13px;
   margin-left: 40px;
   border-radius: 15px;
   transition: ease all 0.9s;
   cursor: pointer;
+  font-size: 16px;
 
   &:hover{
-    background: pink;
-    color: blue;
+    background: #7a9180;
+    color: yellow;
   }
 
 `
