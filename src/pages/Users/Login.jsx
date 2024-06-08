@@ -12,6 +12,7 @@ justify-content: center;
   color: white;
   padding: 13px;
   margin-left: 40px;
+  margin-top: -15px;
   border-radius: 15px;
   transition: ease all 0.9s;
   cursor: pointer;
@@ -50,7 +51,16 @@ function Login() {
 
 
         }}> */}
+ <div style={{
+  display: 'flex', width: '100%', height: '5rem',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flexDirection: 'column', 
+  marginTop: '24px',
 
+
+
+        }}> 
 
         <Input
             type="email"
@@ -61,6 +71,20 @@ function Login() {
             // errorMessage="Email inválido"
             />
 
+        </div>
+
+
+        <div style={{
+  display: 'flex', width: '100%', height: '5rem',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flexDirection: 'column', 
+  marginTop: '-3px',
+
+
+        }}> 
+
+
             <Input
             type="password"
             placeholder="password"
@@ -70,13 +94,15 @@ function Login() {
             // errorMessage="password inválido"
             />
 
+</div>
+
+
 
 
             <Button type="submit">
               LOGAR
 
             </Button>
-        {/* </div> */}
             </div>
       </div>
     </>
