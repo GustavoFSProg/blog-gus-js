@@ -70,6 +70,7 @@ function Login() {
 
       // }
       // console.log(`TOKEN: ${data.token}`)
+      console.log('USUÁRIO LOGADO!')
 
       if (!data.data) {
         return alert("Erro no Login preencha os campos!!");
