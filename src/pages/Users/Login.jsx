@@ -26,7 +26,7 @@ justify-content: center;
   }
 
   @media screen and (max-width: 800px){
-          width: 79vw;
+          width: 79.4vw;
           margin-left: 33px; 
         }
 
@@ -42,11 +42,25 @@ display: flex;
 
         @media screen and (max-width: 800px){
           width: 72vw;
-          margin-left: -30px; 
+          margin-left: -27px; 
         }
 
 
 `
+
+const LoginContainer = styled.div`
+
+display: flex; 
+ width: 27%;
+  height: auto;
+         align-items: center;
+         justify-content: center;
+         flex-direction: column;
+         
+         @media screen and (max-width: 800px){
+          margin-top: -90px;
+         }
+ `
 
 function Login() {
   const [email, setEmail] = useState("")
@@ -87,13 +101,10 @@ function Login() {
       }}>
         <NavBar />
 
-        <div style={{display: 'flex', width: '27%', height: 'auto',
-         alignItems: 'center',
-         justifyContent: 'center',
-         flexDirection: 'column', 
+        <LoginContainer 
 
 
-        }}>
+        >
 
         <h1 style={{marginTop: '150px'}}>LOGIN</h1>
         <Form 
@@ -155,7 +166,7 @@ function Login() {
 
             </Button>
             </Form>
-      </div>
+      </LoginContainer>
       </div>
     </>
   )
