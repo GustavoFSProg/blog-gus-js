@@ -76,7 +76,7 @@ function Login() {
           console.log(`TOKEN: ${data.token}`)
 
           if(!data.data){
-            return alert("Erro no Login preencha tos campos!!")
+            return alert("Erro no Login preencha os campos!!")
           }else{
 
             return alert('Login  realizado com sucesso!')
