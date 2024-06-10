@@ -5,7 +5,7 @@ export const Container = styled.div`
   flex-direction: column;
   width: 100%;
   /* padding-top: -550px; */
-  font-family: Inter;
+  /* font-family: Garamond; */
   font-weight: normal;
   font-size: 1rem;
   line-height: 160%;
@@ -36,7 +36,8 @@ export const StyledInput = styled.input`
   border-radius: 8px;
   color: #353535;
   outline-color: transparent;
-  font-family: "Roboto";
+  font-family: "Open Sans";
+  /* font-family: "Garamond"; */
   font-size: 1.1rem;
 
   ::placeholder {
@@ -63,7 +64,7 @@ export const Label = styled.label<{ move: boolean }>`
   transition: all 0.3s ease-out;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
-  font-family: "Roboto";
+  font-family: "Open Sans";
 `;
 
 export const ErrorMessage = styled.p`

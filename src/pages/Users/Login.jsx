@@ -13,7 +13,7 @@ justify-content: center;
   background: #5c6b60;
   color: white;
   padding: 13px;
-  margin-left: 42px;
+  margin-left: 35px;
   margin-top: -15px;
   border-radius: 15px;
   transition: ease all 0.9s;
@@ -25,32 +25,32 @@ justify-content: center;
     color: yellow;
   }
 
+  @media screen and (max-width: 800px){
+          width: 79vw;
+          margin-left: 33px; 
+        }
+
+`
+
+const Form = styled.form`
+display: flex;
+ width: 100%;
+ height: auto;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column; 
+
+        @media screen and (max-width: 800px){
+          width: 72vw;
+          margin-left: -30px; 
+        }
+
+
 `
 
 function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-
-
-  // async function handleSubmit(event) {
-  //   event.preventDefault()
-
-  //   try {
-  //     const { data } = await api.post('/login', { email, password })
-
-  //     sessionStorage.setItem('token', data.token)
-  //     // sessionStorage.setItem('userId', data.user.id)
-  //     // sessionStorage.setItem('userName', data.user.name)
-
-  //     setUser(true)
-
-  //     navigate('/dashboard')
-
-  //     return alert('Login  realizado com sucesso!')
-  //   } catch (error) {
-  //     return alert(`Erro no Login ${error}`)
-  //   }
-  // }
 
   async function UserLogin(event){
     event.preventDefault()
@@ -96,14 +96,8 @@ function Login() {
         }}>
 
         <h1 style={{marginTop: '150px'}}>LOGIN</h1>
-        <form 
-        style={{display: 'flex', width: '100%', height: 'auto',
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'column', 
-
-
-       }}
+        <Form 
+       
         onSubmit={UserLogin}>
      
  <div style={{
@@ -144,7 +138,7 @@ function Login() {
 
             <Input
             type="password"
-            placeholder="password"
+            placeholder="senha"
             onChange={(e) => setPassword(e.target.value)}
             value={password}
             invalid={true}
@@ -160,7 +154,7 @@ function Login() {
               LOGAR
 
             </Button>
-            </form>
+            </Form>
       </div>
       </div>
     </>
