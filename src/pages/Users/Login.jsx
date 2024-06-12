@@ -42,6 +42,8 @@ const Form = styled.form`
   @media screen and (max-width: 800px) {
     width: 72vw;
     margin-left: -27px;
+  margin-top: 20px;;
+
   }
 `;
 
@@ -55,9 +57,32 @@ const LoginContainer = styled.div`
 
   @media screen and (max-width: 800px) {
     /* margin-top: -30px; */
+    /* background: green; */
+    margin-top: 20px;
   }
 `;
 
+
+const H1 = styled.h1`
+display: flex;
+ margin-top: 150px;
+
+ 
+`;
+
+const ContainerFom = styled.div` 
+ display: flex;
+  width: 100%;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+ @media screen and (max-width: 800px) {
+    margin-top: -50px;
+
+   
+  }
+`
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -100,7 +125,9 @@ function Login() {
         <NavBar />
 
         <LoginContainer>
-          <h1 style={{ marginTop: "150px" }}>LOGIN</h1>
+          <ContainerFom >
+
+          <H1 >LOGIN</H1>
           <Form onSubmit={UserLogin}>
             <div
               style={{
@@ -112,7 +139,7 @@ function Login() {
                 flexDirection: "column",
                 marginTop: "24px",
               }}
-            >
+              >
               <Input
                 type="email"
                 placeholder="email"
@@ -146,6 +173,8 @@ function Login() {
 
             <Button type="submit">LOGAR</Button>
           </Form>
+          </ContainerFom>
+
         </LoginContainer>
       </div>
     </>
