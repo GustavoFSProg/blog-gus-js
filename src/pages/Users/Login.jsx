@@ -67,6 +67,11 @@ const H1 = styled.h1`
 display: flex;
  margin-top: 150px;
 
+ @media screen and (max-width: 800px) {
+    /* margin-top: -30px; */
+    margin-top: -10px;
+  }
+
  
 `;
 
@@ -77,8 +82,10 @@ const ContainerFom = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  /* background: yellow; */
+  
  @media screen and (max-width: 800px) {
-    margin-top: -50px;
+    margin-top: 50px;
 
    
   }
