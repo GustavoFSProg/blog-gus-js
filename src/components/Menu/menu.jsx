@@ -22,7 +22,7 @@ export default function SimpleMenu() {
       <Button aria-controls="simple-menu" aria-haspopup="true"
     
        onClick={handleClick}>
-        <MenuIcon style={{ color: 'darkblue' }} />
+        <MenuIcon style={{ color: 'darkgray' }} />
       </Button>
      
 
