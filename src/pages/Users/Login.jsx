@@ -83,7 +83,7 @@ const ContainerFom = styled.div`
   justify-content: center;
   flex-direction: column;
   /* background: yellow; */
-  
+
  @media screen and (max-width: 800px) {
     margin-top: 50px;
 
@@ -144,7 +144,7 @@ function Login() {
                 alignItems: "center",
                 justifyContent: "center",
                 flexDirection: "column",
-                marginTop: "24px",
+                marginTop: "23px",
               }}
               >
               <Input
@@ -165,7 +165,7 @@ function Login() {
                 alignItems: "center",
                 justifyContent: "center",
                 flexDirection: "column",
-                marginTop: "-3px",
+                marginTop: "-5px",
               }}
             >
               <Input
