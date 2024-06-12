@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { Input } from "../../components/Input";
 import styled from "styled-components";
@@ -59,29 +60,46 @@ const LoginContainer = styled.div`
 `;
 
 function RegisterPost() {
-  const [text, setText] = useState("");
-  const [image, setImage] = useState("");
-  const [title, setTitle] = useState("");
-  const [author, setAuthor] = useState("");
-  const [description, setDescription] = useState("");
+  const [text, setText] = useState("TEXTO");
+  const [image, setImage] = useState([]);
+  const [title, setTitle] = useState("Pães de Sal");
+  const [author, setAuthor] = useState("Ana Bruna Souza");
+  const [description, setDescription] = useState("desc");
+  // eslint-disable-next-line no-unused-vars
+  const [likes, setLikes] = useState(0)
+  const [views, setViews] = useState(0)
 
-  async function UserLogin(event) {
+  async function handlePost(event) {
     event.preventDefault();
 
     try {
-      const { data } = await api.post("/login", { email, password });
 
-      // }
-      // console.log(`TOKEN: ${data.token}`)
-      console.log('USUÁRIO LOGADO!')
+      const data = new FormData()
 
-      if (!data.data) {
-        return alert("Erro no Login preencha os campos!!");
+      data.append('image', image)
+      data.append('title', title)
+      data.append('text', text)
+      data.append('author', author)
+      data.append('description', description)
+      // data.append('likes', likes)
+      // data.append('views', views)
+
+      if (data === '') {
+        return alert('ERRO: Prencha todos os campos!')
+        
+        
+        // }
+        // console.log(`TOKEN: ${data.token}`)
+        
       } else {
-        return alert("Login  realizado com sucesso!");
+        await api.post("/create-post", data);
+        console.log('POST CADASTRADO!')
+     
+        return alert("Post cadastrado com sucesso!");
       }
+     
     } catch (error) {
-      return alert(`Erro no Login ${error}`);
+      return alert(`Erro no Cadastro ${error}`);
     }
   }
 
@@ -91,7 +109,6 @@ function RegisterPost() {
         style={{
           display: "flex",
           background: "lightgray",
-
           flexDirection: "column",
           width: "100vw",
           height: "100vh",
@@ -103,7 +120,7 @@ function RegisterPost() {
         <LoginContainer>
           <h1 style={{ marginTop: "150px" }}>CADASTRO DE POST</h1>
           <br />
-          <Form onSubmit={UserLogin}>
+          <Form onSubmit={handlePost}>
             <div
               style={{
                 display: "flex",
@@ -127,12 +144,8 @@ function RegisterPost() {
                 marginBottom: "20px",
               }}
             >
-                <input
-                type="file"
-                // placeholder="imagem"
-                onChange={(e) => setImage(e.target.value)}
-                value={image}
-              />
+                <input type="file" id="image" onChange={(e) => setImage(e.target.files[0])} />
+               
               </div>
             
               <Input
