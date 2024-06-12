@@ -93,6 +93,8 @@ function Login() {
           width: "100vw",
           height: "100vh",
           alignItems: "center",
+  overflowX: 'hidden',
+
         }}
       >
         <NavBar />
