@@ -60,11 +60,11 @@ const LoginContainer = styled.div`
 `;
 
 function RegisterPost() {
-  const [text, setText] = useState("TEXTO");
+  const [text, setText] = useState("");
   const [image, setImage] = useState([]);
-  const [title, setTitle] = useState("Pães de Sal");
-  const [author, setAuthor] = useState("Ana Bruna Souza");
-  const [description, setDescription] = useState("desc");
+  const [title, setTitle] = useState("");
+  const [author, setAuthor] = useState("");
+  const [description, setDescription] = useState("");
   // eslint-disable-next-line no-unused-vars
   const [likes, setLikes] = useState(0)
   const [views, setViews] = useState(0)
@@ -84,7 +84,7 @@ function RegisterPost() {
       // data.append('likes', likes)
       // data.append('views', views)
 
-      if (data === '') {
+      if (image === '' || title === '' || text === '' || author === '' || description === '') {
         return alert('ERRO: Prencha todos os campos!')
         
         
