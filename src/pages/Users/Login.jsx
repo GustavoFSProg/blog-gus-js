@@ -54,7 +54,7 @@ const LoginContainer = styled.div`
   flex-direction: column;
 
   @media screen and (max-width: 800px) {
-    margin-top: -90px;
+    /* margin-top: -30px; */
   }
 `;
 
