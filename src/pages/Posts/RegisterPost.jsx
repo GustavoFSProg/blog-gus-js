@@ -106,10 +106,12 @@ function RegisterPost() {
         // console.log(`TOKEN: ${data.token}`)
         
       } else {
-        await api.post("/create-post", data);
-        console.log('POST CADASTRADO!')
+        // await api.post("/create-post", data);
+        // console.log('POST CADASTRADO!')
+        console.log('POST NÃO CADASTRADO!')
      
-        return alert("Post cadastrado com sucesso!");
+        // return alert("Post cadastrado com sucesso!");
+        return alert("Post NÃO cadastrado!");
       }
      
     } catch (error) {
