@@ -41,7 +41,7 @@ display: flex;
  justify-content: center;
 
   @media screen and (max-width: 800px) {
-    font-size: 23px;
+    font-size: 26px;
    
   }
 `;
