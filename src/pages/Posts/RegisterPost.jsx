@@ -59,8 +59,11 @@ const LoginContainer = styled.div`
 `;
 
 function RegisterPost() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [text, setText] = useState("");
+  const [image, setImage] = useState("");
+  const [title, setTitle] = useState("");
+  const [author, setAuthor] = useState("");
+  const [description, setDescription] = useState("");
 
   async function UserLogin(event) {
     event.preventDefault();
@@ -99,6 +102,7 @@ function RegisterPost() {
 
         <LoginContainer>
           <h1 style={{ marginTop: "150px" }}>CADASTRO DE POST</h1>
+          <br />
           <Form onSubmit={UserLogin}>
             <div
               style={{
@@ -111,11 +115,31 @@ function RegisterPost() {
                 marginTop: "24px",
               }}
             >
+                   <div
+              style={{
+                display: "flex",
+                width: "100%",
+                height: "5rem",
+                alignItems: "center",
+                justifyContent: "center",
+                flexDirection: "column",
+                marginTop: "13px",
+                marginBottom: "20px",
+              }}
+            >
+                <input
+                type="file"
+                // placeholder="imagem"
+                onChange={(e) => setImage(e.target.value)}
+                value={image}
+              />
+              </div>
+            
               <Input
-                type="email"
-                placeholder="email"
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
+                type="title"
+                placeholder="title"
+                onChange={(e) => setTitle(e.target.value)}
+                value={title}
                 invalid={true}
                 // errorMessage="Email inválido"
               />
@@ -129,14 +153,61 @@ function RegisterPost() {
                 alignItems: "center",
                 justifyContent: "center",
                 flexDirection: "column",
-                marginTop: "-3px",
+                marginTop: "14px",
+
               }}
             >
               <Input
-                type="password"
-                placeholder="senha"
-                onChange={(e) => setPassword(e.target.value)}
-                value={password}
+                type="text"
+                placeholder="texto"
+                onChange={(e) => setText(e.target.value)}
+                value={text}
+                invalid={true}
+                // errorMessage="password inválido"
+              />
+            </div>
+
+            <div
+              style={{
+                display: "flex",
+                width: "100%",
+                height: "5rem",
+                alignItems: "center",
+                justifyContent: "center",
+                flexDirection: "column",
+                marginTop: "-12px",
+
+              }}
+            >
+              <Input
+                type="text"
+                placeholder="descrição"
+                onChange={(e) => setDescription(e.target.value)}
+                value={description}
+                invalid={true}
+                // errorMessage="password inválido"
+              />
+            </div>
+
+
+            <div
+              style={{
+                display: "flex",
+                width: "100%",
+                height: "5rem",
+                alignItems: "center",
+                justifyContent: "center",
+                flexDirection: "column",
+                marginTop: "-12px",
+
+
+              }}
+            >
+              <Input
+                type="text"
+                placeholder="autor"
+                onChange={(e) => setAuthor(e.target.value)}
+                value={author}
                 invalid={true}
                 // errorMessage="password inválido"
               />
