@@ -32,6 +32,20 @@ const Button = styled.button`
   }
 `;
 
+
+const H1 = styled.h1`
+display: flex;
+ margin-top: 150px;
+ width: 25rem;
+ align-items: center;
+ justify-content: center;
+
+  @media screen and (max-width: 800px) {
+    font-size: 23px;
+   
+  }
+`;
+
 const Form = styled.form`
   display: flex;
   width: 100%;
@@ -118,7 +132,7 @@ function RegisterPost() {
         <NavBar />
 
         <LoginContainer>
-          <h1 style={{ marginTop: "150px" }}>CADASTRO DE POST</h1>
+          <H1 >CADASTRO DE POST</H1>
           <br />
           <Form onSubmit={handlePost}>
             <div
