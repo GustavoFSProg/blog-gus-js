@@ -10,7 +10,11 @@ function NavBar() {
         >
             HOME
           </Link></span>
-        <span>BLOG</span>
+        <span> <Link to="/register-post"
+          style={{textDecoration: 'none', color: 'gray'}}
+          >
+            POST
+          </Link></span>
         <span>
           <Link to="/login"
           style={{textDecoration: 'none', color: 'gray'}}
