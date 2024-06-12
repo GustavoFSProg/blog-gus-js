@@ -19,28 +19,38 @@ export default function SimpleMenu() {
 
   return (
     <MenuContainer>
-      <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+      <Button aria-controls="simple-menu" aria-haspopup="true"
+    
+       onClick={handleClick}>
         <MenuIcon style={{ color: 'darkblue' }} />
       </Button>
+     
+
       <Menu
         id="simple-menu"
         anchorEl={anchorEl}
         keepMounted
         open={Boolean(anchorEl)}
         onClose={handleClose}
+        style={{marginTop: '24px', width: '300px'}}
       >
         <MenuItem onClick={handleClose}>
           <Link style={{ textDecoration: 'none' }} to="/">
-            Home
+            HOME
           </Link>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <Link style={{ textDecoration: 'none' }} to="/classes">
-            Aulas
+          <Link style={{ textDecoration: 'none' }} to="/register-post">
+            POST
           </Link>
         </MenuItem>
-        <MenuItem onClick={handleClose}>Contato</MenuItem>
-        <MenuItem onClick={handleClose}>Sobre</MenuItem>
+        {/* <MenuItem onClick={handleClose}>BLOG</MenuItem> */}
+        <MenuItem onClick={handleClose}>
+
+        <Link style={{ textDecoration: 'none' }} to="/login">
+            LOGIN
+          </Link>
+        </MenuItem>
       </Menu>
     </MenuContainer>
   )

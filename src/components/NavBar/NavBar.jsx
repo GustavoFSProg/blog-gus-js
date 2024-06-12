@@ -1,10 +1,12 @@
-import { NavBarContainer } from "./style-navbar";
+import SimpleMenu from "../Menu/menu";
+import { NavBarContainer, LinksContainer } from "./style-navbar";
 import {Link} from 'react-router-dom'
 
 function NavBar() {
   return (
     <>
       <NavBarContainer>
+        <LinksContainer>
         <span > <Link to="/"
         style={{textDecoration: 'none', color: 'gray'}}
         >
@@ -22,6 +24,8 @@ function NavBar() {
             LOGIN
           </Link>
         </span>
+            </LinksContainer>
+        <SimpleMenu />
       </NavBarContainer>
     </>
   );

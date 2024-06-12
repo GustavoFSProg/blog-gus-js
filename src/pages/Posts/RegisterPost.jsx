@@ -102,8 +102,6 @@ function RegisterPost() {
         return alert('ERRO: Prencha todos os campos!')
         
         
-        // }
-        // console.log(`TOKEN: ${data.token}`)
         
       } else {
         // await api.post("/create-post", data);

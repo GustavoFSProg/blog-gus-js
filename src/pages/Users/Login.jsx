@@ -42,8 +42,7 @@ const Form = styled.form`
   @media screen and (max-width: 800px) {
     width: 72vw;
     margin-left: -27px;
-  margin-top: 20px;;
-
+    margin-top: 20px;
   }
 `;
 
@@ -56,40 +55,31 @@ const LoginContainer = styled.div`
   flex-direction: column;
 
   @media screen and (max-width: 800px) {
-    /* margin-top: -30px; */
-    /* background: green; */
     margin-top: 20px;
   }
 `;
 
-
 const H1 = styled.h1`
-display: flex;
- margin-top: 150px;
+  display: flex;
+  margin-top: 150px;
 
- @media screen and (max-width: 800px) {
-    /* margin-top: -30px; */
+  @media screen and (max-width: 800px) {
     margin-top: -10px;
   }
-
- 
 `;
 
-const ContainerFom = styled.div` 
- display: flex;
+const ContainerFom = styled.div`
+  display: flex;
   width: 100%;
   height: auto;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  /* background: yellow; */
 
- @media screen and (max-width: 800px) {
+  @media screen and (max-width: 800px) {
     margin-top: 50px;
-
-   
   }
-`
+`;
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -100,9 +90,7 @@ function Login() {
     try {
       const { data } = await api.post("/login", { email, password });
 
-      // }
-      // console.log(`TOKEN: ${data.token}`)
-      console.log('USUÁRIO LOGADO!')
+      console.log("USUÁRIO LOGADO!");
 
       if (!data.data) {
         return alert("Erro no Login preencha os campos!!");
@@ -125,63 +113,60 @@ function Login() {
           width: "100vw",
           height: "100vh",
           alignItems: "center",
-  overflowX: 'hidden',
-
+          overflowX: "hidden",
         }}
       >
         <NavBar />
 
         <LoginContainer>
-          <ContainerFom >
-
-          <H1 >LOGIN</H1>
-          <Form onSubmit={UserLogin}>
-            <div
-              style={{
-                display: "flex",
-                width: "100%",
-                height: "5rem",
-                alignItems: "center",
-                justifyContent: "center",
-                flexDirection: "column",
-                marginTop: "16px",
-              }}
+          <ContainerFom>
+            <H1>LOGIN</H1>
+            <Form onSubmit={UserLogin}>
+              <div
+                style={{
+                  display: "flex",
+                  width: "100%",
+                  height: "5rem",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexDirection: "column",
+                  marginTop: "16px",
+                }}
               >
-              <Input
-                type="email"
-                placeholder="email"
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
-                invalid={true}
-                // errorMessage="Email inválido"
-              />
-            </div>
+                <Input
+                  type="email"
+                  placeholder="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
+                  invalid={true}
+                  // errorMessage="Email inválido"
+                />
+              </div>
 
-            <div
-              style={{
-                display: "flex",
-                width: "100%",
-                height: "5rem",
-                alignItems: "center",
-                justifyContent: "center",
-                flexDirection: "column",
-                marginTop: "-5px",
-              }}
-            >
-              <Input
-                type="password"
-                placeholder="senha"
-                onChange={(e) => setPassword(e.target.value)}
-                value={password}
-                invalid={true}
-                // errorMessage="password inválido"
-              />
-            </div>
+              <div
+                style={{
+                  display: "flex",
+                  width: "100%",
+                  height: "5rem",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexDirection: "column",
+                  marginTop: "-5px",
+                }}
+              >
+                <Input
+                  type="password"
+                  placeholder="senha"
+                  onChange={(e) => setPassword(e.target.value)}
+                  value={password}
+                  invalid={true}
+                  // errorMessage="password inválido"
+                />
+              </div>
 
-            <Button type="submit">LOGAR</Button>
-          </Form>
+              <Button type="submit">LOGAR</Button>
+            </Form>
           </ContainerFom>
-
         </LoginContainer>
       </div>
     </>
