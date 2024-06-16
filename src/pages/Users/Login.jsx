@@ -88,15 +88,22 @@ function Login() {
     event.preventDefault();
 
     try {
-      const { data } = await api.post("/login", { email, password });
+      // const {data}= await api.post("/login", { email, password });
+      const data = ""
 
       console.log("USUÁRIO LOGADO!");
 
-      if (!data.data) {
+      if (data === "") {
         return alert("Erro no Login preencha os campos!!");
-      } else {
-        return alert("Login  realizado com sucesso!");
       }
+
+
+      // if (!data.data) {
+      //   return alert("Erro no Login preencha os campos!!");
+      // } else {
+      //   localStorage.setItem('token', data.token)
+      //           return alert("Login  realizado com sucesso!");
+      // }
     } catch (error) {
       return alert(`Erro no Login ${error}`);
     }

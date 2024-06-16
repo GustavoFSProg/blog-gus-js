@@ -88,15 +88,21 @@ function RegisterPost() {
 
     try {
 
-      const data = new FormData()
+      
+      const token = localStorage.getItem('token')
+    if (!token) return alert('Token Inválido, efetue o Login novamente!!')
 
-      data.append('image', image)
-      data.append('title', title)
-      data.append('text', text)
-      data.append('author', author)
-      data.append('description', description)
+      const datas = new FormData()
+
+      datas.append('image', image)
+      datas.append('title', title)
+      datas.append('text', text)
+      datas.append('author', author)
+      datas.append('description', description)
       // data.append('likes', likes)
       // data.append('views', views)
+
+
 
       if (image === '' || title === '' || text === '' || author === '' || description === '') {
         return alert('ERRO: Prencha todos os campos!')
@@ -104,12 +110,16 @@ function RegisterPost() {
         
         
       } else {
-        // await api.post("/create-post", data);
+      // const blog = await api.post("/create-post", datas, token);
         // console.log('POST CADASTRADO!')
-        console.log('POST NÃO CADASTRADO!')
+        // console.log('POST NÃO CADASTRADO!')
+
+        if(!blog){
+          return alert ("Erro no cadastro!!")
+        }
      
-        // return alert("Post cadastrado com sucesso!");
-        return alert("Post NÃO cadastrado!");
+        // return alert("Post NÃO cadastrado!");
+        return alert("Post cadastrado com sucesso!");
       }
      
     } catch (error) {
