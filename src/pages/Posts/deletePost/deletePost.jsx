@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import NavBar from "../../components/NavBar/NavBar";
-import api from "../../api";
+import NavBar from "../../../components/NavBar/NavBar";
+import api from "../../../api";
 // import {  useNavigate } from "react-router-dom";
 import {
   PostContainer,
@@ -12,22 +12,17 @@ import {
   H1,
   ContainerDescription,
   NameContainer,
-} from "./style-post-profile";
+} from "./style-delete-post";
 import { RxAvatar } from "react-icons/rx";
 import { FaRegHeart } from "react-icons/fa6";
 import moment from 'moment'
 import { useNavigate } from "react-router-dom";
 
 
-function PostProfile() {
+function DeletePost() {
   const [post, setPost] = useState({});
 
   const navigate = useNavigate()
-
-  function handleDeletePost(){
-
-    navigate("/delete-post")
-  }
 
 
   function getDateWithoutTime(date) {
@@ -36,31 +31,49 @@ function PostProfile() {
     // const navigate = useNavigate()
 
 
-  async function postGetOne() {
+    async function postGetOne() {
+
+      try {
+          const id = localStorage.getItem("post-id");
+  
+  
+        const { data } = await api.get(`/get-post/${id}`);
+  
+        //   console.log("USUÁRIO LOGADO!");
+  
+        if (data === "") {
+          return alert("Erro no Login preencha os campos!!");
+        }
+  
+        setPost(data);
+  
+      } catch (error) {
+        return alert(`Erro no Login ${error}`);
+      }
+    }
+  
+
+
+  async function deleteOnePost() {
 
     try {
         const id = localStorage.getItem("post-id");
+        const token = localStorage.getItem("token");
 
-
-      const { data } = await api.get(`/get-post/${id}`);
-      // const data = ""
-
-      //   console.log("USUÁRIO LOGADO!");
-
-      if (data === "") {
-        return alert("Erro no Login preencha os campos!!");
+      if(!token){
+     return alert("TOKEN Invalido!");
+         
       }
 
-      setPost(data);
+       await api.delete(`/delete-post/${id}`);
 
-      //   if (!data.data) {
-      //     return alert("Erro no profile preencha os campos!!");
-      //   } else {
+        console.log("POST DELETADO!");
 
-      //     // localStorage.setItem('token', data.token)
+        navigate('/')
 
-      //             // return alert("Login  realizado com sucesso!");
-      //   }
+    
+     return alert("Post apagado com sucesso!");
+      
     } catch (error) {
       return alert(`Erro no Login ${error}`);
     }
@@ -136,8 +149,8 @@ function PostProfile() {
                       />
                     </div>
                   </BottomContainer>
+                  <button onClick={() => deleteOnePost(post.id)}>DELETAR</button>
                 </Post1>
-                <button onClick={() => handleDeletePost()}>DELETAR POST</button>
               </PostContainer>
          
       </div>
@@ -145,4 +158,4 @@ function PostProfile() {
   );
 }
 
-export default PostProfile;
+export default DeletePost;
