@@ -137,7 +137,7 @@ function PostProfile() {
                     </div>
                   </BottomContainer>
                 </Post1>
-                {/* <button onClick={() => handleDeletePost()}>DELETAR POST</button> */}
+                <button onClick={() => handleDeletePost()}>DELETAR POST</button>
               </PostContainer>
          
       </div>

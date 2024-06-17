@@ -51,7 +51,7 @@ function App() {
   function getProfile(id){
     localStorage.setItem('post-id', id)
 
-    navigate("/delete-post")
+    navigate("/profile")
 
 
   }
