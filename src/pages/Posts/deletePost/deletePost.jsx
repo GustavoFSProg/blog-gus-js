@@ -29,7 +29,7 @@ export const ContainerP = styled.div`
   width: 50%;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
+  /* margin-top: 20px; */
 
   @media screen and (max-width: 800px) {
     width: 100%;
@@ -90,7 +90,7 @@ const ContainerMaps = styled.div`
   align-items: center;
   justify-content: space-around;
   /* background: pink; */
-  margin-top: -150px;
+  margin-top: 20px;
   /* margin-bottom: 200px; */
   flex-direction: column;
 
@@ -250,27 +250,27 @@ function DeletePost() {
               width: '100%',
               alignItems: 'center',
               justifyContent: 'center',
-              // marginTop: '600px'
+              marginTop: '180px'
             }}
           >
             <SimpleCard />
           </div>
         ) : // console.log('Fechado')
         null}
-        <div key={dados.id}>
+        <div key={dados.id} style={{display: 'flex', width: '100', flexDirection: 'column',
+          alignItems: "center", justifyContent: 'center',
+          marginTop: '-20px'
+        }}>
           <h2 style={{ fontSize: '34px' }}>
             <p>{dados.title}</p>
           </h2>
           <img src={dados.image} alt="imagem" width="300" />
-          {/* <img
-            src={`https://gerusa-site-api-juab.vercel.app/files/${dados.image}`}
-
-            alt="imagem" width="300" /> */}
+         
 
           <div
             style={{
-              width: '100%',
-              display: 'flex',
+              width: '50%',
+              display: 'flex',height: '20vh',
               alignItems: 'center',
               justifyContent: 'center',
             }}
@@ -286,15 +286,24 @@ function DeletePost() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
+              height: '20vh',
+              marginTop: '-80px'
+
             }}
           >
-            <ContainerP style={{}}>{dados.author}</ContainerP>
+            <ContainerP >{dados.author}</ContainerP>
           </div>
 
-          <p>{getDateWithoutTime(dados.createdAt)}</p>
-          <br />
-          <br />
-          <br />
+          <p  
+           style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginTop: '-60px'
+
+          }}
+          >{getDateWithoutTime(dados.createdAt)}</p>
+         
         </div>
       </ContainerMaps>
 
