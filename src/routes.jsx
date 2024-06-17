@@ -4,6 +4,7 @@ import Login from './pages/Users/Login';
 import RegisterPost from './pages/Posts/RegisterPost';
 import PostProfile from './pages/Posts/postProfile';
 import DeletePost from './pages/Posts/deletePost/deletePost';
+import Dashboard from './pages/Dashboard/dashboard';
 
 function Routers() {
     return (
@@ -15,6 +16,7 @@ function Routers() {
             <Route path="/register-post"  element={<RegisterPost />}/>
             <Route path="/profile"  element={<PostProfile />}/>
             <Route path="/delete-post"  element={<DeletePost />}/>
+            <Route path="/dashboard"  element={<Dashboard />}/>
 
          </Routes>
        </BrowserRouter>

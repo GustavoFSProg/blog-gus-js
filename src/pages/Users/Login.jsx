@@ -105,7 +105,7 @@ function Login() {
         return alert("Erro no Login preencha os campos!!");
       } else {
         localStorage.setItem('token', data.token)
-        navigate("/")
+        navigate("/dashboard")
                 return alert("Login  realizado com sucesso!");
       }
     } catch (error) {

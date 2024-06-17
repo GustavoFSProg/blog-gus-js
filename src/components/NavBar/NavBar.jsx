@@ -17,6 +17,13 @@ function NavBar() {
           >
             POST
           </Link>
+          <span>
+          <Link to="/dashboard"
+          style={{textDecoration: 'none', color: 'gray'}}
+          >
+            DASHBOARD
+          </Link>
+        </span>
         <span>
           <Link to="/login"
           style={{textDecoration: 'none', color: 'gray'}}
