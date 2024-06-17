@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import moment from 'moment'
 import { Link, useNavigate } from 'react-router-dom'
 // import { Button } from '../../components/Buttons/styled-button'
+
+import { RxAvatar } from "react-icons/rx";
+import { FaRegHeart } from "react-icons/fa6";
+import moment from 'moment'
 
 import { makeStyles } from '@material-ui/core/styles'
 import Carder from '@material-ui/core/Card'
@@ -10,6 +13,18 @@ import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 import BButton from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
+
+import {
+  PostContainer,
+  Post1,
+  Img1,
+  ViewsContainer,
+  Coments,
+  BottomContainer,
+  H1,
+  ContainerDescription,
+  NameContainer,
+} from "./style-delete-post";
 
 import api from "../../../api";
 import NavBar from '../../../components/NavBar/NavBar'
@@ -36,15 +51,6 @@ export const ContainerP = styled.div`
   }
 `
 
-export const H1 = styled.h1`
-  display: flex;
-  align-items: center;
-  font-size: 40px;
-
-  @media screen and (max-width: 800px) {
-    font-size: 29px;
-  }
-`
 
 export const ContainerLinks = styled.div`
   display: flex;
@@ -83,27 +89,6 @@ export const ContainerButtons = styled.div`
   }
 `
 
-const ContainerMaps = styled.div`
-  display: flex;
-  width: 90vw;
-  height: auto;
-  align-items: center;
-  justify-content: space-around;
-  /* background: pink; */
-  margin-top: 20px;
-  /* margin-bottom: 200px; */
-  flex-direction: column;
-
-  @media screen and (max-width: 800px) {
-    margin-top: 30px;
-    flex-direction: column;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    justify-content: space-between;
-    margin-top: -200px;
-  }
-`
-
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
@@ -122,7 +107,7 @@ const useStyles = makeStyles({
 })
 
 function DeletePost() {
-  const [dados, setDados] = useState({})
+  const [post, setPost] = useState({})
   const [buttonopen, setButtonOpen] = useState(false)
 
   function getDateWithoutTime(date) {
@@ -131,18 +116,18 @@ function DeletePost() {
 
   const navigate = useNavigate()
 
-  function HandleEditar() {
-    const id = sessionStorage.getItem('ID')
+  // function HandleEditar() {
+  //   const id = sessionStorage.getItem('ID')
 
-    navigate('/update')
-  }
+  //   navigate('/update')
+  // }
 
   async function deletePost() {
-    const id = sessionStorage.getItem('POST_ID')
+    const id = localStorage.getItem('post-id')
     try {
       await api.delete(`/delete-post/${id}`)
 
-      navigate('/posts')
+      navigate('/')
 
       return alert(' Post Deletado!!')
     } catch (error) {
@@ -151,26 +136,24 @@ function DeletePost() {
   }
 
   function CardButton(id) {
-    sessionStorage.setItem('POST_ID', id)
+    sessionStorage.setItem('POST-ID', id)
     return setButtonOpen(true)
     // return <SimpleCard />
     // return alert("Olá")
   }
 
-  const token = sessionStorage.getItem('token')
 
-  const id = sessionStorage.getItem('ID')
 
   async function HandleAuth() {
     const id = localStorage.getItem('post-id')
 
     const { data } = await api.get(`/get-post/${id}`)
 
-    setDados(data)
+    setPost(data)
 
-    console.log(dados)
+    console.log(post)
 
-    return dados
+    return post
   }
 
   function SimpleCard(id) {
@@ -221,28 +204,20 @@ function DeletePost() {
   }, [])
 
   return (
-    <Container>
-      <NavBar />
+   <div
+        style={{
+          display: "flex",
+          background: "lightgray",
 
-      {/* <ContainerLinks style={{ height: '100px' }}>
-        <Link to="/dashboard" style={{ color: 'yellow' }}>
-          PAINEL
-        </Link>
+          flexDirection: "column",
+          width: "100vw",
+          height: "100vh",
+          alignItems: "center",
+          overflowX: "hidden",
+        }}
+      >
+        <NavBar />
 
-        <Link to="/register-post" style={{ color: 'yellow' }}>
-          CADASTRO DE POST
-        </Link>
-
-        <Link to="/posts" style={{ color: 'yellow' }}>
-          POSTS
-        </Link>
-        <Link to="/end" style={{ color: 'yellow' }}>
-          EDITAR
-        </Link>
-      </ContainerLinks> */}
-
-      <ContainerMaps>
-        <H1>PERFIL</H1>
         {buttonopen === true ? (
           <div
             style={{
@@ -257,61 +232,65 @@ function DeletePost() {
           </div>
         ) : // console.log('Fechado')
         null}
-        <div key={dados.id} style={{display: 'flex', width: '100', flexDirection: 'column',
-          alignItems: "center", justifyContent: 'center',
-          marginTop: '-20px'
-        }}>
-          <h2 style={{ fontSize: '34px' }}>
-            <p>{dados.title}</p>
-          </h2>
-          <img src={dados.image} alt="imagem" width="300" />
-         
+             <PostContainer>
+                <h1>POST</h1>
+                <Img1 src={post.image} alt="paos" />
 
-          <div
-            style={{
-              width: '50%',
-              display: 'flex',height: '20vh',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            <ContainerP style={{}}>{dados.text}</ContainerP>
-          </div>
-
-          <p>{dados.desc}</p>
-
-          <div
-            style={{
-              width: '100%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              height: '20vh',
-              marginTop: '-80px'
-
-            }}
-          >
-            <ContainerP >{dados.author}</ContainerP>
-          </div>
-
-          <p  
-           style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginTop: '-60px'
-
-          }}
-          >{getDateWithoutTime(dados.createdAt)}</p>
-         
-        </div>
-      </ContainerMaps>
+                <Post1>
+                  <div style={{ display: "flex" }}>
+                    <RxAvatar
+                      style={{
+                        fontSize: "35px",
+                        marginTop: "-1px",
+                        color: "darkblue",
+                        paddingBottom: "16px",
+                      }}
+                    />
+                    <NameContainer>
+                      <span style={{ marginTop: "-1px" }}>{post.author}</span>
+                      <span style={{ marginTop: "-3px" }}>{getDateWithoutTime(post.createdAt)}</span>
+                    </NameContainer>
+                  </div>
+                  <div>
+                    <H1>{post.title}</H1>
+                  </div>
+                  <ContainerDescription>
+                   
+                    <p>{post.text}</p>
+                  </ContainerDescription>
+                  <BottomContainer>
+                    <ViewsContainer>
+                      <span>{post.views} visualização</span>
+                      <Coments> 0 comentário</Coments>
+                    </ViewsContainer>
+                    <div
+                      style={{
+                        display: "flex",
+                        width: "55%",
+                        alignItems: "center",
+                        justifyContent: "flex-end",
+                        marginTop: "12px",
+                      }}
+                    >
+                      <span style={{ fontSize: "16px" }}>{post.likes}</span>
+                      <FaRegHeart
+                        style={{
+                          color: "red",
+                          fontSize: "18px",
+                          marginLeft: "5px",
+                        }}
+                      />
+                    </div>
+                  </BottomContainer>
+                </Post1>
+                <button onClick={() => CardButton(post.id)}>DELETAR POST</button>
+              </PostContainer>
 
       <ContainerButtons>
-        <button onClick={HandleEditar}>EDITAR</button>
+        <button >EDITAR</button>
 
-        <Link
-          onClick={() => CardButton(dados.id)}
+        {/* <Link
+          onClick={() => CardButton(post.id)}
           // to="/delete"
           style={{
             display: 'flex',
@@ -330,13 +309,14 @@ function DeletePost() {
         >
           {' '}
           DELETAR
-        </Link>
+        </Link> */}
       </ContainerButtons>
       <br />
       <br />
       <br />
       <br />
-    </Container>
+    </div>
+
   )
 }
 
