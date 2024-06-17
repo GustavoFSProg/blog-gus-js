@@ -4,6 +4,7 @@ import { Input } from "../../components/Input";
 import styled from "styled-components";
 import NavBar from "../../components/NavBar/NavBar";
 import api from "../../api";
+import { useNavigate } from "react-router-dom";
 
 const Button = styled.button`
   display: flex;
@@ -83,6 +84,8 @@ function RegisterPost() {
   const [likes, setLikes] = useState(0)
   const [views, setViews] = useState(0)
 
+  const navigate = useNavigate()
+
   async function handlePost(event) {
     event.preventDefault();
 
@@ -110,13 +113,15 @@ function RegisterPost() {
         
         
       } else {
-      // const blog = await api.post("/create-post", datas, token);
-        // console.log('POST CADASTRADO!')
+      const blog = await api.post("/create-post", datas, token);
+        console.log('POST CADASTRADO!')
         // console.log('POST NÃO CADASTRADO!')
 
         if(!blog){
           return alert ("Erro no cadastro!!")
         }
+
+        navigate('/')
      
         // return alert("Post NÃO cadastrado!");
         return alert("Post cadastrado com sucesso!");

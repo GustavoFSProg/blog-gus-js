@@ -3,6 +3,7 @@ import { Input } from "../../components/Input";
 import styled from "styled-components";
 import NavBar from "../../components/NavBar/NavBar";
 import api from "../../api";
+import { useNavigate } from "react-router-dom";
 
 const Button = styled.button`
   display: flex;
@@ -84,12 +85,14 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate = useNavigate()
+
   async function UserLogin(event) {
     event.preventDefault();
 
     try {
-      // const {data}= await api.post("/login", { email, password });
-      const data = ""
+      const {data}= await api.post("/login", { email, password });
+      // const data = ""
 
       console.log("USUÁRIO LOGADO!");
 
@@ -98,12 +101,13 @@ function Login() {
       }
 
 
-      // if (!data.data) {
-      //   return alert("Erro no Login preencha os campos!!");
-      // } else {
-      //   localStorage.setItem('token', data.token)
-      //           return alert("Login  realizado com sucesso!");
-      // }
+      if (!data.data) {
+        return alert("Erro no Login preencha os campos!!");
+      } else {
+        localStorage.setItem('token', data.token)
+        navigate("/")
+                return alert("Login  realizado com sucesso!");
+      }
     } catch (error) {
       return alert(`Erro no Login ${error}`);
     }

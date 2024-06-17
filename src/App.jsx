@@ -7,6 +7,7 @@ import PostCard from "./components/PostCard/PostCard";
 import { useEffect, useState } from "react";
 import api from "./api";
 import moment from 'moment'
+import { useNavigate } from "react-router-dom";
 
 
 const AppContainer = styled.div`
@@ -32,6 +33,8 @@ const ImageTopo = styled.img`
 function App() {
   const [posts, setPosts] = useState([])
 
+  const navigate = useNavigate()
+
   async function getPosts(){
 
     const {data} = await api.get("/get-all-posts")
@@ -43,6 +46,14 @@ function App() {
 
   function getDateWithoutTime(date) {
     return moment(date).format('DD-MM-YYYY')
+  }
+
+  function getProfile(id){
+    localStorage.setItem('post-id', id)
+
+    navigate("/profile")
+
+
   }
 
   useEffect(() => {
@@ -60,7 +71,9 @@ function App() {
 
         {posts.map((items) => {
           return (
-            <div key={items.id}>
+            <div key={items.id} onClick={() => getProfile(items.id)}
+             style={{cursor: 'pointer'}}
+            >
             <PostCard
             title={items.title}
             author={items.author}
