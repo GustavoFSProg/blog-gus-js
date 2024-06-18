@@ -1,4 +1,5 @@
 import NavBar from "../../components/NavBar/NavBar"
+import NavBarPanel from "../../components/NavbarPanel/NavBarPanel"
 
 
  function Dashboard(){
@@ -10,7 +11,8 @@ import NavBar from "../../components/NavBar/NavBar"
 
 
          }}>
-            <NavBar />
+            {/* <NavBar /> */}
+            <NavBarPanel />
         
         <div 
          style={{display: 'flex', width: '62%', height: '100vh',
