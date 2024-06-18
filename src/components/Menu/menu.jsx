@@ -40,8 +40,13 @@ export default function SimpleMenu() {
           </Link>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <Link style={{ textDecoration: 'none' }} to="/register-post">
+          <Link style={{ textDecoration: 'none' }} to="/profile">
             POST
+          </Link>
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+          <Link style={{ textDecoration: 'none' }} to="/register-post">
+            CADASTRO DE POST
           </Link>
         </MenuItem>
         {/* <MenuItem onClick={handleClose}>BLOG</MenuItem> */}

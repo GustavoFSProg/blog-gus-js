@@ -4,7 +4,7 @@ export const NavBarContainer = styled.div`
   display: flex;
   width: 60vw;
   height: 50px;
-  background: #cffac8;
+  background: #e5fce1;
   /* color: darkgray; */
   align-items: center;
   justify-content: space-between;
@@ -21,7 +21,7 @@ export const LinksContainer = styled.div`
   display: flex;
   width: 60vw;
   height: 50px;
-  background: #cffac8;
+  background: #e5fce1;
   color: darkblue;
   align-items: center;
   justify-content: space-between;

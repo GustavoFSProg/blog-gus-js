@@ -12,7 +12,7 @@ function NavBarPanel() {
         >
             HOME
           </Link></span>
-          <span > <Link to="/post"
+          <span > <Link to="/profile"
         style={{textDecoration: 'none', }}
         >
             POST
