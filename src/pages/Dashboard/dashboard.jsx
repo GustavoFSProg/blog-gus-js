@@ -1,8 +1,12 @@
+import { useState } from "react"
 import NavBar from "../../components/NavBar/NavBar"
 import NavBarPanel from "../../components/NavbarPanel/NavBarPanel"
 
 
  function Dashboard(){
+   const [logged, setLogged] = useState(false)
+
+    const Token = localStorage.getItem("token")
   
     return (
         <div  style={{display: 'flex', width: '100vw', height: '100vh',
@@ -23,7 +27,8 @@ import NavBarPanel from "../../components/NavbarPanel/NavBarPanel"
 
          }}
         >
-         <h1>DASHBOARD</h1>
+         {Token ?  <h1>DASHBOARD</h1> : <h1>ACESSO PROIBIDO - LOGUE-SE</h1> }
+        
         </div>
         </div>
 
