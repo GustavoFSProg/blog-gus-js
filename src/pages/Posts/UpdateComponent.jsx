@@ -1,10 +1,9 @@
 import { useContext, useEffect, useState } from 'react'
-import { Input } from '../../components/Input/index'
 import styled from 'styled-components'
 import api from '../../api'
 import moment from 'moment'
 // import PostComoponent from './PostComoponent'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { Button } from '../../components/Buttons/styled-button'
 import TextField from '@mui/material/TextField'
 import NavBarPanel from '../../components/NavbarPanel/NavBarPanel'
@@ -30,23 +29,23 @@ export const H1 = styled.h1`
     margin-bottom: -35px;
   }
 `
-const TextArea = styled.textarea`
-  border-radius: 8px;
-  border: 1px solid rgba(37, 0, 50, 0.25);
-  box-shadow: 0px 0px 5px 1px rgba(37, 0, 50, 0.25);
-  font-family: 'Roboto';
-  font-size: 1rem;
+// const TextArea = styled.textarea`
+//   border-radius: 8px;
+//   border: 1px solid rgba(37, 0, 50, 0.25);
+//   box-shadow: 0px 0px 5px 1px rgba(37, 0, 50, 0.25);
+//   font-family: 'Roboto';
+//   font-size: 1rem;
 
-  @media screen and (max-width: 850px) {
-    display: flex;
-    /* width: 30%; */
-    height: auto;
-    align-items: center;
-    justify-content: center;
+//   @media screen and (max-width: 850px) {
+//     display: flex;
+//     /* width: 30%; */
+//     height: auto;
+//     align-items: center;
+//     justify-content: center;
 
-    width: 110%;
-  }
-`
+//     width: 110%;
+//   }
+// `
 
 export const Form = styled.form`
   display: flex;
@@ -82,7 +81,7 @@ export const ContainerLinks = styled.div`
 `
 
 function UpdateComponent() {
-  const [dados, setDados] = useState([])
+  // const [dados, setDados] = useState([])
   const [datas, setDatas] = useState({})
   const [permission, setPermission] = useState("")
 
@@ -98,21 +97,21 @@ function UpdateComponent() {
 
   const {user, setUser} = useContext(userContext)
 
-  function getDateWithoutTime(date) {
-    return moment(date).format('DD-MM-YYYY')
-  }
+  // function getDateWithoutTime(date) {
+  //   return moment(date).format('DD-MM-YYYY')
+  // }
 
   const token = localStorage.getItem('token')
 
-  async function HandlePosts() {
-    const { data } = await api.get('/get-all-contacts')
+  // async function HandlePosts() {
+  //   const { data } = await api.get('/get-all-contacts')
 
-    setDados(data.data)
+  //   setDados(data.data)
 
-    console.log(dados)
+  //   console.log(dados)
 
-    return <p></p>
-  }
+  //   return <p></p>
+  // }
 
   async function handleSubmit(event) {
     event.preventDefault()

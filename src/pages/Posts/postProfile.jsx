@@ -16,18 +16,18 @@ import {
 import { RxAvatar } from "react-icons/rx";
 import { FaRegHeart } from "react-icons/fa6";
 import moment from 'moment'
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 
 function PostProfile() {
   const [post, setPost] = useState({});
 
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
-  function handleDeletePost(){
+  // function handleDeletePost(){
 
-    navigate("/delete-post")
-  }
+  //   navigate("/delete-post")
+  // }
 
 
   function getDateWithoutTime(date) {

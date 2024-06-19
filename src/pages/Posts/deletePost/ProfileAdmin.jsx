@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 // import { Button } from '../../components/Buttons/styled-button'
 
 import { RxAvatar } from "react-icons/rx";
@@ -156,12 +156,11 @@ function ProfileAdmin() {
     return post
   }
 
-  function SimpleCard(id) {
+  function SimpleCard() {
     const classes = useStyles()
+    // eslint-disable-next-line no-unused-vars
     const bull = <span className={classes.bullet}>•</span>
 
-    const Id = sessionStorage.getItem('CONTACT')
-    // console.log(`ID: ${id}`)
 
     return (
       <Carder

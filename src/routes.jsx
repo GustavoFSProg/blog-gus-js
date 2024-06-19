@@ -3,7 +3,6 @@ import App from './App';
 import Login from './pages/Users/Login';
 import RegisterPost from './pages/Posts/RegisterPost';
 import PostProfile from './pages/Posts/postProfile';
-import DeletePost from './pages/Posts/deletePost/ProfileAdmin';
 import Dashboard from './pages/Dashboard/dashboard';
 import { UserContextProvider } from './Contexts/userContext';
 import RegisterMain from './pages/Posts/RegisterMain';

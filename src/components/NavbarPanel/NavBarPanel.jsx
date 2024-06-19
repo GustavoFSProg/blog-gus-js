@@ -1,4 +1,3 @@
-import SimpleMenu from "../Menu/menu";
 import MenuPannel from "../MenuPanel/menu";
 import { NavBarContainer, LinksContainer } from "./style-navbar-panel";
 import {Link} from 'react-router-dom'

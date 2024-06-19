@@ -155,10 +155,13 @@ function RegisterMain() {
 
         }}
       >
-        <NavBar />
+        {/* <NavBar /> */}
 
         <LoginContainer>
-            {user ? <RegisterPost />  :   (<><H1>FAÇA O LOGIN PARA ENTRAR!!</H1></> )}
+            {user ? <RegisterPost />  :   (<>
+         <NavBar />
+            
+            <H1>FAÇA O LOGIN PARA ENTRAR!!</H1></> )}
         </ LoginContainer>
          
       </div>
