@@ -106,7 +106,7 @@ const useStyles = makeStyles({
   },
 })
 
-function DeletePost() {
+function ProfileAdmin() {
   const [post, setPost] = useState({})
   const [buttonopen, setButtonOpen] = useState(false)
 
@@ -320,4 +320,4 @@ function DeletePost() {
   )
 }
 
-export default DeletePost
+export default ProfileAdmin

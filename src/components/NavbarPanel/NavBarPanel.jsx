@@ -1,4 +1,5 @@
 import SimpleMenu from "../Menu/menu";
+import MenuPannel from "../MenuPanel/menu";
 import { NavBarContainer, LinksContainer } from "./style-navbar-panel";
 import {Link} from 'react-router-dom'
 
@@ -12,10 +13,10 @@ function NavBarPanel() {
         >
             HOME
           </Link></span>
-          <span > <Link to="/profile"
+          <span > <Link to="/profile-admin"
         style={{textDecoration: 'none', }}
         >
-            POST
+           PROFILE
           </Link></span>
        <Link to="/register-main"
           style={{textDecoration: 'none',}}
@@ -30,6 +31,13 @@ function NavBarPanel() {
           </Link>
         </span>
         <span>
+          <Link to="/update-post"
+          style={{textDecoration: 'none', }}
+          >
+            UPDATE POST
+          </Link>
+        </span>
+        <span>
           <Link to="/login"
           style={{textDecoration: 'none', }}
           >
@@ -37,7 +45,7 @@ function NavBarPanel() {
           </Link>
         </span>
             </LinksContainer>
-        <SimpleMenu />
+        <MenuPannel />
       </NavBarContainer>
     </>
   );

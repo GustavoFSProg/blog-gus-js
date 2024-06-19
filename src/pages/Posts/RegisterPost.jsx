@@ -6,6 +6,7 @@ import NavBar from "../../components/NavBar/NavBar";
 import api from "../../api";
 import { useNavigate } from "react-router-dom";
 import { userContext } from "../../Contexts/userContext";
+import NavBarPanel from "../../components/NavbarPanel/NavBarPanel";
 
 
 const Button = styled.button`
@@ -150,6 +151,7 @@ function RegisterPost() {
 
         }}
       >
+        <NavBarPanel />
 
         <LoginContainer>
           <H1 >CADASTRO DE POST</H1>
