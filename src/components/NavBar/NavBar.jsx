@@ -12,7 +12,7 @@ function NavBar() {
         >
             HOME
           </Link></span>
-       <Link to="/register-post"
+       <Link to="/register-main"
           style={{textDecoration: 'none', color: 'gray'}}
           >
             POST

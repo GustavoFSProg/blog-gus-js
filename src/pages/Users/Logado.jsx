@@ -131,7 +131,6 @@ function Logado() {
         style={{
           display: "flex",
           background: "lightgray",
-
           flexDirection: "column",
           width: "100vw",
           height: "100vh",

@@ -35,7 +35,6 @@ function Login() {
 
   return (
     <>
-    {` User ${user}`}
       {user ? (
         <>
           <div

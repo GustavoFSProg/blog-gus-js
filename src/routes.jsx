@@ -6,6 +6,7 @@ import PostProfile from './pages/Posts/postProfile';
 import DeletePost from './pages/Posts/deletePost/deletePost';
 import Dashboard from './pages/Dashboard/dashboard';
 import { UserContextProvider } from './Contexts/userContext';
+import RegisterMain from './pages/Posts/RegisterMain';
 
 function Routers() {
     return (
@@ -17,6 +18,7 @@ function Routers() {
             <Route path="/" exact element={<App />}/>
             <Route path="/login"  element={<Login />}/>
             <Route path="/register-post"  element={<RegisterPost />}/>
+            <Route path="/register-main"  element={<RegisterMain />}/>
             <Route path="/profile"  element={<PostProfile />}/>
             <Route path="/delete-post"  element={<DeletePost />}/>
             <Route path="/dashboard"  element={<Dashboard />}/>
