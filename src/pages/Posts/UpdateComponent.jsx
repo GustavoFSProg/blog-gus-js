@@ -89,7 +89,7 @@ function UpdateComponent() {
   const [text, setText] = useState('')
   const [image, setImage] = useState([])
   const [author, setAuthor] = useState('')
-  const [desc, setDesc] = useState('')
+  const [description, setDescription] = useState('')
   // const [views, setViews] = useState('1')
   // const [likes, setLikes] = useState('1')
 
@@ -115,7 +115,7 @@ function UpdateComponent() {
 
   async function handleSubmit(event) {
     event.preventDefault()
-    const id = sessionStorage.getItem('ID')
+    const id = localStorage.getItem('post-id')
 
     console.log(id)
 
@@ -132,7 +132,7 @@ function UpdateComponent() {
       data.append('image', image)
       // data.append('views', views)
       // data.append('likes', likes)
-      data.append('desc', desc)
+      data.append('description', description)
 
       await api.put(`/update-post/${id}`, data)
 
@@ -164,7 +164,7 @@ function UpdateComponent() {
 
     setTitle(data.title)
     setText(data.text)
-    setDesc(data.desc)
+    setDescription(data.description)
     setAuthor(data.author)
 
     console.log(datas)
@@ -225,9 +225,9 @@ function UpdateComponent() {
         <TextField
           id="outlined-controlled"
           label="Descrição"
-          value={desc}
+          value={description}
           onChange={(event) => {
-            setDesc(event.target.value)
+            setDescription(event.target.value)
           }}
         />
         <br />
