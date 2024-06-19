@@ -1,10 +1,16 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import NavBarPanel from "../../components/NavbarPanel/NavBarPanel";
+import { userContext } from "../../Contexts/userContext";
 
 function Dashboard() {
 
+   const {user, setUser} = useContext(userContext)
+
   const Token = localStorage.getItem("token");
+
+    console.log(user)
+
 
   return (
     <div

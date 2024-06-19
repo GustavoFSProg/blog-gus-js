@@ -5,10 +5,13 @@ import RegisterPost from './pages/Posts/RegisterPost';
 import PostProfile from './pages/Posts/postProfile';
 import DeletePost from './pages/Posts/deletePost/deletePost';
 import Dashboard from './pages/Dashboard/dashboard';
+import { UserContextProvider } from './Contexts/userContext';
 
 function Routers() {
     return (
       <>
+      <UserContextProvider >
+
        <BrowserRouter>
          <Routes>
             <Route path="/" exact element={<App />}/>
@@ -20,6 +23,7 @@ function Routers() {
 
          </Routes>
        </BrowserRouter>
+      </UserContextProvider>
       </>
     );
   }

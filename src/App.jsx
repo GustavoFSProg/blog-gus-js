@@ -4,10 +4,11 @@ import NavBar from "./components/NavBar/NavBar";
 import topo from "./assets/comida-topo.png";
 import PostCard from "./components/PostCard/PostCard";
 // import paos from "./assets/paos.png";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import api from "./api";
 import moment from 'moment'
 import { useNavigate } from "react-router-dom";
+import { userContext } from "./Contexts/userContext";
 
 
 const AppContainer = styled.div`
@@ -32,6 +33,9 @@ const ImageTopo = styled.img`
 `;
 function App() {
   const [posts, setPosts] = useState([])
+
+  const {user, setUser} = useContext(userContext)
+
 
   const navigate = useNavigate()
 
