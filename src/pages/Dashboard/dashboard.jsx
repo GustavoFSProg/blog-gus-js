@@ -1,16 +1,13 @@
-import { useContext, useState } from "react";
-import NavBar from "../../components/NavBar/NavBar";
+import { useContext } from "react";
 import NavBarPanel from "../../components/NavbarPanel/NavBarPanel";
 import { userContext } from "../../Contexts/userContext";
 
 function Dashboard() {
-
-   const {user, setUser} = useContext(userContext)
+  const { user } = useContext(userContext);
 
   const Token = localStorage.getItem("token");
 
-    console.log(user)
-
+  console.log(user);
 
   return (
     <div
@@ -24,7 +21,6 @@ function Dashboard() {
         flexDirection: "column",
       }}
     >
-      {/* <NavBar /> */}
       <NavBarPanel />
 
       <div
