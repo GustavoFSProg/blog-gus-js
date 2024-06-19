@@ -2,10 +2,11 @@ import { Input } from "../../components/Input";
 import styled from "styled-components";
 import NavBar from "../../components/NavBar/NavBar";
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 import api from "../../api";
 import { useNavigate } from "react-router-dom";
+import { userContext } from "../../Contexts/userContext";
 
 const Button = styled.button`
   display: flex;
@@ -90,6 +91,8 @@ function Logado() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const { user, setUser } = useContext(userContext);
+
   const navigate = useNavigate();
 
   async function UserLogin(event) {
@@ -100,6 +103,9 @@ function Logado() {
 
       console.log("USUÁRIO LOGADO!");
 
+
+      console.log(user)
+
       if (data === "") {
         return alert("Erro no Login preencha os campos!!");
       }
@@ -109,6 +115,9 @@ function Logado() {
       } else {
         localStorage.setItem("token", data.token);
         navigate("/dashboard");
+        
+        setUser(true);
+
         return alert("Login  realizado com sucesso!");
       }
     } catch (error) {

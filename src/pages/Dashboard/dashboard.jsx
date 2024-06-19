@@ -5,11 +5,10 @@ import { userContext } from "../../Contexts/userContext";
 function Dashboard() {
   const { user } = useContext(userContext);
 
-  const Token = localStorage.getItem("token");
-
   console.log(user);
 
   return (
+
     <div
       style={{
         display: "flex",
@@ -34,7 +33,7 @@ function Dashboard() {
           background: "#c5c7c9",
         }}
       >
-        {Token ? <h1>DASHBOARD</h1> : <h1>ACESSO PROIBIDO - LOGUE-SE</h1>}
+        {user ? <h1>DASHBOARD</h1> : <h1>ACESSO PROIBIDO - LOGUE-SE</h1>}
       </div>
     </div>
   );

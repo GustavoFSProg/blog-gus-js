@@ -1,6 +1,8 @@
 import NavBar from "../../components/NavBar/NavBar";
 import Logado from "./Logado";
 import styled from "styled-components";
+import { userContext } from "../../Contexts/userContext";
+import { useContext } from "react";
 
 
 const LoginContainer = styled.div`
@@ -26,11 +28,15 @@ const H1 = styled.h1`
 `;
 
 function Login() {
-  const Token = localStorage.getItem("token");
+  // const Token = localStorage.getItem("token");
+
+  const {user, setUser} = useContext(userContext)
+
 
   return (
     <>
-      {Token ? (
+    {` User ${user}`}
+      {user ? (
         <>
           <div
             style={{
@@ -50,6 +56,7 @@ function Login() {
               <H1>
                 USUÁRIO JÁ LOGADO!
               </H1>
+              <button onClick={() => setUser(false)}>LOGOUT</button>
             </LoginContainer>
           </div>
         </>
