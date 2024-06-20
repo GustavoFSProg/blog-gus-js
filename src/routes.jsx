@@ -8,6 +8,8 @@ import { UserContextProvider } from './Contexts/userContext';
 import RegisterMain from './pages/Posts/RegisterMain';
 import ProfileAdmin from './pages/Posts/deletePost/ProfileAdmin';
 import UpdateComponent from './pages/Posts/UpdateComponent';
+// import MainProfile from './pages/Posts/mainProfile';
+import MainPosts from './pages/Posts/mainPosts';
 
 function Routers() {
     return (
@@ -24,6 +26,8 @@ function Routers() {
             <Route path="/profile-admin"  element={<ProfileAdmin />}/>
             <Route path="/dashboard"  element={<Dashboard />}/>
             <Route path="/update-post"  element={<UpdateComponent />}/>
+            {/* <Route path="/main-profile"  element={<MainProfile />}/> */}
+            <Route path="/main-posts"  element={<MainPosts />}/>
 
          </Routes>
        </BrowserRouter>

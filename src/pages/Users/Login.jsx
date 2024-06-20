@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { userContext } from "../../Contexts/userContext";
 import { useContext } from "react";
 
-
 const LoginContainer = styled.div`
   display: flex;
   width: 27%;
@@ -30,8 +29,7 @@ const H1 = styled.h1`
 function Login() {
   // const Token = localStorage.getItem("token");
 
-  const {user, setUser} = useContext(userContext)
-
+  const { user, setUser } = useContext(userContext);
 
   return (
     <>
@@ -52,9 +50,7 @@ function Login() {
             <NavBar />
 
             <LoginContainer>
-              <H1>
-                USUÁRIO JÁ LOGADO!
-              </H1>
+              <H1>USUÁRIO JÁ LOGADO!</H1>
               <button onClick={() => setUser(false)}>LOGOUT</button>
             </LoginContainer>
           </div>

@@ -12,12 +12,12 @@ function NavBarPanel() {
         >
             HOME
           </Link></span>
-          <span > <Link to="/profile-admin"
+          <span > <Link to="/main-posts"
         style={{textDecoration: 'none', }}
         >
-           PROFILE
+           POST
           </Link></span>
-       <Link to="/register-main"
+       <Link to="/main-posts"
           style={{textDecoration: 'none',}}
           >
             CADASTRO DE POST

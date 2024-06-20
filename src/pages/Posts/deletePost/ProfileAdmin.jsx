@@ -232,7 +232,7 @@ function ProfileAdmin() {
         ) : // console.log('Fechado')
         null}
              <PostContainer>
-                <h1>POST</h1>
+                <h1>POST-ADMIN</h1>
                 <Img1 src={post.image} alt="paos" />
 
                 <Post1>
