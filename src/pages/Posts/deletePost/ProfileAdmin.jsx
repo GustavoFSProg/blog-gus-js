@@ -75,14 +75,43 @@ export const ContainerLinks = styled.div`
 
 export const ContainerButtons = styled.div`
   display: flex;
-  width: 30rem;
-  /* height: 100rem; */
+  width: 100%;
+  height: 10rem;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  margin-bottom: 200px;
-  padding-top: 28px;
-  padding-bottom: 28px;
+ margin-top: 20px;
+ margin-bottom: -52px;
+
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+  }
+`
+
+
+export const Buttons = styled.button`
+  display: flex;
+  width: 10rem;
+  height: 3rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  /* margin-bottom: 200px; */
+  /* padding-top: 28px; */
+  padding: 10px;
+  background: green;
+  color: yellow;
+  font-size: 15px;
+  border-radius:8px;
+  transition: all ease 0.9s;
+
+  &:hover{
+    background: darkblue;
+    color: white;
+
+  }
+
+
 
   @media screen and (max-width: 800px) {
     flex-direction: column;
@@ -281,39 +310,17 @@ function ProfileAdmin() {
                       />
                     </div>
                   </BottomContainer>
+                  <ContainerButtons>
+        <Buttons onClick={() => navigate("/update-post")}>EDITAR</Buttons>
+                <Buttons onClick={() => CardButton(post.id)}>DELETAR POST</Buttons>
+
+      
+      </ContainerButtons>
                 </Post1>
-                <button onClick={() => CardButton(post.id)}>DELETAR POST</button>
               </PostContainer>
 
-      <ContainerButtons>
-        <button >EDITAR</button>
-
-        {/* <Link
-          onClick={() => CardButton(post.id)}
-          // to="/delete"
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            background: 'lightgray',
-            marginBottom: '20px',
-            transition: 'all ease 0.6s',
-            cursor: 'pointer',
-            color: 'black',
-            padding: '8px',
-            paddingLeft: '12px',
-            paddingRight: '12px',
-            borderRadius: '10px',
-          }}
-        >
-          {' '}
-          DELETAR
-        </Link> */}
-      </ContainerButtons>
-      <br />
-      <br />
-      <br />
-      <br />
+     
+      
     </div>
 
   )
