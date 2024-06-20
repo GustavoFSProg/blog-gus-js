@@ -99,14 +99,14 @@ export const Buttons = styled.button`
   /* margin-bottom: 200px; */
   /* padding-top: 28px; */
   padding: 10px;
-  background: green;
-  color: yellow;
+  background: #526958;
+  color: #ebeb6c;
   font-size: 15px;
   border-radius:8px;
-  transition: all ease 0.9s;
+  transition: all ease 0.8s;
 
   &:hover{
-    background: darkblue;
+    background: #77a684;
     color: white;
 
   }
