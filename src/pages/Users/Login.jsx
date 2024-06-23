@@ -3,6 +3,7 @@ import Logado from "./Logado";
 import styled from "styled-components";
 import { userContext } from "../../Contexts/userContext";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 const LoginContainer = styled.div`
   display: flex;
@@ -26,14 +27,49 @@ const H1 = styled.h1`
   }
 `;
 
+
+const Button = styled.button`
+display: flex;
+width: 40%;
+height: 2.2rem;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+/* margin-bottom: 200px; */
+/* padding-top: 28px; */
+padding: 10px;
+background: #526958;
+color: #ebeb6c;
+font-size: 15px;
+border-radius:8px;
+transition: all ease 0.8s;
+
+&:hover{
+  background: #77a684;
+  color: white;
+
+}
+`
+
 function Login() {
-  // const Token = localStorage.getItem("token");
+  const Token = localStorage.getItem("token");
 
   const { user, setUser } = useContext(userContext);
 
+  const navigate = useNavigate()
+
+  function setLogout(){
+
+    setUser(false)
+
+    localStorage.clear()
+
+    navigate("/login")
+  }
+
   return (
     <>
-      {user ? (
+      {user || Token ? (
         <>
           <div
             style={{
@@ -51,7 +87,7 @@ function Login() {
 
             <LoginContainer>
               <H1>USUÁRIO JÁ LOGADO!</H1>
-              <button onClick={() => setUser(false)}>LOGOUT</button>
+              <Button onClick={() => setLogout()}>LOGOUT</Button>
             </LoginContainer>
           </div>
         </>

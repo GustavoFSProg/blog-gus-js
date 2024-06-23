@@ -17,7 +17,7 @@ function NavBarPanel() {
         >
            POST
           </Link></span>
-       <Link to="/main-posts"
+       <Link to="/register-post"
           style={{textDecoration: 'none',}}
           >
             CADASTRO DE POST

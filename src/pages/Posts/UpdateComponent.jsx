@@ -1,24 +1,82 @@
 import { useContext, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import api from '../../api'
-import moment from 'moment'
+// import moment from 'moment'
 // import PostComoponent from './PostComoponent'
 import { useNavigate } from 'react-router-dom'
-import { Button } from '../../components/Buttons/styled-button'
+// import { Button } from '../../components/Buttons/styled-button'
 import TextField from '@mui/material/TextField'
 import NavBarPanel from '../../components/NavbarPanel/NavBarPanel'
 import {userContext} from '../../Contexts/userContext'
  
-export const Container = styled.div`
+// export const Container = styled.div`
+//   display: flex;
+//   width: 100vw;
+//   height: 100vh;
+//   align-items: center;
+//   justify-content: top;
+//   flex-direction: column;
+//   background: lightgray;
+
+// `
+
+// const Button = styled.button`
+// display: flex;
+// width: 40%;
+// height: 2.2rem;
+// align-items: center;
+// justify-content: center;
+// background: lightgray;
+// margin-bottom: 20px;
+// transition: all ease 0.6s;
+// cursor: pointer;
+
+// &:hover{
+// background: gray;
+// color: blue;
+
+
+// }
+
+
+// `
+
+
+ const Button = styled.button`
+  display: flex;
+  width: 40%;
+height: 2.2rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* margin-bottom: 200px; */
+  /* padding-top: 28px; */
+  padding: 10px;
+  background: #526958;
+  color: #ebeb6c;
+  font-size: 15px;
+  border-radius:8px;
+  transition: all ease 0.8s;
+
+  &:hover{
+    background: #77a684;
+    color: white;
+
+  }
+  `
+
+
+const Container = styled.div`
   display: flex;
   width: 100vw;
-  height: 100vh;
-  align-items: center;
-  justify-content: top;
-  flex-direction: column;
+  height: auto;
+  overflow-x: hidden;
   background: lightgray;
-
-`
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 100px;
+`;
 
 export const H1 = styled.h1`
   display: flex;
@@ -149,7 +207,7 @@ function UpdateComponent() {
   async function HandleAuth() {
     // const { data } = await api.post('/auth', token)
 
-    if (user) {
+    if (token) {
       setPermission('OK')
     }
 
@@ -182,12 +240,13 @@ function UpdateComponent() {
   return (
     <Container>
       <NavBarPanel />
+      <br />
      
       <H1>EDIÇÃO DE POST</H1>
       <br />
       <br />
       <br />
-      <img width="230" height="230" src={datas.image} />
+      <img width="390" height="300" src={datas.image} />
       <br />
       <Form onSubmit={handleSubmit}>
         <br />
@@ -242,12 +301,9 @@ function UpdateComponent() {
           }}
         />
         <br />
-        <br />
         {permission === 'OK' ? <Button type="submit">Editar</Button> : 'Botao desabiitado!!'}
         <br />
-        <br />
-        <br />
-        <br />
+       
       </Form>
     </Container>
   )
