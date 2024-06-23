@@ -14,14 +14,14 @@ import NavBarPanel from '../../components/NavbarPanel/NavBarPanel'
  const Button = styled.button`
   display: flex;
   width: 40%;
-height: 2.2rem;
+height: 2.8rem;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   padding: 10px;
   background: #526958;
   color: #ebeb6c;
-  font-size: 15px;
+  font-size: 16px;
   border-radius:8px;
   transition: all ease 0.8s;
 
