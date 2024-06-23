@@ -35,7 +35,7 @@ function Dashboard() {
           background: "#c5c7c9",
         }}
       >
-        {user || Token ? <h1>DASHBOARD</h1> : <h1>ACESSO PROIBIDO - LOGUE-SE</h1>}
+        {user || Token ? <h1>DASHBOARD</h1> : <h1>ACESSO PROIBIDO - EFETUE O LOGIN!</h1>}
       </div>
     </div>
   );

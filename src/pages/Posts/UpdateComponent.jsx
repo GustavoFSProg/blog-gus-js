@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react'
+import {  useEffect, useState } from 'react'
 import styled from 'styled-components'
 import api from '../../api'
 // import moment from 'moment'
@@ -7,39 +7,8 @@ import { useNavigate } from 'react-router-dom'
 // import { Button } from '../../components/Buttons/styled-button'
 import TextField from '@mui/material/TextField'
 import NavBarPanel from '../../components/NavbarPanel/NavBarPanel'
-import {userContext} from '../../Contexts/userContext'
+// import {userContext} from '../../Contexts/userContext'
  
-// export const Container = styled.div`
-//   display: flex;
-//   width: 100vw;
-//   height: 100vh;
-//   align-items: center;
-//   justify-content: top;
-//   flex-direction: column;
-//   background: lightgray;
-
-// `
-
-// const Button = styled.button`
-// display: flex;
-// width: 40%;
-// height: 2.2rem;
-// align-items: center;
-// justify-content: center;
-// background: lightgray;
-// margin-bottom: 20px;
-// transition: all ease 0.6s;
-// cursor: pointer;
-
-// &:hover{
-// background: gray;
-// color: blue;
-
-
-// }
-
-
-// `
 
 
  const Button = styled.button`
@@ -49,8 +18,6 @@ height: 2.2rem;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  /* margin-bottom: 200px; */
-  /* padding-top: 28px; */
   padding: 10px;
   background: #526958;
   color: #ebeb6c;
@@ -78,7 +45,7 @@ const Container = styled.div`
   padding-bottom: 100px;
 `;
 
-export const H1 = styled.h1`
+ const H1 = styled.h1`
   display: flex;
   align-items: center;
   font-size: 40px;
@@ -89,23 +56,6 @@ export const H1 = styled.h1`
     margin-bottom: -35px;
   }
 `
-// const TextArea = styled.textarea`
-//   border-radius: 8px;
-//   border: 1px solid rgba(37, 0, 50, 0.25);
-//   box-shadow: 0px 0px 5px 1px rgba(37, 0, 50, 0.25);
-//   font-family: 'Roboto';
-//   font-size: 1rem;
-
-//   @media screen and (max-width: 850px) {
-//     display: flex;
-//     /* width: 30%; */
-//     height: auto;
-//     align-items: center;
-//     justify-content: center;
-
-//     width: 110%;
-//   }
-// `
 
 export const Form = styled.form`
   display: flex;
@@ -155,7 +105,7 @@ function UpdateComponent() {
 
   const navigate = useNavigate()
 
-  const {user, setUser} = useContext(userContext)
+  // const {user, setUser} = useContext(userContext)
 
   // function getDateWithoutTime(date) {
   //   return moment(date).format('DD-MM-YYYY')
