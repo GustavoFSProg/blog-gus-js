@@ -90,6 +90,7 @@ function RegisterPost() {
   const {user, setUser} = useContext(userContext)
 
   const navigate = useNavigate()
+  const Token = localStorage.getItem('token')
 
   async function handlePost(event) {
     event.preventDefault();
@@ -97,7 +98,6 @@ function RegisterPost() {
     try {
 
       
-      const token = localStorage.getItem('token')
     // if (!token) return alert('Token Inválido, efetue o Login novamente!!')
 
       const datas = new FormData()
@@ -152,119 +152,137 @@ function RegisterPost() {
         }}
       >
         <NavBarPanel />
-
-        <LoginContainer>
-          <H1 >CADASTRO DE POST</H1>
-          <br />
-          <Form onSubmit={handlePost}>
-            <div
-              style={{
-                display: "flex",
-                width: "100%",
-                height: "5rem",
-                alignItems: "center",
-                justifyContent: "center",
-                flexDirection: "column",
-                marginTop: "24px",
-              }}
-            >
-                   <div
-              style={{
-                display: "flex",
-                width: "100%",
-                height: "5rem",
-                alignItems: "center",
-                justifyContent: "center",
-                flexDirection: "column",
-                marginTop: "13px",
-                marginBottom: "20px",
-              }}
-            >
-                <input type="file" id="image" onChange={(e) => setImage(e.target.files[0])} />
-               
+        {Token || user ? (
+            <LoginContainer>
+            <H1 >CADASTRO DE POST</H1>
+            <br />
+            <Form onSubmit={handlePost}>
+              <div
+                style={{
+                  display: "flex",
+                  width: "100%",
+                  height: "5rem",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexDirection: "column",
+                  marginTop: "24px",
+                }}
+              >
+                     <div
+                style={{
+                  display: "flex",
+                  width: "100%",
+                  height: "5rem",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexDirection: "column",
+                  marginTop: "13px",
+                  marginBottom: "20px",
+                }}
+              >
+                  <input type="file" id="image" onChange={(e) => setImage(e.target.files[0])} />
+                 
+                </div>
+              
+                <Input
+                  type="title"
+                  placeholder="title"
+                  onChange={(e) => setTitle(e.target.value)}
+                  value={title}
+                  invalid={true}
+                  // errorMessage="Email inválido"
+                />
               </div>
-            
-              <Input
-                type="title"
-                placeholder="title"
-                onChange={(e) => setTitle(e.target.value)}
-                value={title}
-                invalid={true}
-                // errorMessage="Email inválido"
-              />
-            </div>
+  
+              <div
+                style={{
+                  display: "flex",
+                  width: "100%",
+                  height: "5rem",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexDirection: "column",
+                  marginTop: "14px",
+  
+                }}
+              >
+                <Input
+                  type="text"
+                  placeholder="texto"
+                  onChange={(e) => setText(e.target.value)}
+                  value={text}
+                  invalid={true}
+                  // errorMessage="password inválido"
+                />
+              </div>
+  
+              <div
+                style={{
+                  display: "flex",
+                  width: "100%",
+                  height: "5rem",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexDirection: "column",
+                  marginTop: "-12px",
+  
+                }}
+              >
+                <Input
+                  type="text"
+                  placeholder="descrição"
+                  onChange={(e) => setDescription(e.target.value)}
+                  value={description}
+                  invalid={true}
+                  // errorMessage="password inválido"
+                />
+              </div>
+  
+  
+              <div
+                style={{
+                  display: "flex",
+                  width: "100%",
+                  height: "5rem",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexDirection: "column",
+                  marginTop: "-12px",
+  
+  
+                }}
+              >
+                <Input
+                  type="text"
+                  placeholder="autor"
+                  onChange={(e) => setAuthor(e.target.value)}
+                  value={author}
+                  invalid={true}
+                  // errorMessage="password inválido"
+                />
+              </div>
+  
+              <Button type="submit">CADASTRAR</Button>
+            </Form>
+          </LoginContainer>
+        ) :  <>
+        <div
+          style={{
+            display: "flex",
+            background: "lightgray",
+            flexDirection: "column",
+            width: "100vw",
+            height: "100vh",
+            alignItems: "center",
+            justifyContent: 'center',
+            overflowX: 'hidden',
+  
+          }}
+        > <h1>  Efetue o login para entrar!</h1> 
+        </div>
+        </>}
 
-            <div
-              style={{
-                display: "flex",
-                width: "100%",
-                height: "5rem",
-                alignItems: "center",
-                justifyContent: "center",
-                flexDirection: "column",
-                marginTop: "14px",
-
-              }}
-            >
-              <Input
-                type="text"
-                placeholder="texto"
-                onChange={(e) => setText(e.target.value)}
-                value={text}
-                invalid={true}
-                // errorMessage="password inválido"
-              />
-            </div>
-
-            <div
-              style={{
-                display: "flex",
-                width: "100%",
-                height: "5rem",
-                alignItems: "center",
-                justifyContent: "center",
-                flexDirection: "column",
-                marginTop: "-12px",
-
-              }}
-            >
-              <Input
-                type="text"
-                placeholder="descrição"
-                onChange={(e) => setDescription(e.target.value)}
-                value={description}
-                invalid={true}
-                // errorMessage="password inválido"
-              />
-            </div>
-
-
-            <div
-              style={{
-                display: "flex",
-                width: "100%",
-                height: "5rem",
-                alignItems: "center",
-                justifyContent: "center",
-                flexDirection: "column",
-                marginTop: "-12px",
-
-
-              }}
-            >
-              <Input
-                type="text"
-                placeholder="autor"
-                onChange={(e) => setAuthor(e.target.value)}
-                value={author}
-                invalid={true}
-                // errorMessage="password inválido"
-              />
-            </div>
-
-            <Button type="submit">CADASTRAR</Button>
-          </Form>
-        </LoginContainer>
+      
       </div>
     </>
   );
