@@ -146,7 +146,7 @@ function UpdateComponent() {
 
       await api.put(`/update-post/${id}`, data)
 
-      navigate('/posts')
+      navigate('/main-posts')
 
       return alert('Edição realizado com sucesso!')
     } catch (error) {
