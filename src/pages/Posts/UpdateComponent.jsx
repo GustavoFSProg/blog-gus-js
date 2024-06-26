@@ -164,6 +164,14 @@ function UpdateComponent() {
   async function ProfileHandle() {
     const id = sessionStorage.getItem('post-id')
 
+    console.log(id)
+
+    if(id === null){
+       navigate('/main-posts')
+
+      return alert("SELECIONE UM POST")
+    }
+
     const { data } = await api.get(`/get-post/${id}`)
 
     setDatas(data)
@@ -184,7 +192,7 @@ function UpdateComponent() {
 
   return (
     <Container>
-      <NavBarPanel />
+      {/* <NavBarPanel /> */}
       <br />
      
       <H1>EDIÇÃO DE POST</H1>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { Input } from '../../components/Input'
 import styled from 'styled-components'
 import api from '../../api'
@@ -8,6 +8,7 @@ import PostComoponent from './PostComoponent'
 // import { Link } from 'react-router-dom'
 import UpdateComponent from './UpdateComponent'
 import NavBarPanel from '../../components/NavbarPanel/NavBarPanel'
+import { userContext } from '../../Contexts/userContext'
 
 export const Container = styled.div`
   display: flex;
@@ -46,83 +47,16 @@ export const ContainerLinks = styled.div`
   `
 
 function UpdatePost() {
-  const [dados, setDados] = useState([])
-  const [able, setAble] = useState(false)
-
-  const [title, setTitle] = useState('')
-  const [author, setAuthor] = useState('')
-  const [text, setText] = useState('')
-  const [image, setImage] = useState([])
-  const [desc, setDesc] = useState('')
-  const [views, setViews] = useState('1')
-  const [likes, setLikes] = useState('1')
+  
 
 
-  function getDateWithoutTime(date) {
-    return moment(date).format('DD-MM-YYYY')
-  }
+  const Token = sessionStorage.getItem('token')
 
-  const token = sessionStorage.getItem('token')
-
-  async function HandlePosts() {
-    const { data } = await api.get('/get-all-contacts')
-
-    setDados(data.data)
-
-
-    return <p></p>
-  }
+  const { user, setUser } = useContext(userContext);
+  const ID = sessionStorage.getItem('post-id')
 
 
 
-  async function handleSubmit(event) {
-    event.preventDefault()
-
-    try {
-
-      if (!token) return alert('Token Inválido, efetue o Login novamente!!')
-
-      const data = new FormData()
-
-      data.append('title', title)
-      data.append('text', text)
-      data.append('author', author)
-      data.append('image', image)
-      data.append('views', views)
-      data.append('likes', likes)
-      data.append('desc', desc)
-      // data.append('token', token)
-
-      // await api.post('/register', data)
-
-      await api.post('/register', data)
-
-      // history.push('/')
-
-      return alert('Cadastro realizado com sucesso!')
-    } catch (error) {
-      return alert(error)
-    }
-  }
-
-  function handleAbled() {
-    setAble(true)
-    return
-  }
-
-  async function HandleAuth() {
-    const { data } = await api.post('/auth', token)
-
-    if (data) {
-      setDados('OK')
-    }
-
-    return dados
-  }
-  useEffect(() => {
-    HandleAuth()
-    // HandleContacts()
-  }, [])
 
 
 
@@ -132,7 +66,7 @@ function UpdatePost() {
 
 
       <br />
-      {dados === 'OK' ? <UpdateComponent /> : <h1>ACESSO PROIBIDO!!!</h1>}
+      {user || Token && ID? <UpdateComponent /> : <h1>ACESSO PROIBIDO!!!</h1>}
       <br />
 
     </Container>
