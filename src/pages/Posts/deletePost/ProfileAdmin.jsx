@@ -152,7 +152,7 @@ function ProfileAdmin() {
   // }
 
   async function deletePost() {
-    const id = localStorage.getItem('post-id')
+    const id = sessionStorage.getItem('post-id')
     try {
       await api.delete(`/delete-post/${id}`)
 
@@ -165,7 +165,7 @@ function ProfileAdmin() {
   }
 
   function CardButton(id) {
-    sessionStorage.setItem('POST-ID', id)
+    // sessionStorage.setItem('POST-ID', id)
     return setButtonOpen(true)
     // return <SimpleCard />
     // return alert("Olá")
@@ -174,13 +174,12 @@ function ProfileAdmin() {
 
 
   async function HandleAuth() {
-    const id = localStorage.getItem('post-id')
+    const id = sessionStorage.getItem('post-id')
 
     const { data } = await api.get(`/get-post/${id}`)
 
     setPost(data)
 
-    console.log(post)
 
     return post
   }
@@ -258,7 +257,7 @@ function ProfileAdmin() {
           >
             <SimpleCard />
           </div>
-        ) : // console.log('Fechado')
+        ) : 
         null}
              <PostContainer>
                 <h1>POST-ADMIN</h1>

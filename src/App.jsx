@@ -53,7 +53,7 @@ function App() {
   }
 
   function getProfile(id){
-    localStorage.setItem('post-id', id)
+    sessionStorage.setItem('post-id', id)
 
     navigate("/profile")
 

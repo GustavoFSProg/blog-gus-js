@@ -39,13 +39,12 @@ function PostProfile() {
   async function postGetOne() {
 
     try {
-        const id = localStorage.getItem("post-id");
+        const id = sessionStorage.getItem("post-id");
 
 
       const { data } = await api.get(`/get-post/${id}`);
       // const data = ""
 
-      //   console.log("USUÁRIO LOGADO!");
 
       if (data === "") {
         return alert("Erro no Login preencha os campos!!");
@@ -57,7 +56,7 @@ function PostProfile() {
       //     return alert("Erro no profile preencha os campos!!");
       //   } else {
 
-      //     // localStorage.setItem('token', data.token)
+      //     // sessionStorage.setItem('token', data.token)
 
       //             // return alert("Login  realizado com sucesso!");
       //   }

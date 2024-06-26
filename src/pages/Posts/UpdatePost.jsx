@@ -69,7 +69,6 @@ function UpdatePost() {
 
     setDados(data.data)
 
-    console.log(dados)
 
     return <p></p>
   }
@@ -80,7 +79,6 @@ function UpdatePost() {
     event.preventDefault()
 
     try {
-      console.log(`Token:${token}`)
 
       if (!token) return alert('Token Inválido, efetue o Login novamente!!')
 

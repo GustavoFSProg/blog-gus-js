@@ -89,7 +89,6 @@ function RegisterMain() {
 
   const {user, setUser} = useContext(userContext)
 
-  console.log(`main: ${{user}} `)
 
 
 
@@ -101,7 +100,7 @@ function RegisterMain() {
     try {
 
       
-      const token = localStorage.getItem('token')
+      const token = sessionStorage.getItem('token')
     if (!token) return alert('Token Inválido, efetue o Login novamente!!')
 
       const datas = new FormData()
@@ -123,8 +122,6 @@ function RegisterMain() {
         
       } else {
       const blog = await api.post("/create-post", datas, token);
-        console.log('POST CADASTRADO!')
-        // console.log('POST NÃO CADASTRADO!')
 
         if(!blog){
           return alert ("Erro no cadastro!!")

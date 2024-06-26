@@ -111,26 +111,23 @@ function UpdateComponent() {
   //   return moment(date).format('DD-MM-YYYY')
   // }
 
-  const token = localStorage.getItem('token')
+  const token = sessionStorage.getItem('token')
 
   // async function HandlePosts() {
   //   const { data } = await api.get('/get-all-contacts')
 
   //   setDados(data.data)
 
-  //   console.log(dados)
 
   //   return <p></p>
   // }
 
   async function handleSubmit(event) {
     event.preventDefault()
-    const id = localStorage.getItem('post-id')
+    const id = sessionStorage.getItem('post-id')
 
-    console.log(id)
 
     try {
-      // console.log(`Token:${token}`)
 
       if (!token) return alert('Token Inválido, efetue o Login novamente!!')
 
@@ -161,12 +158,11 @@ function UpdateComponent() {
       setPermission('OK')
     }
 
-     console.log(permission)
     return permission
   }
 
   async function ProfileHandle() {
-    const id = localStorage.getItem('post-id')
+    const id = sessionStorage.getItem('post-id')
 
     const { data } = await api.get(`/get-post/${id}`)
 
@@ -177,7 +173,6 @@ function UpdateComponent() {
     setDescription(data.description)
     setAuthor(data.author)
 
-    console.log(datas)
 
     return datas
   }

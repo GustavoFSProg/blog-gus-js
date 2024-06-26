@@ -52,7 +52,7 @@ transition: all ease 0.8s;
 `
 
 function Login() {
-  const Token = localStorage.getItem("token");
+  const Token = sessionStorage.getItem("token");
 
   const { user, setUser } = useContext(userContext);
 
@@ -62,7 +62,7 @@ function Login() {
 
     setUser(false)
 
-    localStorage.clear()
+    sessionStorage.clear()
 
     navigate("/login")
   }

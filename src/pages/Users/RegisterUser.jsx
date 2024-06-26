@@ -7,6 +7,7 @@ import { useContext, useState } from "react";
 import api from "../../api";
 import { useNavigate } from "react-router-dom";
 import { userContext } from "../../Contexts/userContext";
+import NavBarPanel from "../../components/NavbarPanel/NavBarPanel";
 
 const Button = styled.button`
   display: flex;
@@ -85,13 +86,18 @@ const ContainerFom = styled.div`
   }
 `;
 
-function Logado() {
+function RegisterUser() {
   // navigate("/register-post")
 
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const Token = sessionStorage.getItem('token')
+
   const { user, setUser } = useContext(userContext);
+
+  const data = {name, email, password}
 
   const navigate = useNavigate();
 
@@ -99,27 +105,27 @@ function Logado() {
     event.preventDefault();
 
     try {
-      const { data } = await api.post("/login", { email, password });
+   await api.post("/create-user", data, Token);
 
 
-      if (data === "") {
-        return alert("Erro no Login preencha os campos!!");
+      if (name === "" || email === "" || password === "") {
+        return alert("Erro no Cadastro preencha os campos!!");
       }
 
-      if (!data.data) {
-        return alert("Erro no Login preencha os campos!!");
-      } else {
-        sessionStorage.setItem("token", data.token);
+        // if(!blog.blog){
+        //   return alert("ERRO, não cadastrado")
+        // }
+      
+
+     
         navigate("/dashboard");
         
         setUser(true);
 
-        console.log(` User: ${user}`)
-
-        return alert("Login  realizado com sucesso!");
-      }
+        return alert("Usuário cadastrado com sucesso!");
+      
     } catch (error) {
-      return alert(`Erro no Login ${error}`);
+      return alert(`Erro no Cadastro ${error}`);
     }
   }
 
@@ -136,12 +142,63 @@ function Logado() {
           overflowX: "hidden",
         }}
       >
-        <NavBar />
+        <NavBarPanel />
 
-        <LoginContainer>
+        <div
+            style={{
+              display: "flex",
+              background: "lightgray",
+
+              flexDirection: "column",
+              width: "100vw",
+              height: "100vh",
+              alignItems: "center",
+              justifyContent: 'center',
+              overflowX: "hidden",
+            }}
+          >
+
+
+        {user || Token ? (
+        <>
+          <div
+            style={{
+              display: "flex",
+              background: "lightgray",
+
+              flexDirection: "column",
+              width: "100vw",
+              height: "100vh",
+              alignItems: "center",
+              // justifyContent: 'center',
+              overflowX: "hidden",
+            }}
+          >
+
+<LoginContainer>
           <ContainerFom>
-            <H1>LOGIN</H1>
+            <H1>CADASTRO DE USUÁRIO</H1>
             <Form onSubmit={UserLogin}>
+            <div
+                style={{
+                  display: "flex",
+                  width: "100%",
+                  height: "5rem",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexDirection: "column",
+                  marginTop: "16px",
+                }}
+              >
+                <Input
+                  type="text"
+                  placeholder="nome"
+                  onChange={(e) => setName(e.target.value)}
+                  value={name}
+                  invalid={true}
+                  // errorMessage="Email inválido"
+                />
+              </div>
               <div
                 style={{
                   display: "flex",
@@ -188,9 +245,17 @@ function Logado() {
             </Form>
           </ContainerFom>
         </LoginContainer>
+          </div>
+        </>
+      ) : (
+        <h1>EFETUE O LOGIN PARA CADASTRAR O USUÁRIO!</h1>
+      )}
+
+      
       </div>
+  </div>
     </>
   );
 }
 
-export default Logado;
+export default RegisterUser;

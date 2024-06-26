@@ -12,6 +12,14 @@ function NavBarPanel() {
         >
             HOME
           </Link></span>
+
+          <span > <Link to="/register-user"
+        style={{textDecoration: 'none', }}
+        >
+            CADASTRO USUÁRIO
+          </Link></span>
+
+
           <span > <Link to="/main-posts"
         style={{textDecoration: 'none', }}
         >

@@ -34,12 +34,11 @@ function DeletePost() {
     async function postGetOne() {
 
       try {
-          const id = localStorage.getItem("post-id");
+          const id = sessionStorage.getItem("post-id");
   
   
         const { data } = await api.get(`/get-post/${id}`);
   
-        //   console.log("USUÁRIO LOGADO!");
   
         if (data === "") {
           return alert("Erro no Login preencha os campos!!");
@@ -57,8 +56,8 @@ function DeletePost() {
   async function deleteOnePost() {
 
     try {
-        const id = localStorage.getItem("post-id");
-        const token = localStorage.getItem("token");
+        const id = sessionStorage.getItem("post-id");
+        const token = sessionStorage.getItem("token");
 
       if(!token){
      return alert("TOKEN Invalido!");
@@ -67,7 +66,6 @@ function DeletePost() {
 
        await api.delete(`/delete-post/${id}`);
 
-        console.log("POST DELETADO!");
 
         navigate('/')
 

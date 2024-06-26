@@ -22,15 +22,7 @@ const AppContainer = styled.div`
   padding-bottom: 100px;
 `;
 
-const ImageTopo = styled.img`
-  width: 1045px;
-
-  @media screen and (max-width: 800px) {
-    width: 100%;
-    height: 180px;
-  }
-`;
-function MainPosts() {
+function MainPostsPainel() {
   const [posts, setPosts] = useState([])
 
   // const {user, setUser} = useContext(userContext)
@@ -67,10 +59,7 @@ function MainPosts() {
   return (
     <>
       <AppContainer>
-        <NavBarPanel />
-        <div>
-          <ImageTopo src={topo} alt="topo comida" />
-        </div>
+      
 
         {posts.map((items) => {
           return (
@@ -95,4 +84,4 @@ function MainPosts() {
   );
 }
 
-export default MainPosts;
+export default MainPostsPainel;

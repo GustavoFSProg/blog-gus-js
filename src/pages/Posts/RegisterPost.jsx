@@ -90,7 +90,7 @@ function RegisterPost() {
   const {user, setUser} = useContext(userContext)
 
   const navigate = useNavigate()
-  const Token = localStorage.getItem('token')
+  const Token = sessionStorage.getItem('token')
 
   async function handlePost(event) {
     event.preventDefault();
@@ -118,9 +118,7 @@ function RegisterPost() {
         
         
       } else {
-      const blog = await api.post("/create-post", datas, token);
-        console.log('POST CADASTRADO!')
-        // console.log('POST NÃO CADASTRADO!')
+      const blog = await api.post("/create-post", datas, Token);
 
         if(!blog){
           return alert ("Erro no cadastro!!")

@@ -12,15 +12,15 @@ export const keys = {
   }
   
   export const setItem = (key, data) => {
-    return localStorage.setItem(key, data)
+    return sessionStorage.setItem(key, data)
   }
   
   export const getItem = (key) => {
-    return localStorage.getItem(key)
+    return sessionStorage.getItem(key)
   }
   
   export const clearItems = () => {
-    localStorage.clear()
+    sessionStorage.clear()
     return window.location.reload()
   }
   

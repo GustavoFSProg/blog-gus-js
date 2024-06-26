@@ -10,6 +10,8 @@ import ProfileAdmin from './pages/Posts/deletePost/ProfileAdmin';
 import UpdateComponent from './pages/Posts/UpdateComponent';
 // import MainProfile from './pages/Posts/mainProfile';
 import MainPosts from './pages/Posts/mainPosts';
+import MainPostsPainel from './pages/Posts/mainPostsPainel';
+import RegisterUser from './pages/Users/RegisterUser';
 
 function Routers() {
     return (
@@ -26,8 +28,9 @@ function Routers() {
             <Route path="/profile-admin"  element={<ProfileAdmin />}/>
             <Route path="/dashboard"  element={<Dashboard />}/>
             <Route path="/update-post"  element={<UpdateComponent />}/>
-            {/* <Route path="/main-profile"  element={<MainProfile />}/> */}
+            <Route path="/main-posts-painel"  element={<MainPostsPainel />}/>
             <Route path="/main-posts"  element={<MainPosts />}/>
+            <Route path="/register-user"  element={<RegisterUser />}/>
 
          </Routes>
        </BrowserRouter>
