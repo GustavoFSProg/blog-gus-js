@@ -1,6 +1,5 @@
 // import './App.css'
 import styled from "styled-components";
-import topo from "../../assets/comida-topo.png";
 import PostCard from "../../components/PostCard/PostCard";
 import { useEffect, useState } from "react";
 import api from "../../api";

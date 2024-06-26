@@ -1,6 +1,5 @@
 import { Input } from "../../components/Input";
 import styled from "styled-components";
-import NavBar from "../../components/NavBar/NavBar";
 
 import { useContext, useState } from "react";
 
@@ -241,7 +240,7 @@ function RegisterUser() {
                 />
               </div>
 
-              <Button type="submit">LOGAR</Button>
+              <Button type="submit">CADASTRAR</Button>
             </Form>
           </ContainerFom>
         </LoginContainer>

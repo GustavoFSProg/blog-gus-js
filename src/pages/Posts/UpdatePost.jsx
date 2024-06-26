@@ -1,13 +1,7 @@
-import { useContext, useEffect, useState } from "react";
-import { Input } from "../../components/Input";
+import { useContext } from "react";
 import styled from "styled-components";
-import api from "../../api";
-// import HeaderComponent from '../../components/Header/Header'
-import moment from "moment";
-import PostComoponent from "./PostComoponent";
-// import { Link } from 'react-router-dom'
+
 import UpdateComponent from "./UpdateComponent";
-import NavBarPanel from "../../components/NavbarPanel/NavBarPanel";
 import { userContext } from "../../Contexts/userContext";
 
 export const Container = styled.div`
@@ -27,7 +21,6 @@ export const ContainerLinks = styled.div`
   align-items: center;
   justify-content: space-around;
   background: green;
-  /* margin-top: 660px; */
   margin-bottom: 60px;
   padding-top: 28px;
   padding-bottom: 28px;
@@ -44,7 +37,7 @@ export const ContainerLinks = styled.div`
 function UpdatePost() {
   const Token = sessionStorage.getItem("token");
 
-  const { user, setUser } = useContext(userContext);
+  const { user} = useContext(userContext);
   const ID = sessionStorage.getItem("post-id");
 
   return (

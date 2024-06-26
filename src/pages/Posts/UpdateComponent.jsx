@@ -199,7 +199,7 @@ function UpdateComponent() {
       <br />
       <br />
       <br />
-      <img width="390" height="300" src={datas.image} />
+      <img width="490" height="300" src={datas.image} />
       <br />
       <Form onSubmit={handleSubmit}>
         <br />
@@ -217,6 +217,8 @@ function UpdateComponent() {
         <TextField
           id="outlined-controlled"
           label="Título"
+          style={{ width: '38rem' }}
+
           value={title}
           onChange={(event) => {
             setTitle(event.target.value)
@@ -229,7 +231,7 @@ function UpdateComponent() {
           value={text}
           multiline
           maxRows={18}
-          style={{ width: '48rem' }}
+          style={{ width: '38rem' }}
           onChange={(event) => {
             setText(event.target.value)
           }}
@@ -240,6 +242,9 @@ function UpdateComponent() {
           id="outlined-controlled"
           label="Descrição"
           value={description}
+          style={{ width: '38rem', marginTop: '-18px' }}
+          multiline
+          maxRows={18}
           onChange={(event) => {
             setDescription(event.target.value)
           }}
@@ -249,6 +254,8 @@ function UpdateComponent() {
           id="outlined-controlled"
           label="Autor"
           value={author}
+          style={{ width: '38rem' }}
+
           onChange={(event) => {
             setAuthor(event.target.value)
           }}
