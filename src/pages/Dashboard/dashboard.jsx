@@ -35,9 +35,25 @@ function Dashboard() {
           background: "#c5c7c9",
         }}
       >
-        {user || Token ?(<><br /> <h1>DASHBOARD</h1> <br />
+        {user || Token ?(<><br /> <h1 >DASHBOARD</h1> 
+        <br />
         <MainPostsPainel />
-        </>): <h1>ACESSO PROIBIDO - EFETUE O LOGIN!</h1>}
+        </>):
+        <>
+          <div
+          style={{
+            display: "flex",
+            width: "62%",
+            height: "100vh",
+            alignItems: "center",
+            justifyContent: "center",
+            flexDirection: "column",
+            background: "#c5c7c9",
+          }}
+          >
+          <h1>ACESSO PROIBIDO - EFETUE O LOGIN!</h1>
+          </div>
+          </>}
       </div>
     </div>
   );

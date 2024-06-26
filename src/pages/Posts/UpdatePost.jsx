@@ -1,14 +1,14 @@
-import { useContext, useEffect, useState } from 'react'
-import { Input } from '../../components/Input'
-import styled from 'styled-components'
-import api from '../../api'
+import { useContext, useEffect, useState } from "react";
+import { Input } from "../../components/Input";
+import styled from "styled-components";
+import api from "../../api";
 // import HeaderComponent from '../../components/Header/Header'
-import moment from 'moment'
-import PostComoponent from './PostComoponent'
+import moment from "moment";
+import PostComoponent from "./PostComoponent";
 // import { Link } from 'react-router-dom'
-import UpdateComponent from './UpdateComponent'
-import NavBarPanel from '../../components/NavbarPanel/NavBarPanel'
-import { userContext } from '../../Contexts/userContext'
+import UpdateComponent from "./UpdateComponent";
+import NavBarPanel from "../../components/NavbarPanel/NavBarPanel";
+import { userContext } from "../../Contexts/userContext";
 
 export const Container = styled.div`
   display: flex;
@@ -18,9 +18,7 @@ export const Container = styled.div`
   justify-content: top;
   flex-direction: column;
   background: lightgray;
-
-
-`
+`;
 
 export const ContainerLinks = styled.div`
   display: flex;
@@ -34,43 +32,32 @@ export const ContainerLinks = styled.div`
   padding-top: 28px;
   padding-bottom: 28px;
 
-
-
-  @media screen and (max-width: 800px){
-  margin-top: 30px;
-  flex-direction: column;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  justify-content: space-between;
-
+  @media screen and (max-width: 800px) {
+    margin-top: 30px;
+    flex-direction: column;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    justify-content: space-between;
   }
-  `
+`;
 
 function UpdatePost() {
-  
-
-
-  const Token = sessionStorage.getItem('token')
+  const Token = sessionStorage.getItem("token");
 
   const { user, setUser } = useContext(userContext);
-  const ID = sessionStorage.getItem('post-id')
-
-
-
-
-
+  const ID = sessionStorage.getItem("post-id");
 
   return (
     <Container>
-      <NavBarPanel />
-
-
       <br />
-      {user || Token && ID? <UpdateComponent /> : <h1>ACESSO PROIBIDO!!!</h1>}
+      {user || (Token && ID) ? (
+        <UpdateComponent />
+      ) : (
+        <h1>ACESSO PROIBIDO!!!</h1>
+      )}
       <br />
-
     </Container>
-  )
+  );
 }
 
-export default UpdatePost
+export default UpdatePost;

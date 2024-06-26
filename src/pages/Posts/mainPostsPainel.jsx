@@ -6,8 +6,6 @@ import { useEffect, useState } from "react";
 import api from "../../api";
 import moment from 'moment'
 import { useNavigate } from "react-router-dom";
-import NavBarPanel from "../../components/NavbarPanel/NavBarPanel";
-// import { userContext } from "./Contexts/userContext";
 
 
 const AppContainer = styled.div`
@@ -58,8 +56,7 @@ function MainPostsPainel() {
 
   return (
     <>
-      <AppContainer>
-      
+      <AppContainer>    
 
         {posts.map((items) => {
           return (

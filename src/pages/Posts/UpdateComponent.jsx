@@ -192,7 +192,7 @@ function UpdateComponent() {
 
   return (
     <Container>
-      {/* <NavBarPanel /> */}
+      <NavBarPanel />
       <br />
      
       <H1>EDIÇÃO DE POST</H1>

@@ -40,9 +40,18 @@ function MainPosts() {
         {user || Token ? (
           <MainPostsComponents />
         ) : (
-          <>
-            <h1>EFETUE O LOGIN!</h1>{" "}
-          </>
+          <div style={{display: 'flex', width: '100%', height: '100vh', flexDirection: 'column',
+             alignItems: 'center'
+
+          }}>
+          <NavBarPanel />
+          <div style={{display: 'flex', width: '100%', height: '100vh', flexDirection: 'column',
+             justifyContent: 'center', alignItems: 'center'
+
+          }}>
+            <h1 >EFETUE O LOGIN!</h1>
+          </div>
+          </div>
         )}
       </AppContainer>
     </>

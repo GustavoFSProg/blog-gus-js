@@ -9,7 +9,6 @@ export const PostContainer = styled.div`
   margin-top: 29px;
   /* margin-left: -42px; */
 
-
   @media screen and (max-width: 800px) {
     flex-direction: column;
     margin-left: -120px;
@@ -24,7 +23,7 @@ export const Post1 = styled.div`
   align-items: flex-start;
   background: white;
   padding: 37px;
-  padding-bottom: 39.5px;
+  padding-bottom: 48px;
   flex-direction: column;
 
   @media screen and (max-width: 800px) {
@@ -88,40 +87,32 @@ export const BottomContainer = styled.div`
 `;
 
 export const H1 = styled.h1`
-     font-size: 34px;
-  
-  @media screen and (max-width: 800px){
-     font-size: 27px;
-  }
-`
-
-
-
-
-export const ContainerDescription = styled.div`
-  margin-top: -22px;
-              line-height: 23px;
-              font-size: 16px;
-              font-family: "Open Sans";
+  font-size: 28px;
 
   @media screen and (max-width: 800px) {
-    font-size: 14px;
-   
+    font-size: 27px;
   }
 `;
 
+export const ContainerDescription = styled.div`
+  margin-top: -22px;
+  line-height: 23px;
+  font-size: 16px;
+  font-family: "Open Sans";
 
-
+  @media screen and (max-width: 800px) {
+    font-size: 14px;
+  }
+`;
 
 export const NameContainer = styled.div`
-    display: flex;
-                flex-direction: column;
-                font-size: 13px;
-                margin-left: 8px;
-                margin-top: 0px;
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  margin-left: 8px;
+  margin-top: 0px;
 
   @media screen and (max-width: 800px) {
     font-size: 12px;
-   
   }
 `;
