@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const PostContainer = styled.div`
   display: flex;
@@ -6,6 +6,7 @@ export const PostContainer = styled.div`
   height: auto;
   border: 1px solid gray;
   align-items: flex-start;
+  justify-content: center;
   margin-top: 29px;
   /* margin-left: -42px; */
 
@@ -13,7 +14,7 @@ export const PostContainer = styled.div`
     flex-direction: column;
     margin-left: -120px;
   }
-`;
+`
 
 export const Post1 = styled.div`
   display: flex;
@@ -29,7 +30,7 @@ export const Post1 = styled.div`
   @media screen and (max-width: 800px) {
     width: 122%;
   }
-`;
+`
 
 export const Img1 = styled.img`
   /* height: 360.5px; */
@@ -47,7 +48,7 @@ export const Img1 = styled.img`
     width: 141%;
     /* margin-left: 10px; */
   }
-`;
+`
 
 export const ViewsContainer = styled.div`
   display: flex;
@@ -62,7 +63,7 @@ export const ViewsContainer = styled.div`
     /* margin-left: -120px; */
     justify-content: center;
   }
-`;
+`
 
 export const Coments = styled.span`
   display: flex;
@@ -72,7 +73,7 @@ export const Coments = styled.span`
     margin-left: 0px;
     margin-top: 6px;
   }
-`;
+`
 
 export const BottomContainer = styled.div`
   display: flex;
@@ -84,7 +85,7 @@ export const BottomContainer = styled.div`
   @media screen and (max-width: 800px) {
     margin-top: 41px;
   }
-`;
+`
 
 export const H1 = styled.h1`
   font-size: 28px;
@@ -92,18 +93,18 @@ export const H1 = styled.h1`
   @media screen and (max-width: 800px) {
     font-size: 27px;
   }
-`;
+`
 
 export const ContainerDescription = styled.div`
   margin-top: -22px;
   line-height: 23px;
   font-size: 16px;
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
 
   @media screen and (max-width: 800px) {
     font-size: 14px;
   }
-`;
+`
 
 export const NameContainer = styled.div`
   display: flex;
@@ -115,4 +116,4 @@ export const NameContainer = styled.div`
   @media screen and (max-width: 800px) {
     font-size: 12px;
   }
-`;
+`
