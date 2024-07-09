@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const PostContainer = styled.div`
   display: flex;
@@ -12,12 +12,11 @@ export const PostContainer = styled.div`
   justify-content: center;
   margin-bottom: 160px;
 
-
   @media screen and (max-width: 800px) {
     flex-direction: column;
     /* margin-left: -120px; */
   }
-`;
+`
 
 export const Post1 = styled.div`
   display: flex;
@@ -33,12 +32,12 @@ export const Post1 = styled.div`
   @media screen and (max-width: 800px) {
     width: 122%;
   }
-`;
+`
 
 export const Img1 = styled.img`
   /* height: 360.5px; */
   height: 375.5px;
-  width: 50%;
+  width: 31.4rem;
 
   @media screen and (max-width: 550px) {
     height: 250px;
@@ -51,7 +50,7 @@ export const Img1 = styled.img`
     width: 141%;
     /* margin-left: 10px; */
   }
-`;
+`
 
 export const ViewsContainer = styled.div`
   display: flex;
@@ -66,7 +65,7 @@ export const ViewsContainer = styled.div`
     /* margin-left: -120px; */
     justify-content: center;
   }
-`;
+`
 
 export const Coments = styled.span`
   display: flex;
@@ -76,7 +75,7 @@ export const Coments = styled.span`
     margin-left: 0px;
     margin-top: 6px;
   }
-`;
+`
 
 export const BottomContainer = styled.div`
   display: flex;
@@ -88,43 +87,35 @@ export const BottomContainer = styled.div`
   @media screen and (max-width: 800px) {
     margin-top: 41px;
   }
-`;
+`
 
 export const H1 = styled.h1`
-     font-size: 34px;
-  
-  @media screen and (max-width: 800px){
-     font-size: 27px;
+  font-size: 34px;
+
+  @media screen and (max-width: 800px) {
+    font-size: 27px;
   }
 `
 
-
-
-
 export const ContainerDescription = styled.div`
   margin-top: -22px;
-              line-height: 23px;
-              font-size: 16px;
-              font-family: "Open Sans";
+  line-height: 23px;
+  font-size: 16px;
+  font-family: 'Open Sans';
 
   @media screen and (max-width: 800px) {
     font-size: 14px;
-   
   }
-`;
-
-
-
+`
 
 export const NameContainer = styled.div`
-    display: flex;
-                flex-direction: column;
-                font-size: 13px;
-                margin-left: 8px;
-                margin-top: 0px;
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  margin-left: 8px;
+  margin-top: 0px;
 
   @media screen and (max-width: 800px) {
     font-size: 12px;
-   
   }
-`;
+`
