@@ -94,6 +94,7 @@ function PostProfile() {
   const [comments, setComments] = useState([])
   const [name, setName] = useState('')
   const [comment, setComment] = useState('')
+  const [visible, setVisible] = useState(true)
 
   // const navigate = useNavigate()
 
@@ -147,6 +148,8 @@ function PostProfile() {
 
       setName('')
       setComment('')
+
+      setVisible(false)
 
       return console.log('Comentário com sucesso!')
     } catch (error) {
@@ -275,8 +278,11 @@ function PostProfile() {
                               // errorMessage="Email inválido"
                             />
                           </div>
-
-                          {/* <Button type="submit">COMENTAR</Button> */}
+                          {visible ? (
+                            <Button type="submit">COMENTAR</Button>
+                          ) : (
+                            <h3>BOTÃO DESABILITADO</h3>
+                          )}
                         </Form>
                       </ContainerFom>
                     </LoginContainer>
