@@ -145,7 +145,10 @@ function PostProfile() {
     try {
       await api.post('/create-comment', dados)
 
-      return alert('Comentário com sucesso!')
+      setName('')
+      setComment('')
+
+      return console.log('Comentário com sucesso!')
     } catch (error) {
       return alert(`Erro no Login ${error}`)
     }
