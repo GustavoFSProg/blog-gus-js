@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const Container = styled.div`
   display: flex;
@@ -9,7 +9,7 @@ export const Container = styled.div`
   font-weight: normal;
   font-size: 1rem;
   line-height: 160%;
-`;
+`
 
 export const InputContainer = styled.div`
   display: flex;
@@ -22,7 +22,7 @@ export const InputContainer = styled.div`
   :hover {
     box-shadow: 0px 0px 5px 1px rgba(37, 0, 50, 0.5);
   }
-`;
+`
 
 export const StyledInput = styled.input`
   display: flex;
@@ -50,7 +50,7 @@ export const StyledInput = styled.input`
   :focus {
     box-shadow: 0px 0px 5px 1px rgba(37, 0, 50, 1);
   }
-`;
+`
 
 export const Label = styled.label<{ move: boolean }>`
   position: absolute;
@@ -65,7 +65,7 @@ export const Label = styled.label<{ move: boolean }>`
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
   font-family: "Open Sans";
-`;
+`
 
 export const ErrorMessage = styled.p`
   display: flex;
@@ -74,4 +74,4 @@ export const ErrorMessage = styled.p`
   font-size: 0.9rem;
   color: red;
   min-height: 1.5rem;
-`;
+`

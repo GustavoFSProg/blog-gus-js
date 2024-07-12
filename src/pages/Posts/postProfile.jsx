@@ -16,11 +16,84 @@ import {
 import { RxAvatar } from 'react-icons/rx'
 import { FaRegHeart } from 'react-icons/fa6'
 import moment from 'moment'
+import styled from 'styled-components'
+import { Input } from '../../components/Input'
+
+const Button = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 107%;
+  height: auto;
+  background: #5c6b60;
+  color: white;
+  padding: 13px;
+  margin-left: 35px;
+  margin-top: -15px;
+  border-radius: 15px;
+  transition: ease all 0.9s;
+  cursor: pointer;
+  font-size: 16px;
+
+  &:hover {
+    background: #7a9180;
+    color: yellow;
+  }
+
+  @media screen and (max-width: 800px) {
+    width: 79.4vw;
+    margin-left: 33px;
+  }
+`
+
+const Form = styled.form`
+  display: flex;
+  width: 100%;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  @media screen and (max-width: 800px) {
+    width: 72vw;
+    margin-left: -27px;
+    margin-top: 20px;
+  }
+`
+
+const LoginContainer = styled.div`
+  display: flex;
+  width: 100%;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: black;
+
+  @media screen and (max-width: 800px) {
+    margin-top: 20px;
+  }
+`
+
+const ContainerFom = styled.div`
+  display: flex;
+  width: 100%;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  @media screen and (max-width: 800px) {
+    margin-top: 50px;
+  }
+`
 // import { useNavigate } from "react-router-dom";
 
 function PostProfile() {
   const [post, setPost] = useState({})
   const [comments, setComments] = useState([])
+  const [name, setName] = useState('')
+  const [message, setMessage] = useState('')
 
   // const navigate = useNavigate()
 
@@ -136,6 +209,54 @@ function PostProfile() {
                       // background: 'green',
                     }}
                   >
+                    <LoginContainer>
+                      <ContainerFom>
+                        <Form>
+                          <div
+                            style={{
+                              display: 'flex',
+                              width: '100%',
+                              height: '5rem',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              flexDirection: 'column',
+                              marginTop: '16px',
+                            }}
+                          >
+                            <Input
+                              type="text"
+                              placeholder="nome"
+                              onChange={(e) => setName(e.target.value)}
+                              value={name}
+                              invalid={true}
+                              // errorMessage="Email inválido"
+                            />
+                          </div>
+                          <div
+                            style={{
+                              display: 'flex',
+                              width: '100%',
+                              height: '5rem',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              flexDirection: 'column',
+                              marginTop: '16px',
+                            }}
+                          >
+                            <Input
+                              type="text"
+                              placeholder="mensagem"
+                              onChange={(e) => setMessage(e.target.value)}
+                              value={message}
+                              invalid={true}
+                              // errorMessage="Email inválido"
+                            />
+                          </div>
+
+                          <Button type="submit">COMENTAR</Button>
+                        </Form>
+                      </ContainerFom>
+                    </LoginContainer>
                     <h3>COMENTÁRIOS</h3>
                     {comments.map((items) => {
                       return (
