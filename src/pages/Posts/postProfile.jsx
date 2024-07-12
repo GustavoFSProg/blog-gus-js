@@ -217,12 +217,14 @@ function PostProfile() {
                               display: 'flex',
                               width: '100%',
                               height: '5rem',
-                              alignItems: 'center',
+                              // alignItems: 'center',
                               justifyContent: 'center',
                               flexDirection: 'column',
-                              marginTop: '16px',
+                              marginTop: '36px',
                             }}
                           >
+                            <span>Nome:</span>
+                            <br />
                             <Input
                               type="text"
                               placeholder="nome"
@@ -237,12 +239,15 @@ function PostProfile() {
                               display: 'flex',
                               width: '100%',
                               height: '5rem',
-                              alignItems: 'center',
+                              // alignItems: 'center',
                               justifyContent: 'center',
                               flexDirection: 'column',
-                              marginTop: '16px',
+                              marginTop: '36px',
+                              marginBottom: '6px',
                             }}
                           >
+                            <span>Comentário:</span>
+                            <br />
                             <Input
                               type="text"
                               placeholder="mensagem"
@@ -257,6 +262,7 @@ function PostProfile() {
                         </Form>
                       </ContainerFom>
                     </LoginContainer>
+                    <br />
                     <h3>COMENTÁRIOS</h3>
                     {comments.map((items) => {
                       return (

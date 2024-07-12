@@ -71,6 +71,7 @@ export const ViewsContainer = styled.div`
 export const Coments = styled.span`
   display: flex;
   margin-left: 12px;
+  color: black;
 
   @media screen and (max-width: 800px) {
     margin-left: 0px;
