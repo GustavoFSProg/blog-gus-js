@@ -223,8 +223,8 @@ function PostProfile() {
                               marginTop: '36px',
                             }}
                           >
-                            <span>Nome:</span>
-                            <br />
+                            <span style={{ marginBottom: '6px' }}>Nome:</span>
+
                             <Input
                               type="text"
                               placeholder="nome"
@@ -242,12 +242,11 @@ function PostProfile() {
                               // alignItems: 'center',
                               justifyContent: 'center',
                               flexDirection: 'column',
-                              marginTop: '36px',
+                              marginTop: '16px',
                               marginBottom: '6px',
                             }}
                           >
-                            <span>Comentário:</span>
-                            <br />
+                            <span style={{ marginBottom: '6px' }}>Comentário:</span>
                             <Input
                               type="text"
                               placeholder="mensagem"
