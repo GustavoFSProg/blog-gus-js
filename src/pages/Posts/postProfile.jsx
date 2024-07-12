@@ -93,7 +93,7 @@ function PostProfile() {
   const [post, setPost] = useState({})
   const [comments, setComments] = useState([])
   const [name, setName] = useState('')
-  const [message, setMessage] = useState('')
+  const [comment, setComment] = useState('')
 
   // const navigate = useNavigate()
 
@@ -133,6 +133,24 @@ function PostProfile() {
     }
   }
 
+  const post_id = sessionStorage.getItem('post-id')
+  const dados = {
+    name,
+    post_id,
+    comment,
+  }
+  async function createComment(event) {
+    event.preventDefault()
+
+    try {
+      await api.post('/create-comment', dados)
+
+      return alert('Comentário com sucesso!')
+    } catch (error) {
+      return alert(`Erro no Login ${error}`)
+    }
+  }
+
   async function getComments() {
     try {
       const id = sessionStorage.getItem('post-id')
@@ -152,7 +170,7 @@ function PostProfile() {
   useEffect(() => {
     postGetOne()
     getComments()
-  }, [])
+  }, [comments])
 
   return (
     <>
@@ -160,7 +178,6 @@ function PostProfile() {
         style={{
           display: 'flex',
           background: 'lightgray',
-
           flexDirection: 'column',
           width: '100vw',
           height: '100vh',
@@ -200,7 +217,6 @@ function PostProfile() {
                 <span>{post.views} visualização</span>
 
                 <Coments>
-                  {' '}
                   <div
                     style={{
                       display: 'flex',
@@ -211,7 +227,7 @@ function PostProfile() {
                   >
                     <LoginContainer>
                       <ContainerFom>
-                        <Form>
+                        <Form onSubmit={createComment}>
                           <div
                             style={{
                               display: 'flex',
@@ -250,14 +266,14 @@ function PostProfile() {
                             <Input
                               type="text"
                               placeholder="mensagem"
-                              onChange={(e) => setMessage(e.target.value)}
-                              value={message}
+                              onChange={(e) => setComment(e.target.value)}
+                              value={comment}
                               invalid={true}
                               // errorMessage="Email inválido"
                             />
                           </div>
 
-                          <Button type="submit">COMENTAR</Button>
+                          {/* <Button type="submit">COMENTAR</Button> */}
                         </Form>
                       </ContainerFom>
                     </LoginContainer>
