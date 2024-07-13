@@ -151,6 +151,8 @@ function PostProfile() {
 
       setVisible(false)
 
+      localStorage.setItem('visible', false)
+
       return console.log('Comentário com sucesso!')
     } catch (error) {
       return alert(`Erro no Login ${error}`)
@@ -160,6 +162,8 @@ function PostProfile() {
   async function getComments() {
     try {
       const id = sessionStorage.getItem('post-id')
+
+      // localStorage.setItem('visible', true)
 
       const { data } = await api.get(`/get-post-comments/${id}`)
 
@@ -278,10 +282,10 @@ function PostProfile() {
                               // errorMessage="Email inválido"
                             />
                           </div>
-                          {visible ? (
-                            <Button type="submit">COMENTAR</Button>
-                          ) : (
+                          {visible === false ? (
                             <h3>BOTÃO DESABILITADO</h3>
+                          ) : (
+                            <Button type="submit">COMENTAR</Button>
                           )}
                         </Form>
                       </ContainerFom>
