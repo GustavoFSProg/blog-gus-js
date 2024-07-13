@@ -152,6 +152,7 @@ function PostProfile() {
       setComment('')
 
       setVisible(false)
+      localStorage.setItem('abled', false)
 
       return console.log('Comentário com sucesso!')
     } catch (error) {
