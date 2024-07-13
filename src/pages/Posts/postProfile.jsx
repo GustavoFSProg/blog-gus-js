@@ -20,6 +20,57 @@ import styled from 'styled-components'
 import { Input } from '../../components/Input'
 import { userContext } from '../../Contexts/userContext'
 
+import { makeStyles } from '@material-ui/core/styles'
+import Carder from '@material-ui/core/Card'
+import CardActions from '@material-ui/core/CardActions'
+import CardContent from '@material-ui/core/CardContent'
+import BButton from '@material-ui/core/Button'
+import Typography from '@material-ui/core/Typography'
+import { useNavigate } from 'react-router-dom'
+
+const useStyles = makeStyles({
+  root: {
+    minWidth: 275,
+  },
+  bullet: {
+    display: 'inline-block',
+    margin: '0 2px',
+    transform: 'scale(0.8)',
+  },
+  title: {
+    fontSize: 14,
+  },
+  pos: {
+    marginBottom: 12,
+  },
+})
+
+export const Buttons = styled.button`
+  display: flex;
+  width: 10rem;
+  height: 3rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  /* margin-bottom: 200px; */
+  /* padding-top: 28px; */
+  padding: 10px;
+  background: #526958;
+  color: #ebeb6c;
+  font-size: 15px;
+  border-radius: 8px;
+  transition: all ease 0.8s;
+
+  &:hover {
+    background: #77a684;
+    color: white;
+  }
+
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+  }
+`
+
 const Button = styled.button`
   display: flex;
   align-items: center;
@@ -70,6 +121,7 @@ const LoginContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   color: black;
+  margin-top: -120px;
 
   @media screen and (max-width: 800px) {
     margin-top: 20px;
@@ -95,8 +147,11 @@ function PostProfile() {
   const [comments, setComments] = useState([])
   const [name, setName] = useState('')
   const [comment, setComment] = useState('')
+  const [buttonopen, setButtonOpen] = useState(false)
 
   const { visible, setVisible } = useContext(userContext)
+
+  // const navigate = useNavigate()
 
   function getDateWithoutTime(date) {
     return moment(date).format('DD-MM-YYYY')
@@ -144,6 +199,10 @@ function PostProfile() {
     }
   }
 
+  function SetButtonFalse() {
+    setButtonOpen(false)
+  }
+
   async function getComments() {
     try {
       const id = sessionStorage.getItem('post-id')
@@ -160,6 +219,56 @@ function PostProfile() {
     } catch (error) {
       return alert(`Erro no Login ${error}`)
     }
+  }
+
+  function SimpleCard() {
+    const classes = useStyles()
+    // eslint-disable-next-line no-unused-vars
+    const bull = <span className={classes.bullet}>•</span>
+
+    return (
+      <>
+        <br />
+
+        <Carder
+          style={{
+            position: 'fixed',
+            background: '#ffffcc',
+            width: '350px',
+            zIndex: '999',
+          }}
+          className={classes.root}
+        >
+          <CardContent>
+            <Typography
+              style={{ fontSize: '21px', color: '#595959' }}
+              className={classes.title}
+              color="textSecondary"
+              gutterBottom
+            >
+              Deseja realmente apagar esse Post?
+            </Typography>
+            <Typography variant="h5" component="h2">
+              <BButton
+                style={{ fontSize: '20px', marginRight: '20px' }}
+                size="small"
+                // onClick={() => deletePost()}
+              >
+                SIM
+              </BButton>
+              <BButton style={{ fontSize: '20px' }} size="small" onClick={() => SetButtonFalse()}>
+                NÃO
+              </BButton>
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <BButton style={{ color: '#e60000' }} size="small" onClick={() => SetButtonFalse()}>
+              FECHAR
+            </BButton>
+          </CardActions>
+        </Carder>
+      </>
+    )
   }
 
   useEffect(() => {
@@ -182,7 +291,20 @@ function PostProfile() {
       >
         <NavBar />
 
-        <PostContainer>
+        {buttonopen === true ? (
+          <div
+            style={{
+              display: 'flex',
+              width: '100%',
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginTop: '180px',
+            }}
+          >
+            <SimpleCard />
+          </div>
+        ) : null}
+        <PostContainer style={{ zIndex: '1' }}>
           <h1>POST</h1>
           <Img1 src={post.image} alt="paos" />
 
@@ -211,122 +333,7 @@ function PostProfile() {
               <ViewsContainer>
                 <span>{post.views} visualização</span>
 
-                <Coments>
-                  <div
-                    style={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      width: '17rem',
-                      // background: 'green',
-                    }}
-                  >
-                    <LoginContainer>
-                      <ContainerFom>
-                        <Form onSubmit={createComment}>
-                          <div
-                            style={{
-                              display: 'flex',
-                              width: '100%',
-                              height: '5rem',
-                              // alignItems: 'center',
-                              justifyContent: 'center',
-                              flexDirection: 'column',
-                              marginTop: '36px',
-                            }}
-                          >
-                            <span style={{ marginBottom: '6px' }}>Nome:</span>
-
-                            <Input
-                              type="text"
-                              placeholder="nome"
-                              onChange={(e) => setName(e.target.value)}
-                              value={name}
-                              invalid={true}
-                              // errorMessage="Email inválido"
-                            />
-                          </div>
-                          <div
-                            style={{
-                              display: 'flex',
-                              width: '100%',
-                              height: '5rem',
-                              // alignItems: 'center',
-                              justifyContent: 'center',
-                              flexDirection: 'column',
-                              marginTop: '16px',
-                              marginBottom: '6px',
-                            }}
-                          >
-                            <span style={{ marginBottom: '6px' }}>Comentário:</span>
-                            <Input
-                              type="text"
-                              placeholder="mensagem"
-                              onChange={(e) => setComment(e.target.value)}
-                              value={comment}
-                              invalid={true}
-                              // errorMessage="Email inválido"
-                            />
-                          </div>
-                          {visible === true ? (
-                            <Button type="submit">COMENTAR</Button>
-                          ) : (
-                            <h3>BOTÃO DESABILITADO</h3>
-                          )}
-                        </Form>
-                      </ContainerFom>
-                    </LoginContainer>
-                    <br />
-                    <h3>COMENTÁRIOS</h3>
-                    {comments.map((items) => {
-                      return (
-                        <div key={items.id}>
-                          <div
-                            style={{
-                              display: 'flex',
-                              width: '90%',
-                              flexDirection: 'column',
-                              background: '#ebe99b',
-                              height: 'auto',
-                              marginBottom: '15px',
-                              padding: '18px',
-                              borderRadius: '15px',
-                            }}
-                          >
-                            <span
-                              style={{
-                                fontWeight: 'bold',
-                                color: '#5459ba',
-                                fontSize: '13px',
-                              }}
-                            >
-                              Nome: {items.user_name}
-                            </span>
-                            <span
-                              style={{
-                                fontWeight: 'bold',
-                                color: '#3d43a6',
-                                fontSize: '14px',
-                              }}
-                            >
-                              Comentario: {items.comment}
-                            </span>
-
-                            <span
-                              style={{
-                                fontWeight: 'bold',
-                                color: '#3d43a6',
-                                fontSize: '12px',
-                                marginTop: '5px',
-                              }}
-                            >
-                              {getDateWithoutTime(items.createdAt)}
-                            </span>
-                          </div>
-                        </div>
-                      )
-                    })}
-                  </div>
-                </Coments>
+                <Coments></Coments>
               </ViewsContainer>
               <div
                 style={{
@@ -350,6 +357,136 @@ function PostProfile() {
           </Post1>
           {/* <button onClick={() => handleDeletePost()}>DELETAR POST</button> */}
         </PostContainer>
+
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            width: '17rem',
+            // background: 'green',
+          }}
+        >
+          <LoginContainer>
+            <ContainerFom>
+              <Form onSubmit={createComment}>
+                <div
+                  style={{
+                    display: 'flex',
+                    width: '100%',
+                    height: '5rem',
+                    // alignItems: 'center',
+                    justifyContent: 'center',
+                    flexDirection: 'column',
+                    marginTop: '36px',
+                  }}
+                >
+                  <span style={{ marginBottom: '6px' }}>Nome:</span>
+
+                  <Input
+                    type="text"
+                    placeholder="nome"
+                    onChange={(e) => setName(e.target.value)}
+                    value={name}
+                    invalid={true}
+                    // errorMessage="Email inválido"
+                  />
+                </div>
+                <div
+                  style={{
+                    display: 'flex',
+                    width: '100%',
+                    height: '5rem',
+                    // alignItems: 'center',
+                    justifyContent: 'center',
+                    flexDirection: 'column',
+                    marginTop: '16px',
+                    marginBottom: '6px',
+                  }}
+                >
+                  <span style={{ marginBottom: '6px' }}>Comentário:</span>
+                  <Input
+                    type="text"
+                    placeholder="mensagem"
+                    onChange={(e) => setComment(e.target.value)}
+                    value={comment}
+                    invalid={true}
+                    // errorMessage="Email inválido"
+                  />
+                </div>
+                {visible === true ? (
+                  <Button type="submit">COMENTAR</Button>
+                ) : (
+                  <h3>BOTÃO DESABILITADO</h3>
+                )}
+              </Form>
+            </ContainerFom>
+          </LoginContainer>
+          <br />
+
+          <div
+            style={{
+              display: 'flex',
+              width: '120%',
+              flexDirection: 'column',
+              background: '#f0ee9c',
+              height: 'auto',
+              padding: '18px',
+              borderRadius: '15px',
+            }}
+          >
+            <h3>COMENTÁRIOS</h3>
+            {comments.map((items) => {
+              return (
+                <div key={items.id}>
+                  <div
+                    style={{
+                      display: 'flex',
+                      width: '90%',
+                      flexDirection: 'column',
+                      background: '#ebe99b',
+                      height: 'auto',
+                      marginBottom: '5px',
+                      padding: '18px',
+                      borderRadius: '15px',
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontWeight: 'bold',
+                        color: '#5459ba',
+                        fontSize: '13px',
+                      }}
+                    >
+                      Nome: {items.user_name}
+                    </span>
+                    <span
+                      style={{
+                        fontWeight: 'bold',
+                        color: '#3d43a6',
+                        fontSize: '14px',
+                      }}
+                    >
+                      Comentario: {items.comment}
+                    </span>
+
+                    <span
+                      style={{
+                        fontWeight: 'bold',
+                        color: '#3d43a6',
+                        fontSize: '12px',
+                        marginTop: '5px',
+                      }}
+                    >
+                      {getDateWithoutTime(items.createdAt)}
+                    </span>
+                  </div>
+                </div>
+              )
+            })}
+
+            <Buttons onClick={() => setButtonOpen(true)}>DELETAR POST</Buttons>
+          </div>
+        </div>
       </div>
     </>
   )

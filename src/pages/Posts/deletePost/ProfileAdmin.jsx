@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import { useNavigate } from 'react-router-dom'
 // import { Button } from '../../components/Buttons/styled-button'
 
-import { RxAvatar } from "react-icons/rx";
-import { FaRegHeart } from "react-icons/fa6";
+import { RxAvatar } from 'react-icons/rx'
+import { FaRegHeart } from 'react-icons/fa6'
 import moment from 'moment'
 
 import { makeStyles } from '@material-ui/core/styles'
@@ -24,9 +24,9 @@ import {
   H1,
   ContainerDescription,
   NameContainer,
-} from "./style-delete-post";
+} from './style-delete-post'
 
-import api from "../../../api";
+import api from '../../../api'
 import NavBar from '../../../components/NavBar/NavBar'
 
 export const Container = styled.div`
@@ -50,7 +50,6 @@ export const ContainerP = styled.div`
     width: 100%;
   }
 `
-
 
 export const ContainerLinks = styled.div`
   display: flex;
@@ -80,14 +79,13 @@ export const ContainerButtons = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
- margin-top: 20px;
- margin-bottom: -52px;
+  margin-top: 20px;
+  margin-bottom: -52px;
 
   @media screen and (max-width: 800px) {
     flex-direction: column;
   }
 `
-
 
 export const Buttons = styled.button`
   display: flex;
@@ -102,16 +100,13 @@ export const Buttons = styled.button`
   background: #526958;
   color: #ebeb6c;
   font-size: 15px;
-  border-radius:8px;
+  border-radius: 8px;
   transition: all ease 0.8s;
 
-  &:hover{
+  &:hover {
     background: #77a684;
     color: white;
-
   }
-
-
 
   @media screen and (max-width: 800px) {
     flex-direction: column;
@@ -171,15 +166,12 @@ function ProfileAdmin() {
     // return alert("Olá")
   }
 
-
-
   async function HandleAuth() {
     const id = sessionStorage.getItem('post-id')
 
     const { data } = await api.get(`/get-post/${id}`)
 
     setPost(data)
-
 
     return post
   }
@@ -188,7 +180,6 @@ function ProfileAdmin() {
     const classes = useStyles()
     // eslint-disable-next-line no-unused-vars
     const bull = <span className={classes.bullet}>•</span>
-
 
     return (
       <Carder
@@ -231,97 +222,89 @@ function ProfileAdmin() {
   }, [])
 
   return (
-   <div
-        style={{
-          display: "flex",
-          background: "lightgray",
+    <div
+      style={{
+        display: 'flex',
+        background: 'lightgray',
 
-          flexDirection: "column",
-          width: "100vw",
-          height: "100vh",
-          alignItems: "center",
-          overflowX: "hidden",
-        }}
-      >
-        <NavBar />
+        flexDirection: 'column',
+        width: '100vw',
+        height: '100vh',
+        alignItems: 'center',
+        overflowX: 'hidden',
+      }}
+    >
+      <NavBar />
 
-        {buttonopen === true ? (
-          <div
-            style={{
-              display: 'flex',
-              width: '100%',
-              alignItems: 'center',
-              justifyContent: 'center',
-              marginTop: '180px'
-            }}
-          >
-            <SimpleCard />
+      {buttonopen === true ? (
+        <div
+          style={{
+            display: 'flex',
+            width: '100%',
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginTop: '180px',
+          }}
+        >
+          <SimpleCard />
+        </div>
+      ) : null}
+      <PostContainer>
+        <h1>POST-ADMIN</h1>
+        <Img1 src={post.image} alt="paos" />
+
+        <Post1>
+          <div style={{ display: 'flex' }}>
+            <RxAvatar
+              style={{
+                fontSize: '35px',
+                marginTop: '-1px',
+                color: 'darkblue',
+                paddingBottom: '16px',
+              }}
+            />
+            <NameContainer>
+              <span style={{ marginTop: '-1px' }}>{post.author}</span>
+              <span style={{ marginTop: '-3px' }}>{getDateWithoutTime(post.createdAt)}</span>
+            </NameContainer>
           </div>
-        ) : 
-        null}
-             <PostContainer>
-                <h1>POST-ADMIN</h1>
-                <Img1 src={post.image} alt="paos" />
-
-                <Post1>
-                  <div style={{ display: "flex" }}>
-                    <RxAvatar
-                      style={{
-                        fontSize: "35px",
-                        marginTop: "-1px",
-                        color: "darkblue",
-                        paddingBottom: "16px",
-                      }}
-                    />
-                    <NameContainer>
-                      <span style={{ marginTop: "-1px" }}>{post.author}</span>
-                      <span style={{ marginTop: "-3px" }}>{getDateWithoutTime(post.createdAt)}</span>
-                    </NameContainer>
-                  </div>
-                  <div>
-                    <H1>{post.title}</H1>
-                  </div>
-                  <ContainerDescription>
-                   
-                    <p>{post.text}</p>
-                  </ContainerDescription>
-                  <BottomContainer>
-                    <ViewsContainer>
-                      <span>{post.views} visualização</span>
-                      <Coments> 0 comentário</Coments>
-                    </ViewsContainer>
-                    <div
-                      style={{
-                        display: "flex",
-                        width: "55%",
-                        alignItems: "center",
-                        justifyContent: "flex-end",
-                        marginTop: "12px",
-                      }}
-                    >
-                      <span style={{ fontSize: "16px" }}>{post.likes}</span>
-                      <FaRegHeart
-                        style={{
-                          color: "red",
-                          fontSize: "18px",
-                          marginLeft: "5px",
-                        }}
-                      />
-                    </div>
-                  </BottomContainer>
-                  <ContainerButtons>
-        <Buttons onClick={() => navigate("/update-post")}>EDITAR</Buttons>
-                <Buttons onClick={() => CardButton(post.id)}>DELETAR POST</Buttons>
-
-      
-      </ContainerButtons>
-                </Post1>
-              </PostContainer>
-
-     
-      
+          <div>
+            <H1>{post.title}</H1>
+          </div>
+          <ContainerDescription>
+            <p>{post.text}</p>
+          </ContainerDescription>
+          <BottomContainer>
+            <ViewsContainer>
+              <span>{post.views} visualização</span>
+              <Coments> 0 comentário</Coments>
+            </ViewsContainer>
+            <div
+              style={{
+                display: 'flex',
+                width: '55%',
+                alignItems: 'center',
+                justifyContent: 'flex-end',
+                marginTop: '12px',
+              }}
+            >
+              <span style={{ fontSize: '16px' }}>{post.likes}</span>
+              <FaRegHeart
+                style={{
+                  color: 'red',
+                  fontSize: '18px',
+                  marginLeft: '5px',
+                }}
+              />
+            </div>
+          </BottomContainer>
+          <ContainerButtons>
+            <Buttons onClick={() => navigate('/update-post')}>EDITAR</Buttons>
+            <Buttons onClick={() => CardButton(post.id)}>DELETAR POST</Buttons>
+          </ContainerButtons>
+        </Post1>
+      </PostContainer>
     </div>
-
   )
 }
 
