@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import NavBar from '../../components/NavBar/NavBar'
 import api from '../../api'
 // import {  useNavigate } from "react-router-dom";
@@ -18,6 +18,7 @@ import { FaRegHeart } from 'react-icons/fa6'
 import moment from 'moment'
 import styled from 'styled-components'
 import { Input } from '../../components/Input'
+import { userContext } from '../../Contexts/userContext'
 
 const Button = styled.button`
   display: flex;
@@ -94,7 +95,8 @@ function PostProfile() {
   const [comments, setComments] = useState([])
   const [name, setName] = useState('')
   const [comment, setComment] = useState('')
-  const [visible, setVisible] = useState(true)
+
+  const { visible, setVisible } = useContext(userContext)
 
   // const navigate = useNavigate()
 
@@ -150,8 +152,6 @@ function PostProfile() {
       setComment('')
 
       setVisible(false)
-
-      localStorage.setItem('visible', false)
 
       return console.log('Comentário com sucesso!')
     } catch (error) {
@@ -282,10 +282,10 @@ function PostProfile() {
                               // errorMessage="Email inválido"
                             />
                           </div>
-                          {visible === false ? (
-                            <h3>BOTÃO DESABILITADO</h3>
-                          ) : (
+                          {visible === true ? (
                             <Button type="submit">COMENTAR</Button>
+                          ) : (
+                            <h3>BOTÃO DESABILITADO</h3>
                           )}
                         </Form>
                       </ContainerFom>
