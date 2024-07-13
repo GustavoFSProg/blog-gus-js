@@ -98,13 +98,6 @@ function PostProfile() {
 
   const { visible, setVisible } = useContext(userContext)
 
-  // const navigate = useNavigate()
-
-  // function handleDeletePost(){
-
-  //   navigate("/delete-post")
-  // }
-
   function getDateWithoutTime(date) {
     return moment(date).format('DD-MM-YYYY')
   }
@@ -122,15 +115,6 @@ function PostProfile() {
       }
 
       setPost(data)
-
-      //   if (!data.data) {
-      //     return alert("Erro no profile preencha os campos!!");
-      //   } else {
-
-      //     // sessionStorage.setItem('token', data.token)
-
-      //             // return alert("Login  realizado com sucesso!");
-      //   }
     } catch (error) {
       return alert(`Erro no Login ${error}`)
     }
@@ -152,7 +136,7 @@ function PostProfile() {
       setComment('')
 
       setVisible(false)
-      localStorage.setItem('abled', false)
+      // localStorage.setItem('abled', false)
 
       return console.log('Comentário com sucesso!')
     } catch (error) {
@@ -170,7 +154,7 @@ function PostProfile() {
 
       setComments(data)
 
-      console.log(comments)
+      // console.log(comments)
 
       return comments
     } catch (error) {
@@ -325,6 +309,17 @@ function PostProfile() {
                               }}
                             >
                               Comentario: {items.comment}
+                            </span>
+
+                            <span
+                              style={{
+                                fontWeight: 'bold',
+                                color: '#3d43a6',
+                                fontSize: '12px',
+                                marginTop: '5px',
+                              }}
+                            >
+                              {getDateWithoutTime(items.createdAt)}
                             </span>
                           </div>
                         </div>
