@@ -26,7 +26,7 @@ import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 import BButton from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 
 const useStyles = makeStyles({
   root: {
@@ -60,6 +60,7 @@ export const Buttons = styled.button`
   font-size: 15px;
   border-radius: 8px;
   transition: all ease 0.8s;
+  z-index: 10;
 
   &:hover {
     background: #77a684;
@@ -100,11 +101,12 @@ const Button = styled.button`
 
 const Form = styled.form`
   display: flex;
-  width: 100%;
+  width: 58%;
   height: auto;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-top: 30px;
 
   @media screen and (max-width: 800px) {
     width: 72vw;
@@ -221,6 +223,11 @@ function PostProfile() {
     }
   }
 
+  function handleSetButtonTrue() {
+    setButtonOpen(true)
+    // SetButtonFalse(false)
+  }
+
   function SimpleCard() {
     const classes = useStyles()
     // eslint-disable-next-line no-unused-vars
@@ -260,7 +267,7 @@ function PostProfile() {
               </BButton>
             </Typography>
             {/* <Typography variant="h5" component="h2"> */}
-            <LoginContainer>
+            {/* <LoginContainer>
               <ContainerFom>
                 <Form onSubmit={createComment}>
                   <div
@@ -314,7 +321,7 @@ function PostProfile() {
                   )}
                 </Form>
               </ContainerFom>
-            </LoginContainer>
+            </LoginContainer> */}
             {/* </Typography> */}
 
             <Typography variant="h5" component="h2">
@@ -470,7 +477,7 @@ function PostProfile() {
                 />
               </div>
             </BottomContainer>
-            <Buttons onClick={() => setButtonOpen(true)}>COMENTÁRIOS</Buttons>
+            {/* <Buttons onClick={() => setButtonOpen(true)}>COMENTÁRIOS</Buttons> */}
           </Post1>
           <LoginContainer>
             <ContainerFom>
@@ -490,7 +497,7 @@ function PostProfile() {
 
                   <Input
                     type="text"
-                    placeholder="nome"
+                    // placeholder="nome"
                     onChange={(e) => setName(e.target.value)}
                     value={name}
                     invalid={true}
@@ -512,7 +519,7 @@ function PostProfile() {
                   <span style={{ marginBottom: '6px' }}>Comentário:</span>
                   <Input
                     type="text"
-                    placeholder="mensagem"
+                    // placeholder="mensagem"
                     onChange={(e) => setComment(e.target.value)}
                     value={comment}
                     invalid={true}
@@ -527,6 +534,11 @@ function PostProfile() {
               </Form>
             </ContainerFom>
           </LoginContainer>
+          <br />
+          <br />
+          <Buttons onClick={handleSetButtonTrue}>COMENTÁRIOS</Buttons>
+          <br />
+
           {buttonopen === true ? (
             <div
               style={{
@@ -534,13 +546,11 @@ function PostProfile() {
                 width: '100%',
                 alignItems: 'center',
                 justifyContent: 'center',
-                // marginTop: '180px',
               }}
             >
               <SimpleCard />
             </div>
           ) : null}
-          {/* <button onClick={() => handleDeletePost()}>DELETAR POST</button> */}
         </PostContainer>
 
         <div
@@ -548,7 +558,6 @@ function PostProfile() {
             display: 'flex',
             flexDirection: 'column',
             width: '17rem',
-            // background: 'green',
           }}
         >
           <br />
