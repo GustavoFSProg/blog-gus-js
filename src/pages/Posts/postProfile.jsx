@@ -121,7 +121,7 @@ const LoginContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   color: black;
-  margin-top: -120px;
+  /* margin-top: -120px; */
 
   @media screen and (max-width: 800px) {
     margin-top: 20px;
@@ -130,7 +130,7 @@ const LoginContainer = styled.div`
 
 const ContainerFom = styled.div`
   display: flex;
-  width: 100%;
+  width: 71%;
   height: auto;
   align-items: center;
   justify-content: center;
@@ -200,7 +200,7 @@ function PostProfile() {
   }
 
   function SetButtonFalse() {
-    setButtonOpen(false)
+    return setButtonOpen(false)
   }
 
   async function getComments() {
@@ -229,13 +229,13 @@ function PostProfile() {
     return (
       <>
         <br />
-
         <Carder
           style={{
-            position: 'fixed',
+            // position: 'absolute',
             background: '#ffffcc',
-            width: '350px',
+            width: '50%',
             zIndex: '999',
+            height: 'auto',
           }}
           className={classes.root}
         >
@@ -246,26 +246,155 @@ function PostProfile() {
               color="textSecondary"
               gutterBottom
             >
-              Deseja realmente apagar esse Post?
-            </Typography>
-            <Typography variant="h5" component="h2">
               <BButton
-                style={{ fontSize: '20px', marginRight: '20px' }}
+                style={{
+                  color: '#e60000',
+                  height: '2.2rem',
+                  background: 'green',
+                  cursor: 'pointer',
+                }}
                 size="small"
-                // onClick={() => deletePost()}
+                onClick={SetButtonFalse}
               >
-                SIM
-              </BButton>
-              <BButton style={{ fontSize: '20px' }} size="small" onClick={() => SetButtonFalse()}>
-                NÃO
+                FECHAR
               </BButton>
             </Typography>
+            {/* <Typography variant="h5" component="h2"> */}
+            <LoginContainer>
+              <ContainerFom>
+                <Form onSubmit={createComment}>
+                  <div
+                    style={{
+                      display: 'flex',
+                      width: '100%',
+                      height: '5rem',
+                      // alignItems: 'center',
+                      justifyContent: 'center',
+                      flexDirection: 'column',
+                      marginTop: '36px',
+                    }}
+                  >
+                    <span style={{ marginBottom: '6px' }}>Nome:</span>
+
+                    <Input
+                      type="text"
+                      placeholder="nome"
+                      onChange={(e) => setName(e.target.value)}
+                      value={name}
+                      invalid={true}
+                      // errorMessage="Email inválido"
+                    />
+                  </div>
+                  <div
+                    style={{
+                      display: 'flex',
+                      width: '100%',
+                      height: '5rem',
+                      // alignItems: 'center',
+                      justifyContent: 'center',
+                      flexDirection: 'column',
+                      marginTop: '16px',
+                      marginBottom: '6px',
+                    }}
+                  >
+                    <span style={{ marginBottom: '6px' }}>Comentário:</span>
+                    <Input
+                      type="text"
+                      placeholder="mensagem"
+                      onChange={(e) => setComment(e.target.value)}
+                      value={comment}
+                      invalid={true}
+                      // errorMessage="Email inválido"
+                    />
+                  </div>
+                  {visible === true ? (
+                    <Button type="submit">COMENTAR</Button>
+                  ) : (
+                    <h3>BOTÃO DESABILITADO</h3>
+                  )}
+                </Form>
+              </ContainerFom>
+            </LoginContainer>
+            {/* </Typography> */}
+
+            <Typography variant="h5" component="h2">
+              <div
+                style={{
+                  display: 'flex',
+                  width: '120%',
+                  flexDirection: 'column',
+                  background: '#f0ee9c',
+                  height: 'auto',
+                  padding: '18px',
+                  borderRadius: '15px',
+                }}
+              >
+                <h3>COMENTÁRIOS</h3>
+                {comments.map((items) => {
+                  return (
+                    <div key={items.id}>
+                      <div
+                        style={{
+                          display: 'flex',
+                          width: '90%',
+                          flexDirection: 'column',
+                          background: '#ebe99b',
+                          height: 'auto',
+                          marginBottom: '5px',
+                          padding: '18px',
+                          borderRadius: '15px',
+                        }}
+                      >
+                        <span
+                          style={{
+                            fontWeight: 'bold',
+                            color: '#5459ba',
+                            fontSize: '13px',
+                          }}
+                        >
+                          Nome: {items.user_name}
+                        </span>
+                        <span
+                          style={{
+                            fontWeight: 'bold',
+                            color: '#3d43a6',
+                            fontSize: '14px',
+                          }}
+                        >
+                          Comentario: {items.comment}
+                        </span>
+
+                        <span
+                          style={{
+                            fontWeight: 'bold',
+                            color: '#3d43a6',
+                            fontSize: '12px',
+                            marginTop: '5px',
+                          }}
+                        >
+                          {getDateWithoutTime(items.createdAt)}
+                        </span>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            </Typography>
+            <CardActions>
+              <BButton
+                style={{
+                  color: '#e60000',
+                  height: '2.2rem',
+                  background: 'green',
+                  cursor: 'pointer',
+                }}
+                size="small"
+                onClick={SetButtonFalse}
+              >
+                FECHAR
+              </BButton>
+            </CardActions>
           </CardContent>
-          <CardActions>
-            <BButton style={{ color: '#e60000' }} size="small" onClick={() => SetButtonFalse()}>
-              FECHAR
-            </BButton>
-          </CardActions>
         </Carder>
       </>
     )
@@ -291,25 +420,12 @@ function PostProfile() {
       >
         <NavBar />
 
-        {buttonopen === true ? (
-          <div
-            style={{
-              display: 'flex',
-              width: '100%',
-              alignItems: 'center',
-              justifyContent: 'center',
-              marginTop: '180px',
-            }}
-          >
-            <SimpleCard />
-          </div>
-        ) : null}
         <PostContainer style={{ zIndex: '1' }}>
           <h1>POST</h1>
           <Img1 src={post.image} alt="paos" />
 
           <Post1>
-            <div style={{ display: 'flex' }}>
+            <div style={{ display: 'flex', zIndex: '1' }}>
               <RxAvatar
                 style={{
                   fontSize: '35px',
@@ -354,18 +470,8 @@ function PostProfile() {
                 />
               </div>
             </BottomContainer>
+            <Buttons onClick={() => setButtonOpen(true)}>COMENTÁRIOS</Buttons>
           </Post1>
-          {/* <button onClick={() => handleDeletePost()}>DELETAR POST</button> */}
-        </PostContainer>
-
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            width: '17rem',
-            // background: 'green',
-          }}
-        >
           <LoginContainer>
             <ContainerFom>
               <Form onSubmit={createComment}>
@@ -421,71 +527,31 @@ function PostProfile() {
               </Form>
             </ContainerFom>
           </LoginContainer>
+          {buttonopen === true ? (
+            <div
+              style={{
+                display: 'flex',
+                width: '100%',
+                alignItems: 'center',
+                justifyContent: 'center',
+                // marginTop: '180px',
+              }}
+            >
+              <SimpleCard />
+            </div>
+          ) : null}
+          {/* <button onClick={() => handleDeletePost()}>DELETAR POST</button> */}
+        </PostContainer>
+
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            width: '17rem',
+            // background: 'green',
+          }}
+        >
           <br />
-
-          <div
-            style={{
-              display: 'flex',
-              width: '120%',
-              flexDirection: 'column',
-              background: '#f0ee9c',
-              height: 'auto',
-              padding: '18px',
-              borderRadius: '15px',
-            }}
-          >
-            <h3>COMENTÁRIOS</h3>
-            {comments.map((items) => {
-              return (
-                <div key={items.id}>
-                  <div
-                    style={{
-                      display: 'flex',
-                      width: '90%',
-                      flexDirection: 'column',
-                      background: '#ebe99b',
-                      height: 'auto',
-                      marginBottom: '5px',
-                      padding: '18px',
-                      borderRadius: '15px',
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontWeight: 'bold',
-                        color: '#5459ba',
-                        fontSize: '13px',
-                      }}
-                    >
-                      Nome: {items.user_name}
-                    </span>
-                    <span
-                      style={{
-                        fontWeight: 'bold',
-                        color: '#3d43a6',
-                        fontSize: '14px',
-                      }}
-                    >
-                      Comentario: {items.comment}
-                    </span>
-
-                    <span
-                      style={{
-                        fontWeight: 'bold',
-                        color: '#3d43a6',
-                        fontSize: '12px',
-                        marginTop: '5px',
-                      }}
-                    >
-                      {getDateWithoutTime(items.createdAt)}
-                    </span>
-                  </div>
-                </div>
-              )
-            })}
-
-            <Buttons onClick={() => setButtonOpen(true)}>DELETAR POST</Buttons>
-          </div>
         </div>
       </div>
     </>
