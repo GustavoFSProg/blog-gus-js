@@ -253,7 +253,7 @@ function PostProfile() {
               color="textSecondary"
               gutterBottom
             >
-              <BButton
+              {/* <BButton
                 style={{
                   color: '#e60000',
                   height: '2.2rem',
@@ -264,7 +264,7 @@ function PostProfile() {
                 onClick={SetButtonFalse}
               >
                 FECHAR
-              </BButton>
+              </BButton> */}
             </Typography>
             {/* <Typography variant="h5" component="h2"> */}
             {/* <LoginContainer>
