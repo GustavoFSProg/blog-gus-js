@@ -13,13 +13,39 @@ import {
 // import paos from "../../assets/paos.png";
 import { RxAvatar } from "react-icons/rx";
 import { FaRegHeart } from "react-icons/fa6";
+import api from "../../api";
+import { useNavigate } from "react-router-dom";
 
-function PostCard({title, author, image, date, description, likes, views}) {
+function PostCard({title, id, author, image, date, description, likes, views}) {
+
+  const navigate = useNavigate()
+
+
+  async function Likes(id){
+    await api.put(`/likes/${id}`)
+
+  }
+
+
+  function getProfile(id){
+    sessionStorage.setItem('post-id', id)
+
+    navigate("/profile")
+
+
+  }
 
   return (
     <>
       <PostContainer>
+       <div  onClick={() => getProfile(id)} 
+         style={{cursor: 'pointer', width: '100%',
+         }} >
+
         <Img1 src={image} alt="paos" />
+
+        </div>
+
 
         <Post1>
           <div style={{ display: "flex" }}>
@@ -65,6 +91,7 @@ function PostCard({title, author, image, date, description, likes, views}) {
             >
               <span style={{ fontSize: "16px" }}>{likes}</span>
               <FaRegHeart
+              onClick={() => Likes(id)}
                 style={{
                   color: "red",
                   fontSize: "18px",

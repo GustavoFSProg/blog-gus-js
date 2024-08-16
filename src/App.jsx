@@ -52,13 +52,13 @@ function App() {
     return moment(date).format('DD-MM-YYYY')
   }
 
-  function getProfile(id){
-    sessionStorage.setItem('post-id', id)
+  // function getProfile(id){
+  //   sessionStorage.setItem('post-id', id)
 
-    navigate("/profile")
+  //   navigate("/profile")
 
 
-  }
+  // }
 
   useEffect(() => {
     getPosts()
@@ -75,9 +75,13 @@ function App() {
 
         {posts.map((items) => {
           return (
-            <div key={items.id} onClick={() => getProfile(items.id)}
-             style={{cursor: 'pointer'}}
-            >
+            // <div key={items.id} onClick={() => getProfile(items.id)}
+            //  style={{cursor: 'pointer'}}
+            // >
+                <div key={items.id}
+             style={{cursor: 'pointer'}} >
+
+            
             <PostCard
             title={items.title}
             author={items.author}
@@ -86,6 +90,7 @@ function App() {
             views={items.views}
             likes={items.likes}
             image={items.image}
+            id={items.id}
             />
             </div>
           )
