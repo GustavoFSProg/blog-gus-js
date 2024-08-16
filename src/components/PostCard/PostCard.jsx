@@ -24,6 +24,8 @@ function PostCard({title, id, author, image, date, description, likes, views}) {
   async function Likes(id){
     await api.put(`/likes/${id}`)
 
+    location.reload()
+
   }
 
 
