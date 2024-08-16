@@ -406,19 +406,20 @@ function PostProfile() {
               >
                 FECHAR
               </BButton> */}
+             
+
                 <button
                 style={{
                   color: 'yellow',
-                  // paddding: '22px',
-                  // height: '2.2rem',
+                  paddding: '22px',
                   background: 'green',
                   cursor: 'pointer',
-                  // width: '100%',
+                  width: '20%',
                   borderRadius: '5px'
                 }}
                 // size="small"
                 onClick={() => SetButtonFalse()}
-              >
+                >
                 <p style={{marginLeft: '7px', marginRight: '7px'}}>
                 FECHAR
                 </p>
