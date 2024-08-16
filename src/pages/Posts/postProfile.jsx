@@ -201,9 +201,9 @@ function PostProfile() {
     }
   }
 
-  function SetButtonFalse() {
-    return setButtonOpen(false)
-  }
+  // function SetButtonFalse() {
+  //   return setButtonOpen(false)
+  // }
 
   async function getComments() {
     try {
@@ -230,6 +230,10 @@ function PostProfile() {
 
   function SimpleCard() {
     const classes = useStyles()
+
+    function SetButtonFalse() {
+      return setButtonOpen(false)
+    }
     // eslint-disable-next-line no-unused-vars
     const bull = <span className={classes.bullet}>•</span>
 
@@ -388,18 +392,38 @@ function PostProfile() {
               </div>
             </Typography>
             <CardActions>
-              <BButton
+              {/* <BButton
                 style={{
                   color: '#e60000',
-                  height: '2.2rem',
+                  // paddding: '2px',
+                  // height: '2.2rem',
                   background: 'green',
                   cursor: 'pointer',
+                  // width: '100%',
                 }}
                 size="small"
-                onClick={SetButtonFalse}
+                onClick={() => SetButtonFalse()}
               >
                 FECHAR
-              </BButton>
+              </BButton> */}
+                <button
+                style={{
+                  color: 'yellow',
+                  // paddding: '22px',
+                  // height: '2.2rem',
+                  background: 'green',
+                  cursor: 'pointer',
+                  // width: '100%',
+                  borderRadius: '5px'
+                }}
+                // size="small"
+                onClick={() => SetButtonFalse()}
+              >
+                <p style={{marginLeft: '7px', marginRight: '7px'}}>
+                FECHAR
+                </p>
+
+              </button>
             </CardActions>
           </CardContent>
         </Carder>
