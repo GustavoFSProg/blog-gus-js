@@ -15,6 +15,7 @@ export const PostContainer = styled.div`
   @media screen and (max-width: 800px) {
     flex-direction: column;
     /* margin-left: -120px; */
+
   }
 `
 
@@ -30,7 +31,7 @@ export const Post1 = styled.div`
   flex-direction: column;
 
   @media screen and (max-width: 800px) {
-    width: 122%;
+    width: 98%;
   }
 `
 
