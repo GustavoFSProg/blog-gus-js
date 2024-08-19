@@ -59,14 +59,11 @@ const [reload, setReload] = useState("")
 
   return (
     <>
-      <PostContainer>
-       <div  onClick={() => getProfile(id)} 
-         style={{cursor: 'pointer', width: '100%',
-         }} >
-
+      <PostContainer onClick={() => getProfile(id)}>
+     
         <Img1 src={image} alt="paos" />
 
-        </div>
+       
 
 
         <Post1>
@@ -90,11 +87,7 @@ const [reload, setReload] = useState("")
           <ContainerDescription
          
           >
-            {/* <p>
-              Crie um subtítulo para o post no blog que resume numa frase curta
-              e atraente o seu post. Assim seus leitores vão querer continuar a
-              ler....
-            </p> */}
+            
             <p>{description}</p>
           </ContainerDescription>
           <BottomContainer>
@@ -123,6 +116,7 @@ const [reload, setReload] = useState("")
             </div>
           </BottomContainer>
         </Post1>
+
       </PostContainer>
     </>
   );
