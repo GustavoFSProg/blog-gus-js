@@ -12,6 +12,7 @@ import UpdateComponent from './pages/Posts/UpdateComponent';
 import MainPosts from './pages/Posts/mainPosts';
 import MainPostsPainel from './pages/Posts/mainPostsPainel';
 import RegisterUser from './pages/Users/RegisterUser';
+import ChangePassword from './pages/Users/ChangePassword';
 
 function Routers() {
     return (
@@ -31,6 +32,7 @@ function Routers() {
             <Route path="/main-posts-painel"  element={<MainPostsPainel />}/>
             <Route path="/main-posts"  element={<MainPosts />}/>
             <Route path="/register-user"  element={<RegisterUser />}/>
+            <Route path="/new-password"  element={<ChangePassword />}/>
 
          </Routes>
        </BrowserRouter>

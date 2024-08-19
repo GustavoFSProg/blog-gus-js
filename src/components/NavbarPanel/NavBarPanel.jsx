@@ -32,10 +32,10 @@ function NavBarPanel() {
           </Link>
         </span>
         <span>
-          <Link to="/update-post"
+          <Link to="/new-password"
           style={{textDecoration: 'none', }}
           >
-            UPDATE POST
+            NOVA SENHA
           </Link>
         </span>
         <span>
