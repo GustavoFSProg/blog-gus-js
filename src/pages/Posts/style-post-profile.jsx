@@ -31,7 +31,7 @@ export const Post1 = styled.div`
   flex-direction: column;
 
   @media screen and (max-width: 800px) {
-    width: 90%;
+    width: 84%;
   }
 `
 
