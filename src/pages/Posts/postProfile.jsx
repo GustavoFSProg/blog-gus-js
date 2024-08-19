@@ -151,6 +151,9 @@ function PostProfile() {
   const [comment, setComment] = useState('')
   const [buttonopen, setButtonOpen] = useState(false)
 
+  const [likesOpen, setLikesOpen] = useState(false)
+
+
   const { visible, setVisible } = useContext(userContext)
 
   // const navigate = useNavigate()
@@ -228,6 +231,20 @@ function PostProfile() {
     // SetButtonFalse(false)
   }
 
+
+  async function Likes(id){
+    await api.put(`/likes/${id}`)
+
+
+    setLikesOpen(true)
+
+    // navigate("/")
+
+
+    // location.reload()
+
+  }
+
   function SimpleCard() {
     const classes = useStyles()
 
@@ -257,76 +274,9 @@ function PostProfile() {
               color="textSecondary"
               gutterBottom
             >
-              {/* <BButton
-                style={{
-                  color: '#e60000',
-                  height: '2.2rem',
-                  background: 'green',
-                  cursor: 'pointer',
-                }}
-                size="small"
-                onClick={SetButtonFalse}
-              >
-                FECHAR
-              </BButton> */}
+             
             </Typography>
-            {/* <Typography variant="h5" component="h2"> */}
-            {/* <LoginContainer>
-              <ContainerFom>
-                <Form onSubmit={createComment}>
-                  <div
-                    style={{
-                      display: 'flex',
-                      width: '100%',
-                      height: '5rem',
-                      // alignItems: 'center',
-                      justifyContent: 'center',
-                      flexDirection: 'column',
-                      marginTop: '36px',
-                    }}
-                  >
-                    <span style={{ marginBottom: '6px' }}>Nome:</span>
-
-                    <Input
-                      type="text"
-                      placeholder="nome"
-                      onChange={(e) => setName(e.target.value)}
-                      value={name}
-                      invalid={true}
-                      // errorMessage="Email inválido"
-                    />
-                  </div>
-                  <div
-                    style={{
-                      display: 'flex',
-                      width: '100%',
-                      height: '5rem',
-                      // alignItems: 'center',
-                      justifyContent: 'center',
-                      flexDirection: 'column',
-                      marginTop: '16px',
-                      marginBottom: '6px',
-                    }}
-                  >
-                    <span style={{ marginBottom: '6px' }}>Comentário:</span>
-                    <Input
-                      type="text"
-                      placeholder="mensagem"
-                      onChange={(e) => setComment(e.target.value)}
-                      value={comment}
-                      invalid={true}
-                      // errorMessage="Email inválido"
-                    />
-                  </div>
-                  {visible === true ? (
-                    <Button type="submit">COMENTAR</Button>
-                  ) : (
-                    <h3>BOTÃO DESABILITADO</h3>
-                  )}
-                </Form>
-              </ContainerFom>
-            </LoginContainer> */}
-            {/* </Typography> */}
+         
 
             <Typography variant="h5" component="h2">
               <div
@@ -392,20 +342,7 @@ function PostProfile() {
               </div>
             </Typography>
             <CardActions>
-              {/* <BButton
-                style={{
-                  color: '#e60000',
-                  // paddding: '2px',
-                  // height: '2.2rem',
-                  background: 'green',
-                  cursor: 'pointer',
-                  // width: '100%',
-                }}
-                size="small"
-                onClick={() => SetButtonFalse()}
-              >
-                FECHAR
-              </BButton> */}
+            
              
 
                 <button
@@ -492,14 +429,64 @@ function PostProfile() {
                   marginTop: '12px',
                 }}
               >
-                <span style={{ fontSize: '16px' }}>{post.likes}</span>
-                <FaRegHeart
+
+              {likesOpen === true ? (
+                <div
                   style={{
-                    color: 'red',
-                    fontSize: '18px',
-                    marginLeft: '5px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    marginLeft: '8px',
                   }}
-                />
+                >
+                  <button
+                  style={{ background: 'none', border: 'none' }} disabled>
+                  <FaRegHeart
+                 
+                    style={{
+                      color: 'gray',
+                      fontSize: '18px',
+                      marginLeft: '5px',
+                    }}
+
+                  />
+
+                   
+                  </button>
+                </div>
+              ) : (
+                <button
+                  style={{ background: 'none', border: 'none' }}
+                  onClick={() => Likes(post.id)}
+                >
+                  <FaRegHeart
+                    style={{
+                      color: 'red',
+                      fontSize: '18px',
+                      marginLeft: '5px',
+                      cursor: 'pointer'
+
+                    }}
+                  />
+                </button>
+              )}
+              {/* {posts.likes} */}
+
+                <span style={{ fontSize: '16px' }}>{post.likes}</span>
+                {/* {likesOpen ? <FaRegHeart
+                visible="none"
+                // display="none"
+                /> :  */}
+                  {/* <FaRegHeart
+                  onClick={() => Likes(post.id)}
+                    style={{
+                      color: 'red',
+                      fontSize: '18px',
+                      marginLeft: '5px',
+                      cursor: 'pointer'
+                    }}
+                  /> */}
+                {/* } */}
+              
               </div>
             </BottomContainer>
             {/* <Buttons onClick={() => setButtonOpen(true)}>COMENTÁRIOS</Buttons> */}

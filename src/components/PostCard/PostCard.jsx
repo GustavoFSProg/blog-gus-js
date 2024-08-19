@@ -15,18 +15,25 @@ import { RxAvatar } from "react-icons/rx";
 import { FaRegHeart } from "react-icons/fa6";
 import api from "../../api";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 function PostCard({title, id, author, image, date, description, likes, views}) {
+const [reload, setReload] = useState("")
 
   const navigate = useNavigate()
 
 
-  async function Likes(id){
-    await api.put(`/likes/${id}`)
+  // async function Likes(id){
+  //   await api.put(`/likes/${id}`)
 
-    location.reload()
+  //   setReload(id)
 
-  }
+  //   // navigate("/")
+
+
+  //   location.reload()
+
+  // }
 
 
   function getProfile(id){
@@ -36,6 +43,19 @@ function PostCard({title, id, author, image, date, description, likes, views}) {
 
 
   }
+
+
+  // function handleMain(){
+  //   // sessionStorage.setItem('post-id', id)
+
+  //   navigate("/")
+
+
+  // }
+
+  // useEffect(() => {
+  //   handleMain()
+  // },[reload])
 
   return (
     <>
@@ -93,7 +113,7 @@ function PostCard({title, id, author, image, date, description, likes, views}) {
             >
               <span style={{ fontSize: "16px" }}>{likes}</span>
               <FaRegHeart
-              onClick={() => Likes(id)}
+              // onClick={() => Likes(id)}
                 style={{
                   color: "red",
                   fontSize: "18px",
