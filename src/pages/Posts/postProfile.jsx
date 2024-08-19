@@ -142,7 +142,18 @@ const ContainerFom = styled.div`
     margin-top: 50px;
   }
 `
-// import { useNavigate } from "react-router-dom";
+ const CloseButton = styled.button` 
+                  color: yellow;
+                  /* padding: 22px; */
+                  background: green;
+                  cursor: pointer;
+                  width: 20%;
+                  border-radius: 5px;
+
+                  @media screen and (max-width: 800px){
+                    width: 100%;
+                  }
+ `
 
 function PostProfile() {
   const [post, setPost] = useState({})
@@ -313,7 +324,7 @@ function PostProfile() {
                             fontSize: '13px',
                           }}
                         >
-                          Nome: {items.user_name}
+                          {items.user_name}
                         </span>
                         <span
                           style={{
@@ -322,7 +333,7 @@ function PostProfile() {
                             fontSize: '14px',
                           }}
                         >
-                          Comentario: {items.comment}
+                         {items.comment}
                         </span>
 
                         <span
@@ -345,23 +356,15 @@ function PostProfile() {
             
              
 
-                <button
-                style={{
-                  color: 'yellow',
-                  paddding: '22px',
-                  background: 'green',
-                  cursor: 'pointer',
-                  width: '20%',
-                  borderRadius: '5px'
-                }}
-                // size="small"
+                <CloseButton
+              
                 onClick={() => SetButtonFalse()}
                 >
                 <p style={{marginLeft: '7px', marginRight: '7px'}}>
                 FECHAR
                 </p>
 
-              </button>
+              </CloseButton>
             </CardActions>
           </CardContent>
         </Carder>
@@ -472,20 +475,7 @@ function PostProfile() {
               {/* {posts.likes} */}
 
                 <span style={{ fontSize: '16px' }}>{post.likes}</span>
-                {/* {likesOpen ? <FaRegHeart
-                visible="none"
-                // display="none"
-                /> :  */}
-                  {/* <FaRegHeart
-                  onClick={() => Likes(post.id)}
-                    style={{
-                      color: 'red',
-                      fontSize: '18px',
-                      marginLeft: '5px',
-                      cursor: 'pointer'
-                    }}
-                  /> */}
-                {/* } */}
+          
               
               </div>
             </BottomContainer>
