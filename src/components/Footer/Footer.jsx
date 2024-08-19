@@ -11,7 +11,8 @@ export const ContainerFooter = styled.div`
   display: flex;
   width: 100%;
   height: auto;
-  padding: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   align-items: center;
   justify-content: center;
 
