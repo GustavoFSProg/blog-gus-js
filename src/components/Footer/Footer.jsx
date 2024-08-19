@@ -17,13 +17,8 @@ export const ContainerFooter = styled.div`
   justify-content: center;
 
   background: #37383b;
-  /* color: #999291; */
   color: #827b7a;
 
-/* 
-  @media screen and (max-width: 900px) {
-   
-  } */
   `
 
 

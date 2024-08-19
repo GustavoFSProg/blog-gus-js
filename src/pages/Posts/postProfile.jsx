@@ -291,7 +291,7 @@ function PostProfile() {
                   borderRadius: "15px",
                 }}
               >
-                <h3>COMENTÁRIOS</h3>
+                <h4>COMENTÁRIOS</h4>
                 {comments.map((items) => {
                   return (
                     <div key={items.id}>
@@ -321,6 +321,7 @@ function PostProfile() {
                             fontWeight: "bold",
                             color: "#3d43a6",
                             fontSize: "14px",
+                            width: '74%'
                           }}
                         >
                           {items.comment}
