@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import api from "./api";
 import moment from 'moment'
 import { useNavigate } from "react-router-dom";
+import Footer from "./components/Footer/Footer";
 // import { userContext } from "./Contexts/userContext";
 
 
@@ -20,7 +21,12 @@ const AppContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 100px;
+  padding-bottom: 380px;
+
+  @media screen and (max-width: 800px){
+  padding-bottom: 220px;
+
+  }
 `;
 
 const ImageTopo = styled.img`
@@ -108,7 +114,10 @@ function App() {
             likes="10"
             image={paos}
           /> */}
+          <br/>
+         
       </AppContainer>
+          <Footer />
     </>
   );
 }

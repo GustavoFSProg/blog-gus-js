@@ -26,6 +26,7 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import BButton from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import Footer from "../../components/Footer/Footer";
 // import { useNavigate } from 'react-router-dom'
 
 const useStyles = makeStyles({
@@ -564,6 +565,7 @@ function PostProfile() {
           <br />
         </div>
       </div>
+      <Footer />
     </>
   );
 }
