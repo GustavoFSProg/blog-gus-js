@@ -1,6 +1,6 @@
-import { useContext, useEffect, useState } from 'react'
-import NavBar from '../../components/NavBar/NavBar'
-import api from '../../api'
+import { useContext, useEffect, useState } from "react";
+import NavBar from "../../components/NavBar/NavBar";
+import api from "../../api";
 // import {  useNavigate } from "react-router-dom";
 import {
   PostContainer,
@@ -12,20 +12,20 @@ import {
   H1,
   ContainerDescription,
   NameContainer,
-} from './style-post-profile'
-import { RxAvatar } from 'react-icons/rx'
-import { FaRegHeart } from 'react-icons/fa6'
-import moment from 'moment'
-import styled from 'styled-components'
-import { Input } from '../../components/Input'
-import { userContext } from '../../Contexts/userContext'
+} from "./style-post-profile";
+import { RxAvatar } from "react-icons/rx";
+import { FaRegHeart } from "react-icons/fa6";
+import moment from "moment";
+import styled from "styled-components";
+import { Input } from "../../components/Input";
+import { userContext } from "../../Contexts/userContext";
 
-import { makeStyles } from '@material-ui/core/styles'
-import Carder from '@material-ui/core/Card'
-import CardActions from '@material-ui/core/CardActions'
-import CardContent from '@material-ui/core/CardContent'
-import BButton from '@material-ui/core/Button'
-import Typography from '@material-ui/core/Typography'
+import { makeStyles } from "@material-ui/core/styles";
+import Carder from "@material-ui/core/Card";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import BButton from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
 // import { useNavigate } from 'react-router-dom'
 
 const useStyles = makeStyles({
@@ -33,9 +33,9 @@ const useStyles = makeStyles({
     minWidth: 275,
   },
   bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
+    display: "inline-block",
+    margin: "0 2px",
+    transform: "scale(0.8)",
   },
   title: {
     fontSize: 14,
@@ -43,7 +43,7 @@ const useStyles = makeStyles({
   pos: {
     marginBottom: 12,
   },
-})
+});
 
 export const Buttons = styled.button`
   display: flex;
@@ -70,7 +70,7 @@ export const Buttons = styled.button`
   @media screen and (max-width: 800px) {
     flex-direction: column;
   }
-`
+`;
 
 const Button = styled.button`
   display: flex;
@@ -97,7 +97,7 @@ const Button = styled.button`
     width: 79.4vw;
     margin-left: 33px;
   }
-`
+`;
 
 const Form = styled.form`
   display: flex;
@@ -113,7 +113,7 @@ const Form = styled.form`
     margin-left: -27px;
     margin-top: 20px;
   }
-`
+`;
 
 const LoginContainer = styled.div`
   display: flex;
@@ -128,7 +128,7 @@ const LoginContainer = styled.div`
   @media screen and (max-width: 800px) {
     margin-top: 20px;
   }
-`
+`;
 
 const ContainerFom = styled.div`
   display: flex;
@@ -141,77 +141,76 @@ const ContainerFom = styled.div`
   @media screen and (max-width: 800px) {
     margin-top: 50px;
   }
-`
- const CloseButton = styled.button` 
-                  color: yellow;
-                  /* padding: 22px; */
-                  background: green;
-                  cursor: pointer;
-                  width: 20%;
-                  border-radius: 5px;
+`;
+const CloseButton = styled.button`
+  color: yellow;
+  /* padding: 22px; */
+  background: green;
+  cursor: pointer;
+  width: 20%;
+  border-radius: 5px;
 
-                  @media screen and (max-width: 800px){
-                    width: 100%;
-                  }
- `
+  @media screen and (max-width: 800px) {
+    width: 100%;
+  }
+`;
 
 function PostProfile() {
-  const [post, setPost] = useState({})
-  const [comments, setComments] = useState([])
-  const [name, setName] = useState('')
-  const [comment, setComment] = useState('')
-  const [buttonopen, setButtonOpen] = useState(false)
+  const [post, setPost] = useState({});
+  const [comments, setComments] = useState([]);
+  const [name, setName] = useState("");
+  const [comment, setComment] = useState("");
+  const [buttonopen, setButtonOpen] = useState(false);
 
-  const [likesOpen, setLikesOpen] = useState(false)
+  const [likesOpen, setLikesOpen] = useState(false);
 
-
-  const { visible, setVisible } = useContext(userContext)
+  const { visible, setVisible } = useContext(userContext);
 
   // const navigate = useNavigate()
 
   function getDateWithoutTime(date) {
-    return moment(date).format('DD-MM-YYYY')
+    return moment(date).format("DD-MM-YYYY");
   }
   // const navigate = useNavigate()
 
   async function postGetOne() {
     try {
-      const id = sessionStorage.getItem('post-id')
+      const id = sessionStorage.getItem("post-id");
 
-      const { data } = await api.get(`/get-post/${id}`)
+      const { data } = await api.get(`/get-post/${id}`);
       // const data = ""
 
-      if (data === '') {
-        return alert('Erro no Login preencha os campos!!')
+      if (data === "") {
+        return alert("Erro no Login preencha os campos!!");
       }
 
-      setPost(data)
+      setPost(data);
     } catch (error) {
-      return alert(`Erro no Login ${error}`)
+      return alert(`Erro no Login ${error}`);
     }
   }
 
-  const post_id = sessionStorage.getItem('post-id')
+  const post_id = sessionStorage.getItem("post-id");
   const dados = {
     name,
     post_id,
     comment,
-  }
+  };
   async function createComment(event) {
-    event.preventDefault()
+    event.preventDefault();
 
     try {
-      await api.post('/create-comment', dados)
+      await api.post("/create-comment", dados);
 
-      setName('')
-      setComment('')
+      setName("");
+      setComment("");
 
-      setVisible(false)
+      setVisible(false);
       // localStorage.setItem('abled', false)
 
-      return console.log('Comentário com sucesso!')
+      return console.log("Comentário com sucesso!");
     } catch (error) {
-      return alert(`Erro no Login ${error}`)
+      return alert(`Erro no Login ${error}`);
     }
   }
 
@@ -221,49 +220,45 @@ function PostProfile() {
 
   async function getComments() {
     try {
-      const id = sessionStorage.getItem('post-id')
+      const id = sessionStorage.getItem("post-id");
 
       // localStorage.setItem('visible', true)
 
-      const { data } = await api.get(`/get-post-comments/${id}`)
+      const { data } = await api.get(`/get-post-comments/${id}`);
 
-      setComments(data)
+      setComments(data);
 
       // console.log(comments)
 
-      return comments
+      return comments;
     } catch (error) {
-      return alert(`Erro no Login ${error}`)
+      return alert(`Erro no Login ${error}`);
     }
   }
 
   function handleSetButtonTrue() {
-    setButtonOpen(true)
+    setButtonOpen(true);
     // SetButtonFalse(false)
   }
 
+  async function Likes(id) {
+    await api.put(`/likes/${id}`);
 
-  async function Likes(id){
-    await api.put(`/likes/${id}`)
-
-
-    setLikesOpen(true)
+    setLikesOpen(true);
 
     // navigate("/")
 
-
     // location.reload()
-
   }
 
   function SimpleCard() {
-    const classes = useStyles()
+    const classes = useStyles();
 
     function SetButtonFalse() {
-      return setButtonOpen(false)
+      return setButtonOpen(false);
     }
     // eslint-disable-next-line no-unused-vars
-    const bull = <span className={classes.bullet}>•</span>
+    const bull = <span className={classes.bullet}>•</span>;
 
     return (
       <>
@@ -271,34 +266,31 @@ function PostProfile() {
         <Carder
           style={{
             // position: 'absolute',
-            background: '#ffffcc',
-            width: '50%',
-            zIndex: '999',
-            height: 'auto',
+            background: "#ffffcc",
+            width: "50%",
+            zIndex: "999",
+            height: "auto",
           }}
           className={classes.root}
         >
           <CardContent>
             <Typography
-              style={{ fontSize: '21px', color: '#595959' }}
+              style={{ fontSize: "21px", color: "#595959" }}
               className={classes.title}
               color="textSecondary"
               gutterBottom
-            >
-             
-            </Typography>
-         
+            ></Typography>
 
             <Typography variant="h5" component="h2">
               <div
                 style={{
-                  display: 'flex',
-                  width: '120%',
-                  flexDirection: 'column',
-                  background: '#f0ee9c',
-                  height: 'auto',
-                  padding: '18px',
-                  borderRadius: '15px',
+                  display: "flex",
+                  width: "120%",
+                  flexDirection: "column",
+                  background: "#f0ee9c",
+                  height: "auto",
+                  padding: "18px",
+                  borderRadius: "15px",
                 }}
               >
                 <h3>COMENTÁRIOS</h3>
@@ -307,108 +299,101 @@ function PostProfile() {
                     <div key={items.id}>
                       <div
                         style={{
-                          display: 'flex',
-                          width: '90%',
-                          flexDirection: 'column',
-                          background: '#ebe99b',
-                          height: 'auto',
-                          marginBottom: '5px',
-                          padding: '18px',
-                          borderRadius: '15px',
+                          display: "flex",
+                          width: "90%",
+                          flexDirection: "column",
+                          background: "#ebe99b",
+                          height: "auto",
+                          marginBottom: "5px",
+                          padding: "18px",
+                          borderRadius: "15px",
                         }}
                       >
                         <span
                           style={{
-                            fontWeight: 'bold',
-                            color: '#5459ba',
-                            fontSize: '13px',
+                            fontWeight: "bold",
+                            color: "#5459ba",
+                            fontSize: "13px",
                           }}
                         >
                           {items.user_name}
                         </span>
                         <span
                           style={{
-                            fontWeight: 'bold',
-                            color: '#3d43a6',
-                            fontSize: '14px',
+                            fontWeight: "bold",
+                            color: "#3d43a6",
+                            fontSize: "14px",
                           }}
                         >
-                         {items.comment}
+                          {items.comment}
                         </span>
 
                         <span
                           style={{
-                            fontWeight: 'bold',
-                            color: '#3d43a6',
-                            fontSize: '12px',
-                            marginTop: '5px',
+                            fontWeight: "bold",
+                            color: "#3d43a6",
+                            fontSize: "12px",
+                            marginTop: "5px",
                           }}
                         >
                           {getDateWithoutTime(items.createdAt)}
                         </span>
                       </div>
                     </div>
-                  )
+                  );
                 })}
               </div>
             </Typography>
             <CardActions>
-            
-             
-
-                <CloseButton
-              
-                onClick={() => SetButtonFalse()}
-                >
-                <p style={{marginLeft: '7px', marginRight: '7px'}}>
-                FECHAR
-                </p>
-
+              <CloseButton onClick={() => SetButtonFalse()}>
+                <p style={{ marginLeft: "7px", marginRight: "7px" }}>FECHAR</p>
               </CloseButton>
             </CardActions>
           </CardContent>
         </Carder>
       </>
-    )
+    );
   }
 
   useEffect(() => {
-    postGetOne()
-    getComments()
-  }, [comments])
+    postGetOne();
+    getComments();
+  }, [comments]);
 
   return (
     <>
       <div
         style={{
-          display: 'flex',
-          background: 'lightgray',
-          flexDirection: 'column',
-          width: '100vw',
-          height: '100vh',
-          alignItems: 'center',
-          overflowX: 'hidden',
+          display: "flex",
+          background: "lightgray",
+          flexDirection: "column",
+          width: "100vw",
+          height: "100vh",
+          alignItems: "center",
+          overflowX: "hidden",
         }}
       >
         <NavBar />
 
-        <PostContainer style={{ zIndex: '1' }}>
+        <PostContainer style={{ zIndex: "1" }}>
           <h1>POST</h1>
           <Img1 src={post.image} alt="paos" />
 
           <Post1>
-            <div style={{ display: 'flex', zIndex: '1' }}>
+            <div style={{ display: "flex", zIndex: "1" }}>
               <RxAvatar
                 style={{
-                  fontSize: '35px',
-                  marginTop: '-1px',
-                  color: 'darkblue',
-                  paddingBottom: '16px',
+                  fontSize: "35px",
+                  marginTop: "-1px",
+                  color: "darkblue",
+                  paddingBottom: "16px",
                 }}
               />
               <NameContainer>
-                <span style={{ marginTop: '-1px' }}>{post.author}</span>
-                <span style={{ marginTop: '-3px' }}>{getDateWithoutTime(post.createdAt)}</span>
+                <span style={{ marginTop: "-1px" }}>{post.author}</span>
+                <span style={{ marginTop: "-3px" }}>
+                  {getDateWithoutTime(post.createdAt)}
+                </span>
               </NameContainer>
             </div>
             <div>
@@ -425,77 +410,91 @@ function PostProfile() {
               </ViewsContainer>
               <div
                 style={{
-                  display: 'flex',
-                  width: '55%',
-                  alignItems: 'center',
-                  justifyContent: 'flex-end',
-                  marginTop: '12px',
+                  display: "flex",
+                  width: "55%",
+                  alignItems: "center",
+                  justifyContent: "flex-end",
+                  marginTop: "12px",
+                  height: "auto",
                 }}
               >
-
-              {likesOpen === true ? (
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    marginLeft: '8px',
-                  }}
-                >
-                  <button
-                  style={{ background: 'none', border: 'none' }} disabled>
-                  <FaRegHeart
-                 
+                {likesOpen === true ? (
+                  <div
                     style={{
-                      color: 'gray',
-                      fontSize: '18px',
-                      marginLeft: '5px',
+                      display: "flex",
+                      width: "100%",
+                      // background: 'green',
+                      height: "auto",
+                      justifyContent: "flex-end",
+                      alignItems: "center",
                     }}
-
-                  />
-
-                   
-                  </button>
-                </div>
-              ) : (
-                <button
-                  style={{ background: 'none', border: 'none' }}
-                  onClick={() => Likes(post.id)}
-                >
-                  <FaRegHeart
+                  >
+                    <span style={{ fontSize: "16px" }}>{post.likes}</span>
+                    <button
+                      style={{ background: "none", border: "none" }}
+                      onClick={() => Likes(post.id)}
+                      disabled
+                    >
+                      <FaRegHeart
+                        style={{
+                          color: "gray",
+                          // fontSize: "19px",
+                          fontSize: "20px",
+                          marginLeft: "-1.8px",
+                          cursor: "pointer",
+                          // marginTop: '0.2rem',
+                          marginTop: "2px",
+                        }}
+                      />
+                    </button>
+                  </div>
+                ) : (
+                  <div
                     style={{
-                      color: 'red',
-                      fontSize: '18px',
-                      marginLeft: '5px',
-                      cursor: 'pointer'
-
+                      display: "flex",
+                      width: "100%",
+                      // background: 'green',
+                      height: "auto",
+                      justifyContent: "flex-end",
+                      alignItems: "center",
                     }}
-                  />
-                </button>
-              )}
-              {/* {posts.likes} */}
-
-                <span style={{ fontSize: '16px' }}>{post.likes}</span>
-          
-              
+                  >
+                    <span style={{ fontSize: "16px" }}>{post.likes}</span>
+                    <button
+                      style={{ background: "none", border: "none" }}
+                      onClick={() => Likes(post.id)}
+                    >
+                      <FaRegHeart
+                        style={{
+                          color: "red",
+                          fontSize: "20px",
+                          marginLeft: "-1.8px",
+                          cursor: "pointer",
+                          // marginTop: '0.2rem',
+                          marginTop: "2px",
+                        }}
+                      />
+                    </button>
+                  </div>
+                )}
               </div>
             </BottomContainer>
-            {/* <Buttons onClick={() => setButtonOpen(true)}>COMENTÁRIOS</Buttons> */}
           </Post1>
           <LoginContainer>
             <ContainerFom>
               <Form onSubmit={createComment}>
                 <div
                   style={{
-                    display: 'flex',
-                    width: '100%',
-                    height: '5rem',
+                    display: "flex",
+                    width: "100%",
+                    height: "5rem",
                     // alignItems: 'center',
-                    justifyContent: 'center',
-                    flexDirection: 'column',
-                    marginTop: '36px',
+                    justifyContent: "center",
+                    flexDirection: "column",
+                    marginTop: "36px",
                   }}
                 >
-                  <span style={{ marginBottom: '6px' }}>Nome:</span>
+                  <span style={{ marginBottom: "6px" }}>Nome:</span>
 
                   <Input
                     type="text"
@@ -508,17 +507,17 @@ function PostProfile() {
                 </div>
                 <div
                   style={{
-                    display: 'flex',
-                    width: '100%',
-                    height: '5rem',
+                    display: "flex",
+                    width: "100%",
+                    height: "5rem",
                     // alignItems: 'center',
-                    justifyContent: 'center',
-                    flexDirection: 'column',
-                    marginTop: '16px',
-                    marginBottom: '6px',
+                    justifyContent: "center",
+                    flexDirection: "column",
+                    marginTop: "16px",
+                    marginBottom: "6px",
                   }}
                 >
-                  <span style={{ marginBottom: '6px' }}>Comentário:</span>
+                  <span style={{ marginBottom: "6px" }}>Comentário:</span>
                   <Input
                     type="text"
                     // placeholder="mensagem"
@@ -544,10 +543,10 @@ function PostProfile() {
           {buttonopen === true ? (
             <div
               style={{
-                display: 'flex',
-                width: '100%',
-                alignItems: 'center',
-                justifyContent: 'center',
+                display: "flex",
+                width: "100%",
+                alignItems: "center",
+                justifyContent: "center",
               }}
             >
               <SimpleCard />
@@ -557,16 +556,16 @@ function PostProfile() {
 
         <div
           style={{
-            display: 'flex',
-            flexDirection: 'column',
-            width: '17rem',
+            display: "flex",
+            flexDirection: "column",
+            width: "17rem",
           }}
         >
           <br />
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default PostProfile
+export default PostProfile;

@@ -102,14 +102,14 @@ const [reload, setReload] = useState("")
                 alignItems: "center",
                 justifyContent: "flex-end",
                 marginTop: "12px",
+                height:'auto',
               }}
             >
               <span style={{ fontSize: "16px" }}>{likes}</span>
               <FaRegHeart
-              // onClick={() => Likes(id)}
                 style={{
                   color: "red",
-                  fontSize: "18px",
+                  fontSize: "17px",
                   marginLeft: "5px",
                 }}
               />
