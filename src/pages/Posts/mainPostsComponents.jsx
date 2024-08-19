@@ -49,13 +49,13 @@ function MainPostsComponents() {
     return moment(date).format('DD-MM-YYYY')
   }
 
-  // function getProfile(id){
-  //   sessionStorage.setItem('post-id', id)
+  function getProfile(id){
+    sessionStorage.setItem('post-id', id)
 
-  //   navigate("/profile-admin")
+    navigate("/profile-admin")
 
 
-  // }
+  }
 
   useEffect(() => {
     getPosts()
@@ -73,9 +73,9 @@ function MainPostsComponents() {
 
         {posts.map((items) => {
           return (
-            // <div key={items.id} onClick={() => getProfile(items.id)}
-            //  style={{cursor: 'pointer'}}
-            // >
+            <div key={items.id} onClick={() => getProfile(items.id)}
+             style={{cursor: 'pointer'}}
+            >
             <PostCard
             title={items.title}
             author={items.author}
@@ -86,7 +86,7 @@ function MainPostsComponents() {
             image={items.image}
             id={items.id}
             />
-            // </div>
+           </div>
           )
         })}
      

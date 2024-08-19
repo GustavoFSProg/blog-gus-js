@@ -19,12 +19,6 @@ function NavBarPanel() {
             CADASTRO USUÁRIO
           </Link></span>
 
-
-          <span > <Link to="/main-posts"
-        style={{textDecoration: 'none', }}
-        >
-           POST
-          </Link></span>
        <Link to="/register-post"
           style={{textDecoration: 'none',}}
           >

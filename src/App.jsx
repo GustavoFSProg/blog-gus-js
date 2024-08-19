@@ -31,6 +31,8 @@ const ImageTopo = styled.img`
     height: 180px;
   }
 `;
+
+
 function App() {
   const [posts, setPosts] = useState([])
 
