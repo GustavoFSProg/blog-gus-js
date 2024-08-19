@@ -153,6 +153,24 @@ const CloseButton = styled.button`
   }
 `;
 
+const CommentContainer = styled.div`
+  display: flex;
+  width: 74%;
+  flex-direction: column;
+  background: #cfcbca;
+
+  height: auto;
+  margin-bottom: 6px;
+  padding: 18px;
+  border-radius: 15px;
+
+  @media screen and (max-width: 800px) {
+    width: 73%;
+    margin-left: -21px;
+
+  }
+`;
+
 function PostProfile() {
   const [post, setPost] = useState({});
   const [comments, setComments] = useState([]);
@@ -264,7 +282,9 @@ function PostProfile() {
         <Carder
           style={{
             // position: 'absolute',
-            background: "#ffffcc",
+            // background: "#ffffcc",
+            background: "#b5b2b1",
+
             width: "50%",
             zIndex: "999",
             height: "auto",
@@ -285,27 +305,20 @@ function PostProfile() {
                   display: "flex",
                   width: "120%",
                   flexDirection: "column",
-                  background: "#f0ee9c",
+                  // background: "#f0ee9c",
+                  background: "#b5b2b1",
+
                   height: "auto",
                   padding: "18px",
                   borderRadius: "15px",
+                  
                 }}
               >
-                <h4>COMENTÁRIOS</h4>
+                <h4 style={{marginTop: '-13px', color: '#4a4747'}}>COMENTÁRIOS</h4>
                 {comments.map((items) => {
                   return (
                     <div key={items.id}>
-                      <div
-                        style={{
-                          display: "flex",
-                          width: "90%",
-                          flexDirection: "column",
-                          background: "#ebe99b",
-                          height: "auto",
-                          marginBottom: "5px",
-                          padding: "18px",
-                          borderRadius: "15px",
-                        }}
+                      <CommentContainer   
                       >
                         <span
                           style={{
@@ -321,7 +334,7 @@ function PostProfile() {
                             fontWeight: "bold",
                             color: "#3d43a6",
                             fontSize: "14px",
-                            width: '74%'
+                            width: "74%",
                           }}
                         >
                           {items.comment}
@@ -337,7 +350,7 @@ function PostProfile() {
                         >
                           {getDateWithoutTime(items.createdAt)}
                         </span>
-                      </div>
+                      </CommentContainer>
                     </div>
                   );
                 })}
