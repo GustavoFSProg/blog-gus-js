@@ -36,8 +36,11 @@ const [reload, setReload] = useState("")
   // }
 
 
-  function getProfile(id){
+   async function getProfile(id){
+
     sessionStorage.setItem('post-id', id)
+
+    await api.put(`/views/${id}`)
 
     navigate("/profile")
 

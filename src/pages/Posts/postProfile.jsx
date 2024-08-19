@@ -404,7 +404,7 @@ function PostProfile() {
             </ContainerDescription>
             <BottomContainer>
               <ViewsContainer>
-                <span>{post.views} visualização</span>
+                <span>{post.views} views</span>
 
                 <Coments></Coments>
               </ViewsContainer>
