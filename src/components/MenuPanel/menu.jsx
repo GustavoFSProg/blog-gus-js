@@ -40,6 +40,11 @@ export default function MenuPannel() {
           </Link>
         </MenuItem>
         <MenuItem onClick={handleClose}>
+          <Link style={{ textDecoration: 'none' }} to="/dashboard">
+            DASHBOARD
+          </Link>
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
           <Link style={{ textDecoration: 'none' }} to="/profile">
             POST
           </Link>
