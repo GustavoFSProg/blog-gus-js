@@ -110,6 +110,8 @@ function Logado() {
         return alert("Erro no Login preencha os campos!!");
       } else {
         sessionStorage.setItem("token", data.token);
+        sessionStorage.setItem("email", data.data.email);
+        sessionStorage.setItem("user-id", data.data.id);
         navigate("/dashboard");
         
         setUser(true);

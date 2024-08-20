@@ -86,17 +86,16 @@ const ContainerFom = styled.div`
 `;
 
 function ChangePassword() {
-  // navigate("/register-post")
-
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const Token = sessionStorage.getItem('token')
+  const Token = sessionStorage.getItem("token");
 
   const { user, setUser } = useContext(userContext);
 
-  const data = {name, email, password}
+  const email = sessionStorage.getItem("email");
+
+
+  const data = { password };
 
   const navigate = useNavigate();
 
@@ -104,25 +103,17 @@ function ChangePassword() {
     event.preventDefault();
 
     try {
-   await api.post("/create-user", data, Token);
+      const id = sessionStorage.getItem("user-id");
 
+      await api.put(`/update-password/${id}`, data, Token);
 
-      if (name === "" || email === "" || password === "") {
+      if (password === "") {
         return alert("Erro no Cadastro preencha os campos!!");
       }
 
-        // if(!blog.blog){
-        //   return alert("ERRO, não cadastrado")
-        // }
-      
+      navigate("/dashboard");
 
-     
-        navigate("/dashboard");
-        
-        setUser(true);
-
-        return alert("Usuário cadastrado com sucesso!");
-      
+      return alert("Usuário cadastrado com sucesso!");
     } catch (error) {
       return alert(`Erro no Cadastro ${error}`);
     }
@@ -144,80 +135,78 @@ function ChangePassword() {
         <NavBarPanel />
 
         <div
-            style={{
-              display: "flex",
-              background: "lightgray",
+          style={{
+            display: "flex",
+            background: "lightgray",
 
-              flexDirection: "column",
-              width: "100vw",
-              height: "100vh",
-              alignItems: "center",
-              justifyContent: 'center',
-              overflowX: "hidden",
-            }}
-          >
-
-
-        {user || Token ? (
-        <>
-          <div
-            style={{
-              display: "flex",
-              background: "lightgray",
-
-              flexDirection: "column",
-              width: "100vw",
-              height: "100vh",
-              alignItems: "center",
-              // justifyContent: 'center',
-              overflowX: "hidden",
-            }}
-          >
-
-<LoginContainer>
-          <ContainerFom>
-            <H1>MUDAR A SENHA</H1>
-            <br />
-            <br />
-            <br />
-            <Form onSubmit={UserLogin}>
-         
-         
-
+            flexDirection: "column",
+            width: "100vw",
+            height: "100vh",
+            alignItems: "center",
+            justifyContent: "center",
+            overflowX: "hidden",
+          }}
+        >
+          {user || Token ? (
+            <>
               <div
                 style={{
                   display: "flex",
-                  width: "100%",
-                  height: "5rem",
-                  alignItems: "center",
-                  justifyContent: "center",
+                  background: "lightgray",
+
                   flexDirection: "column",
-                  marginTop: "-5px",
+                  width: "100vw",
+                  height: "100vh",
+                  alignItems: "center",
+                  // justifyContent: 'center',
+                  overflowX: "hidden",
                 }}
               >
-                <Input
-                  type="password"
-                  placeholder="nova senha"
-                  onChange={(e) => setPassword(e.target.value)}
-                  value={password}
-                  invalid={true}
-                  // errorMessage="password inválido"
-                />
+                <LoginContainer>
+                  <ContainerFom>
+                    <H1>MUDAR A SENHA</H1>
+                    <br />
+                  
+                   <h3>
+                     {email}
+                    </h3>
+                    <br />
+                    <br />
+                    <br />
+                  
+                    <Form onSubmit={UserLogin}>
+                      <div
+                        style={{
+                          display: "flex",
+                          width: "100%",
+                          height: "5rem",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          flexDirection: "column",
+                          marginTop: "-5px",
+                        }}
+                      >
+                        <Input
+                          type="password"
+                          placeholder="nova senha"
+                          onChange={(e) => setPassword(e.target.value)}
+                          value={password}
+                          invalid={true}
+                          // errorMessage="password inválido"
+                        />
+                      </div>
+
+                      <Button type="submit">ATUALIZAR SENHA</Button>
+                    </Form>
+                  </ContainerFom>
+                </LoginContainer>
               </div>
-
-              <Button type="submit">CADASTRAR</Button>
-            </Form>
-          </ContainerFom>
-        </LoginContainer>
-          </div>
-        </>
-      ) : (
-        <h1>EFETUE O LOGIN PARA CADASTRAR O USUÁRIO!</h1>
-      )}
-
-      
+            </>
+          ) : (
+            <h1>EFETUE O LOGIN PARA CADASTRAR O USUÁRIO!</h1>
+          )}
+        </div>
       </div>
-  </div>
     </>
   );
 }
