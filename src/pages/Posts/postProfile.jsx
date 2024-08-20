@@ -142,14 +142,16 @@ const ContainerFom = styled.div`
 `;
 const CloseButton = styled.button`
   color: white;
-  /* padding: 22px; */
+  margin-left: 17px;
   background: #5c6b60;
   cursor: pointer;
   width: 20%;
   border-radius: 10px;
 
   @media screen and (max-width: 800px) {
-    width: 100%;
+    width: 50%;
+  margin-left: 0px;
+
   }
 `;
 
@@ -160,7 +162,7 @@ const CommentContainer = styled.div`
   background: #cfcbca;
 
   height: auto;
-  margin-bottom: 6px;
+  margin-bottom: 13px;
   padding: 18px;
   border-radius: 15px;
 
