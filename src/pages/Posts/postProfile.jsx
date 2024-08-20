@@ -141,12 +141,12 @@ const ContainerFom = styled.div`
   }
 `;
 const CloseButton = styled.button`
-  color: yellow;
+  color: white;
   /* padding: 22px; */
-  background: green;
+  background: #5c6b60;
   cursor: pointer;
   width: 20%;
-  border-radius: 5px;
+  border-radius: 10px;
 
   @media screen and (max-width: 800px) {
     width: 100%;
