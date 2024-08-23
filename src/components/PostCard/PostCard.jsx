@@ -96,7 +96,7 @@ const [reload, setReload] = useState("")
           <BottomContainer>
             <ViewsContainer>
               <span>{views} views</span>
-              <Coments> 0 comentário</Coments>
+              {/* <Coments> 0 comentário</Coments> */}
             </ViewsContainer>
             <div
               style={{
